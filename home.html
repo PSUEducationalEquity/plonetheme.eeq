@@ -4,14 +4,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
+    <meta name="generator" content="Plone - http://plone.com" />
+
+    <!-- og:* meta tags: https://neilpatel.com/blog/open-graph-meta-tags/ -->
+    <meta content="summary" name="twitter:card" />
+    <meta content="Plone site" property="og:site_name" />
+    <meta content="Page title" property="og:title" />
+    <meta content="website" property="og:type" />
+    <meta content="Page descripition" property="og:description" />
+    <meta content="http://beta.equity.psu.edu/5" property="og:url" />
+    <meta content="http://beta.equity.psu.edu/5/images/psueelogo.png" property="og:image" />
+    <meta content="image/png" property="og:image:type" />
 
     <title>Page Title</title>
+
+    <link rel="canonical" href="http://beta.equity.psu.edu/5" />
+    <link rel="search" href="http://beta.equity.psu.edu/5/@@search" title="Search this site" />
 
     <link href="styles/bootstrap.min.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body class="frontend icons-on pat-markspeciallinks portaltype-plone-site site-equity template-test_rendering thumbs-on userrole-anonymous viewpermission-none"
+        data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}"
+        data-pat-markspeciallinks="{&quot;external_links_open_new_window&quot;: false, &quot;mark_special_links&quot;: true}"
+        data-view-url="http://beta.equity.psu.edu/5"
+        data-portal-url="http://beta.equity.psu.edu/5"
+        data-pat-pickadate="{&quot;date&quot;: {&quot;selectYears&quot;: 200}, &quot;time&quot;: {&quot;interval&quot;: 5 } }"
+        data-base-url="http://beta.equity.psu.edu/5"
+        >
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand"
@@ -45,6 +66,53 @@
               <a class="nav-link" href="#">Link</a>
             </li>
           </ul>
+
+          <div id="portal-searchbox">
+            <form action="http://beta.equity.psu.edu/5/@@search"
+                  class="pat-livesearch"
+                  data-pat-livesearch="ajaxUrl:http://beta.equity.psu.edu/5/@@ajax-search"
+                  id="searchGadget_form"
+                  role="search"
+                  >
+              <div class="LSBox">
+                <label class="sr-only" for="searchGadget">Search Site</label>
+                <div class="form-check searchSection">
+                  <input class="form-check-input noborder"
+                         id="searchbox_currentfolder_only"
+                         name="path"
+                         type="checkbox"
+                         value="/equity"
+                         />
+                  <label class="form-check-label"
+                         for="searchbox_currentfolder_only"
+                         style="cursor: pointer"
+                         >only in current section</label>
+                </div>
+                <div class="input-group">
+                  <div>
+                    <input class="form-control-sm searchField"
+                           id="searchGadget"
+                           name="SearchableText"
+                           placeholder="Search Site"
+                           size="18"
+                           title="Search Site"
+                           type="text"
+                           />
+                  </div>
+                  <div class="input-group-append">
+                    <input class="btn btn-sm btn-secondary searchButton"
+                           type="submit"
+                           value="Search"
+                           />
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div id="portal-advanced-search" class="sr-only">
+              <a href="http://beta.equity.psu.edu/5/@@search">Advanced Search&#8230;</a>
+            </div>
+          </div>
+
         </div>
       </div>
     </nav>
@@ -90,27 +158,42 @@
       </div>
     </nav>
 
-    <header class="bg-primary mb-5">
-      <div class="container-fluid h-100">
-        <div class="row h-100">
-          <div class="col-lg-12 text-center">
-            <img alt="" src="images/1100x300.png" />
-          </div>
-        </div>
-      </div>
-    </header>
+    <div id="above-content-wrapper">
+      <div id="viewlet-above-content"></div>
+    </div>
 
-    <!-- Page Content -->
     <div class="container-fluid">
       <div class="row">
+        <aside class="col" id="global_statusmessage">
+          <div></div>
+        </aside>
+      </div>
+
+
+
+
+
+
+
+      <!-- Page Content -->
+
+      <div class="row mb-5 h-100 bg-primary">
+        <div class="col-lg-12 text-center">
+          <img alt="" src="images/1100x300.png" />
+        </div>
+      </div>
+
+
+      <div class="row">
         <div class="col-md-8 mb-5">
-          <h2>Page title</h2>
-          <p>
+          <h1 class="documentFirstHeading">Page title</h1>
+          <p class="documentDescription">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             In leo justo, posuere sed egestas in, dignissim vel orci.
             Vestibulum laoreet id enim eu porttitor.
             Integer orci felis, suscipit ut semper eget, iaculis in lectus.
-            Quisque porta orci id aliquet blandit.
+            Quisque porta orc
+            i id aliquet blandit.
             Fusce ultrices sed justo sed feugiat.
             Morbi ac diam nisi.
             Suspendisse tincidunt ipsum tellus.
@@ -316,8 +399,15 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>  <!-- END .container-fluid -->
+
     <!-- END Page Content -->
+
+
+
+
+
+
 
     <footer class="py-5 bg-dark">
       <div class="container">
@@ -388,13 +478,18 @@
             <div>Copyright 2020 Educational Equity. All rights reserved.</div>
           </div>
           <div class="col-md-1 d-flex align-items-end">
-            <a class="btn btn-sm btn-secondary"
-               href="">Log in</a>
+            <a class="btn btn-sm btn-secondary pat-plone-modal"
+               data-pat-plone-modal="{&quot;prependContent&quot;: &quot;.portalMessage&quot;, &quot;title&quot;: &quot;Log in&quot;, &quot;width&quot;: &quot;26em&quot;}"
+               href=""
+               id="personaltools-login"
+               title="Log in"
+               >Log in</a>
           </div>
         </div>
       </div>
     </footer>
 
+    <script type="text/javascript">PORTAL_URL = 'http://beta.equity.psu.edu/5';</script>
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/bootstrap.bundle.min.js"></script>
   </body>
