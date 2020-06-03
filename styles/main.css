@@ -4,6 +4,7 @@
 /**
  * CONTENTS.............You're reading it!
  * COLORS...............Background colors
+ * FOOTER...............Styles specific to the footer
  * LISTS................Styles related to lists
  */
 
@@ -25,6 +26,21 @@
 .bg-footer {
   /*background-color: #343a40 !important;*/
   background-color: #001e44 !important;
+}
+
+
+
+
+/*------------------------------------*\
+    $FOOTER
+\*------------------------------------*/
+
+footer {
+  font-size: 0.9rem;
+}
+
+footer h3 {
+  font-size: 1.25rem;
 }
 
 
