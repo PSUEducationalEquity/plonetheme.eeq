@@ -45,22 +45,33 @@ footer h3 {
   font-size: 1.25rem;
 }
 
+footer .logo-wrapper {
+  text-align: center;
+}
 footer .contact-wrapper {
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   text-align: center;
 }
 footer .login-wrapper {
+  margin-top: 1rem;
   text-align: center;
 }
 
 @media (min-width: 992px) {
+  footer .logo-wrapper {
+    margin-right: 1rem;
+    margin-top: 1rem;
+    text-align: left;
+  }
   footer .contact-wrapper {
     margin-bottom: 0;
     text-align: left;
   }
   footer .login-wrapper {
-    margin-top: 2.5em;
-    text-align: right;
+    float: right;
+    margin-top: -1rem;
+  }
+}
 
 
 
