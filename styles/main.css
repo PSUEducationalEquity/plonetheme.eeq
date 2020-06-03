@@ -88,11 +88,11 @@ footer .login-wrapper {
     $SEARCH
 \*------------------------------------*/
 
-.navbar:first-child .navbar-nav {
+.navbar.navbar-header .navbar-nav {
   font-size: 100%;
 }
 @media (min-width: 992px) {
-  .navbar:first-child .navbar-nav {
+  .navbar.navbar-header .navbar-nav {
     font-size: 80%;
   }
 }
