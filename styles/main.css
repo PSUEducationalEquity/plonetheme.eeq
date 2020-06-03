@@ -6,6 +6,7 @@
  * COLORS...............Background colors
  * FOOTER...............Styles specific to the footer
  * LISTS................Styles related to lists
+ * NAVIGATION...........Styles specific to the top level navigation
  */
 
 
@@ -80,6 +81,21 @@ footer .login-wrapper {
   margin-right: 0.5rem;
 }
 
+
+
+
+/*------------------------------------*\
+    $SEARCH
+\*------------------------------------*/
+
+.navbar:first-child .navbar-nav {
+  font-size: 100%;
+}
+@media (min-width: 992px) {
+  .navbar:first-child .navbar-nav {
+    font-size: 80%;
+  }
+}
 
 
 /* Responsive breakpoint statements

@@ -22,6 +22,7 @@
     <link rel="search" href="http://beta.equity.psu.edu/5/@@search" title="Search this site" />
 
     <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/open-iconic-bootstrap.min.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
   </head>
 
@@ -48,8 +49,9 @@
                 type="button">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse navbar-responsive"
+        <div class="collapse navbar-collapse navbar-responsive flex-lg-column"
              id="navbarResponsive">
+
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#"
@@ -68,51 +70,33 @@
             </li>
           </ul>
 
-          <div id="portal-searchbox">
-            <form action="http://beta.equity.psu.edu/5/@@search"
-                  class="pat-livesearch"
-                  data-pat-livesearch="ajaxUrl:http://beta.equity.psu.edu/5/@@ajax-search"
-                  id="searchGadget_form"
-                  role="search"
-                  >
-              <div class="LSBox">
-                <label class="sr-only" for="searchGadget">Search Site</label>
-                <div class="form-check searchSection">
-                  <input class="form-check-input noborder"
-                         id="searchbox_currentfolder_only"
-                         name="path"
-                         type="checkbox"
-                         value="/equity"
+          <form action="http://beta.equity.psu.edu/5/@@search"
+                class="pat-livesearch form-inline ml-auto"
+                data-pat-livesearch="ajaxUrl:http://beta.equity.psu.edu/5/@@ajax-search"
+                id="searchGadget_form"
+                role="search"
+                >
+            <div class="LSBox">
+              <label class="sr-only" for="searchGadget">Search Site</label>
+              <div class="input-group">
+                <div>
+                  <input class="form-control-sm searchField"
+                         id="searchGadget"
+                         name="SearchableText"
+                         placeholder="Search site"
+                         size="18"
+                         title="Search Site"
+                         type="text"
                          />
-                  <label class="form-check-label"
-                         for="searchbox_currentfolder_only"
-                         style="cursor: pointer"
-                         >only in current section</label>
                 </div>
-                <div class="input-group">
-                  <div>
-                    <input class="form-control-sm searchField"
-                           id="searchGadget"
-                           name="SearchableText"
-                           placeholder="Search Site"
-                           size="18"
-                           title="Search Site"
-                           type="text"
-                           />
-                  </div>
-                  <div class="input-group-append">
-                    <input class="btn btn-sm btn-secondary searchButton"
-                           type="submit"
-                           value="Search"
-                           />
-                  </div>
+                <div class="input-group-append">
+                  <button class="btn btn-sm btn-primary searchButton"
+                          type="submit"
+                          ><span class="oi oi-magnifying-glass" title="search" aria-hidden="true"></span><span class="sr-only">Search</span></button>
                 </div>
               </div>
-            </form>
-            <div id="portal-advanced-search" class="sr-only">
-              <a href="http://beta.equity.psu.edu/5/@@search">Advanced Search&#8230;</a>
             </div>
-          </div>
+          </form>
 
         </div>
       </div>
