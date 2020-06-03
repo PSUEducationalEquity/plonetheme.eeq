@@ -5,6 +5,7 @@
  * CONTENTS.............You're reading it!
  * COLORS...............Background colors
  * FOOTER...............Styles specific to the footer
+ * LEAVES...............Styles for the top navigation "leaves"
  * LISTS................Styles related to lists
  * NAVIGATION...........Styles specific to the top level navigation
  */
@@ -60,9 +61,46 @@ footer .login-wrapper {
   footer .login-wrapper {
     margin-top: 2.5em;
     text-align: right;
+
+
+
+
+/*------------------------------------*\
+    $LEAVES
+\*------------------------------------*/
+
+@media (min-width: 992px) {
+  .leaf {
+    background-color: #001e44;
+    color: #fff;
+    font-style: italic;
+    font-weight: bold;
+    margin-right: 5px;
+    padding: 6px 8px;
+  }
+
+  .leaf-lg-gold {
+    background-color: #efc900 !important;
+    color: #000 !important;
+  }
+  a.leaf-lg-gold:hover,
+  a.leaf-lg-gold:focus {
+    background-color: #fae24c !important;
+  }
+
+  .leaf-lg-primary {
+    background-color: #007bff !important;
+    color: #fff !important;
+  }
+  a.leaf-lg-primary:hover,
+  a.leaf-lg-primary:focus {
+    background-color: #0062cc !important;
+  }
+
+  .leaf-external > span {
+    font-color: #333;
   }
 }
-
 
 
 
@@ -85,15 +123,26 @@ footer .login-wrapper {
 
 
 /*------------------------------------*\
-    $SEARCH
+    $NAVIGATION
 \*------------------------------------*/
 
 .navbar.navbar-header .navbar-nav {
   font-size: 100%;
 }
 @media (min-width: 992px) {
+  .navbar.navbar-header .navbar-collapse {
+    position: absolute;
+    top: 0;
+    right: 10px;
+  }
+
   .navbar.navbar-header .navbar-nav {
     font-size: 80%;
+  }
+
+  .navbar.navbar-header .navbar-collapse form input {
+    border: 0;
+    border-radius: 0;
   }
 }
 
