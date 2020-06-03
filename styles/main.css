@@ -46,6 +46,7 @@ footer h3 {
 }
 
 footer .logo-wrapper {
+  margin-top: 2rem;
   text-align: center;
 }
 footer .contact-wrapper {
