@@ -4,6 +4,7 @@
 /**
  * CONTENTS.............You're reading it!
  * COLORS...............Background colors
+ * LISTS................Styles related to lists
  */
 
 
@@ -24,4 +25,22 @@
 .bg-footer {
   /*background-color: #343a40 !important;*/
   background-color: #001e44 !important;
+}
+
+
+
+
+/*------------------------------------*\
+    $LISTS
+\*------------------------------------*/
+
+/** Inline list of links separated by a pipe **/
+.list-inline-links .list-inline-item:after {
+  content: "|";
+}
+.list-inline-links .list-inline-item:last-child:after {
+  content: "";
+}
+.list-inline-links .list-inline-item a {
+  margin-right: 0.5rem;
 }
