@@ -1,0 +1,27 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * CONTENTS.............You're reading it!
+ * COLORS...............Background colors
+ */
+
+
+
+/*------------------------------------*\
+    $COLORS
+\*------------------------------------*/
+
+.bg-header {
+  /*background-color: #001e44 !important;*/
+  background-color: #343a40 !important;
+}
+
+.bg-globalnav {
+  background-color: #1e407c !important;
+}
+
+.bg-footer {
+  /*background-color: #343a40 !important;*/
+  background-color: #001e44 !important;
+}
