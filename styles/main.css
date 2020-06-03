@@ -43,6 +43,25 @@ footer h3 {
   font-size: 1.25rem;
 }
 
+footer .contact-wrapper {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+footer .login-wrapper {
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  footer .contact-wrapper {
+    margin-bottom: 0;
+    text-align: left;
+  }
+  footer .login-wrapper {
+    margin-top: 2.5em;
+    text-align: right;
+  }
+}
+
 
 
 
@@ -60,3 +79,19 @@ footer h3 {
 .list-inline-links .list-inline-item a {
   margin-right: 0.5rem;
 }
+
+
+
+/* Responsive breakpoint statements
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}
+*/
