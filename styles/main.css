@@ -158,6 +158,10 @@ footer .login-wrapper {
   }
 }
 
+.navbar.navbar-global {
+  padding: .1rem 1rem;
+}
+
 
 /* Responsive breakpoint statements
 @media (min-width: 576px) {
