@@ -5,6 +5,7 @@
  * CONTENTS.............You're reading it!
  * COLORS...............Background colors
  * FOOTER...............Styles specific to the footer
+ * LEAVES...............Styles for the top navigation "leaves"
  * LISTS................Styles related to lists
  * NAVIGATION...........Styles specific to the top level navigation
  */
@@ -16,8 +17,8 @@
 \*------------------------------------*/
 
 .bg-header {
-  /*background-color: #001e44 !important;*/
-  background-color: #343a40 !important;
+  background-color: #001e44 !important;
+  /*background-color: #343a40 !important;*/
 }
 
 .bg-globalnav {
@@ -25,8 +26,8 @@
 }
 
 .bg-footer {
-  /*background-color: #343a40 !important;*/
-  background-color: #001e44 !important;
+  background-color: #343a40 !important;
+  /*background-color: #001e44 !important;*/
 }
 
 
@@ -44,25 +45,74 @@ footer h3 {
   font-size: 1.25rem;
 }
 
+footer .logo-wrapper {
+  margin-top: 2rem;
+  text-align: center;
+}
 footer .contact-wrapper {
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   text-align: center;
 }
 footer .login-wrapper {
+  margin-top: 1rem;
   text-align: center;
 }
 
 @media (min-width: 992px) {
+  footer .logo-wrapper {
+    margin-right: 1rem;
+    margin-top: 1rem;
+    text-align: left;
+  }
   footer .contact-wrapper {
     margin-bottom: 0;
     text-align: left;
   }
   footer .login-wrapper {
-    margin-top: 2.5em;
-    text-align: right;
+    float: right;
+    margin-top: -1rem;
   }
 }
 
+
+
+
+/*------------------------------------*\
+    $LEAVES
+\*------------------------------------*/
+
+@media (min-width: 992px) {
+  .leaf {
+    background-color: #001e44;
+    color: #fff;
+    font-style: italic;
+    font-weight: bold;
+    margin-right: 5px;
+    padding: 6px 8px;
+  }
+
+  .leaf-lg-gold {
+    background-color: #efc900 !important;
+    color: #000 !important;
+  }
+  a.leaf-lg-gold:hover,
+  a.leaf-lg-gold:focus {
+    background-color: #fae24c !important;
+  }
+
+  .leaf-lg-primary {
+    background-color: #007bff !important;
+    color: #fff !important;
+  }
+  a.leaf-lg-primary:hover,
+  a.leaf-lg-primary:focus {
+    background-color: #0062cc !important;
+  }
+
+  .leaf-external > span {
+    font-color: #333;
+  }
+}
 
 
 
@@ -85,15 +135,26 @@ footer .login-wrapper {
 
 
 /*------------------------------------*\
-    $SEARCH
+    $NAVIGATION
 \*------------------------------------*/
 
 .navbar.navbar-header .navbar-nav {
   font-size: 100%;
 }
 @media (min-width: 992px) {
+  .navbar.navbar-header .navbar-collapse {
+    position: absolute;
+    top: 0;
+    right: 10px;
+  }
+
   .navbar.navbar-header .navbar-nav {
     font-size: 80%;
+  }
+
+  .navbar.navbar-header .navbar-collapse form input {
+    border: 0;
+    border-radius: 0;
   }
 }
 
