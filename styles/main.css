@@ -5,6 +5,7 @@
  * CONTENTS.............You're reading it!
  * ANNOUNCEMENTS........Styles for home page announcements
  * COLORS...............Background colors
+ * FEATURE_ITEM.........Styles for the feature item box
  * FOOTER...............Styles specific to the footer
  * LEAVES...............Styles for the top navigation "leaves"
  * LISTS................Styles related to lists
@@ -50,6 +51,67 @@
 .bg-footer {
   background-color: #343a40 !important;
   /*background-color: #001e44 !important;*/
+}
+
+
+
+
+/*------------------------------------*\
+    $FEATURE_ITEM
+\*------------------------------------*/
+
+.feature-item {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.feature-item > .feature-container {
+  background: inherit;
+  background-attachment: fixed;
+  left: 0;
+  padding: 20px 30px;
+  position: absolute;
+  width: 100%;
+}
+.feature-item > .feature-container.bottom {
+  bottom: 0;
+}
+.feature-item > .feature-container.top {
+  top: 0;
+}
+
+.feature-item > .feature-container:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  background-attachment: fixed;
+  opacity: 70%;
+  -webkit-filter: blur(8px);
+  filter: blur(8px);
+  z-index: 10;
+}
+
+.feature-item > .bottom.feature-container:before {
+  top: 5px;
+  height: 150%;
+}
+.feature-item > .top.feature-container:before {
+  top: -5px;
+  height: 110%;
+}
+
+.feature-item > .feature-container > .feature-content {
+  margin: 0;
+  color: white;
+  position: relative;
+  z-index: 20;
+}
+
+.feature-item > .feature-container > .feature-content a {
+  color: white;
 }
 
 
