@@ -3,12 +3,34 @@
 \*------------------------------------*/
 /**
  * CONTENTS.............You're reading it!
+ * ANNOUNCEMENTS........Styles for home page announcements
  * COLORS...............Background colors
  * FOOTER...............Styles specific to the footer
  * LEAVES...............Styles for the top navigation "leaves"
  * LISTS................Styles related to lists
  * NAVIGATION...........Styles specific to the top level navigation
  */
+
+
+
+/*------------------------------------*\
+    $ANNOUNCEMENTS
+\*------------------------------------*/
+
+.announcements span.oi {
+  font-size: 3rem;
+  margin: 0.5rem 1.5rem 1rem 0;
+}
+
+.announcements .alert-danger h4 > a {
+  /*** TODO: test for contrast */
+  color: #c12434;
+}
+.announcements .alert-danger h4 > a:hover {
+  /*** TODO: test for contrast */
+  color: #932430;
+}
+
 
 
 
@@ -101,6 +123,7 @@ footer .login-wrapper {
   }
 
   .leaf-lg-primary {
+    /*** TODO: test for contrast */
     background-color: #007bff !important;
     color: #fff !important;
   }
