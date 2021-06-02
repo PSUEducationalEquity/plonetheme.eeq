@@ -17,13 +17,11 @@
     </value>
   </records>
 
-  <records prefix="plone" interface="plone.app.imagecropping.browser.settings.ISettings">
-    <value key="constrain_cropping" purge="False">
-      <element>true</element>    
-    </value>
+  <records interface="plone.app.imagecropping.browser.settings.ISettings">
+    <value key="constrain_cropping">True</value>
   </records>
 
-  <records prefix="plone" interface="plone.app.imagecropping.browser.settings.ISettings">
+  <records interface="plone.app.imagecropping.browser.settings.ISettings">
     <value key="cropping_for" purge="False">
       <element>psu_hero</element>
       <element>psu_tile</element>
