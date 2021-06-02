@@ -1,6 +1,11 @@
 Using the development buildout
 ==============================
 
+After checkout you need to initialize and update the git submodule (for
+barceloneta):
+
+    $ git submodule init; git submodule update
+
 Create a virtualenv in the package::
 
     $ virtualenv --clear .
@@ -56,11 +61,27 @@ If you prefer to do a one time compile of the less files you can run::
 The buildout will automatically install npm packages and run the compile.
 
 
+Theme Structure
+---------------
+
+The theme CSS is compiled (by npm/grunt) from LESS files ein the ``theme/less``
+directory. The ``theme.less`` file imports modules and mixins from
+``plonetheme.barceloneta`` (pulled in as a git submodule) along with theme
+specific styles.
+
+
 Note
 ----
 - If you want to add other resources to your theme, add them to the
   bootstrap example in the package.json of the theme folder and run npm install
   there.
+
+
+Buildout Configuration
+----------------------
+
+Custom buildout configuration should be added to ``psu_addons.cfg``, and
+production specific config should be added to ``deploy.cfg``.
 
 
 Running tests
