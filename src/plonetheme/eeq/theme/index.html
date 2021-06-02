@@ -1,67 +1,487 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Plone Theme</title>
-    <link rel="shortcut icon" type="image/x-icon"
-          href="barceloneta/barceloneta-favicon.ico" />
-    <link rel="apple-touch-icon"
-          href="barceloneta/barceloneta-apple-touch-icon.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144"
-          href="barceloneta/barceloneta-apple-touch-icon-144x144-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114"
-          href="barceloneta/barceloneta-apple-touch-icon-114x114-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72"
-          href="barceloneta/barceloneta-apple-touch-icon-72x72-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="57x57"
-          href="barceloneta/barceloneta-apple-touch-icon-57x57-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed"
-          href="barceloneta/barceloneta-apple-touch-icon-precomposed.png" />
-  </head>
-  <body>
-    <section id="portal-toolbar">
-    </section>
-    <div class="outer-wrapper">
-      <header id="content-header">
-        <div class="container">
-          <header id="portal-top">
-          </header>
-          <div id="anonymous-actions">
-          </div>
-        </div>
-      </header>
-      <div id="mainnavigation-wrapper">
-        <div id="mainnavigation">
-        </div>
-      </div>
-      <div id="above-content-wrapper">
-          <div id="above-content">
-          </div>
-      </div>
-      <div class="container">
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="generator" content="Plone - http://plone.com" />
 
-        <!-- DELETE ME: -->
-        <h1 class="custom-theme-marker">Custom Plone theme based on Barceloneta</h1>
+    <!-- og:* meta tags: https://neilpatel.com/blog/open-graph-meta-tags/ -->
+    <meta content="summary" name="twitter:card" />
+    <meta content="Plone site" property="og:site_name" />
+    <meta content="Page title" property="og:title" />
+    <meta content="website" property="og:type" />
+    <meta content="Page descripition" property="og:description" />
+    <meta content="https://beta.equity.psu.edu/web" property="og:url" />
+    <meta content="https://beta.equity.psu.edu/web/images/psueelogo.png" property="og:image" />
+    <meta content="image/png" property="og:image:type" />
+
+    <title>Mockup Home</title>
+
+    <link rel="canonical" href="https://beta.equity.psu.edu/web" />
+    <link rel="search" href="https://beta.equity.psu.edu/web/@@search" title="Search this site" />
+
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/open-iconic-bootstrap.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+
+  <body class="frontend icons-on pat-markspeciallinks portaltype-plone-site site-equity template-test_rendering thumbs-on userrole-anonymous viewpermission-none"
+        data-pat-plone-modal="{&quot;actionOptions&quot;: {&quot;displayInModal&quot;: false}}"
+        data-pat-markspeciallinks="{&quot;external_links_open_new_window&quot;: false, &quot;mark_special_links&quot;: true}"
+        data-view-url="https://beta.equity.psu.edu/web"
+        data-portal-url="https://beta.equity.psu.edu/web"
+        data-pat-pickadate="{&quot;date&quot;: {&quot;selectYears&quot;: 200}, &quot;time&quot;: {&quot;interval&quot;: 5 } }"
+        data-base-url="https://beta.equity.psu.edu/web"
+        >
+
+    <div class="container-fluid constrain-width banner">
+      <div class="row py-3 banner-content">
+        <div class="col-xs-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+          <img alt="Important message follows"
+               class="float-left mr-3"
+               src="images/alert-icon-dark.png" />
+          <p>
+            <strong>Coronavirus updates:</strong>
+            To keep up with the latest from Penn State about the global
+            coronavirus outbreak, visit
+            <a href="https://sites.psu.edu/virusinfo/"><b>the Coronavirus information website</b></a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-header navbar-header">
+      <div class="container-fluid constrain-width">
+        <a class="navbar-brand"
+           href="http://equity.psu.edu"
+           ><img src="images/psueelogo.png" alt="Penn State Educational Equity" /></a>
+
+        <button aria-controls="navbarResponsive"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-toggle="collapse"
+                data-target=".navbar-responsive"
+                type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-responsive"
+             id="navbarResponsive">
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link leaf leaf-lg-primary" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link leaf leaf-lg-gold leaf-external"
+                 href="#">Report Bias
+                <span class="oi oi-chevron-right d-none d-lg-inline"
+                      aria-hidden="true"
+                      title="link to external site"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link leaf leaf-lg-gold leaf-external"
+                 href="#">Give now
+                <span class="oi oi-chevron-right d-none d-lg-inline"
+                      aria-hidden="true"
+                      title="link to external site"></span>
+              </a>
+            </li>
+          </ul>
+
+          <form action="https://beta.equity.psu.edu/web/@@search"
+                class="pat-livesearch form-inline"
+                data-pat-livesearch="ajaxUrl:https://beta.equity.psu.edu/web/@@ajax-search"
+                id="searchGadget_form"
+                role="search"
+                >
+            <div class="LSBox">
+              <label class="sr-only" for="searchGadget">Search Site</label>
+              <div class="input-group">
+                <div>
+                  <input class="form-control-sm searchField"
+                         id="searchGadget"
+                         name="SearchableText"
+                         placeholder="Search site"
+                         size="18"
+                         title="Search Site"
+                         type="text"
+                         />
+                </div>
+                <div class="input-group-append">
+                  <button class="btn btn-sm btn-primary searchButton"
+                          type="submit"
+                          ><span class="oi oi-magnifying-glass" title="search" aria-hidden="true"></span><span class="sr-only">Search</span></button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-globalnav navbar-global">
+      <div class="collapse navbar-collapse navbar-responsive constrain-width"
+           id="navbarGlobal">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+               >Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Offices</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Scholarships</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Diversity at Penn State</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">President's Commissions on Equity</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Events</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+
+
+
+
+
+    <div class="container-fluid">
+      <div class="row mb-3 bg-primary">
+        <div class="col-lg-12 d-none d-lg-block">
+          <img alt="" class="w-100" src="images/hero-home.jpg" />
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-fluid constrain-width">
+      <div class="row" id="above-content-wrapper">
+        <div id="viewlet-above-content"></div>
+      </div>
+
+      <div class="row">
+        <aside class="col" id="global_statusmessage">
+          <div></div>
+        </aside>
+      </div>
+
+
+      <div class="row mb-5">
+        <div class="col-12 col-md-8">
+          <h1 class="documentFirstHeading">Educational Equity</h1>
+          <p class="documentDescription">
+            The Office of the Vice Provost for Educational Equity serves as a
+            catalyst and advocate for Penn State's diversity and inclusion
+            initiatives. Educational Equity's vision is a Penn State community
+            that is an inclusive and welcoming environment for all.
+          </p>
+        </div>
+        <!--
+        <div class="d-none d-md-block col-md-4">
+          <h2>Contact Us</h2>
+          <address>
+            <strong>Unit name</strong><br />
+            Street<br />
+            City, State Postal code<br />
+          </address>
+          <address>
+            Phone: ###-###-####<br />
+            Email: <a href="mailto:#">name@domain.tld</a>
+          </address>
+        </div>
+        -->
+        <div class="d-none d-md-block col-md-4">
+          <div class="feature-item">
+            <img alt="" class="w-100" src="images/addressing-bias.jpg" />
+            <div class="feature-container top">
+              <div class="feature-content">
+                <a href=""><b>Addressing Bias:</b><br>
+                <small>Rights, Responsibilities, and Responses</small></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row announcements">
+        <div class="col">
+          <div class="alert alert-primary">
+            <span class="oi oi-bell float-left d-none d-sm-inline"
+                  aria-hidden="true"
+                  title="Important announcement follows"></span>
+            <h4><a href="">University responds to concerns about intolerance and hate</a></h4>
+            <p>
+              President Barron addresses the Penn State Community regarding
+              what the University will do to fight ignorance and intolerance.
+            </p>
+          </div>
+          <div class="alert alert-danger">
+            <span class="oi oi-bell float-left d-none d-sm-inline"
+                  aria-hidden="true"
+                  title="Important announcement follows"></span>
+            <h4><a href="">Response to the loss of George Floyd</a></h4>
+            <p>
+              Dr. Whitehurst, Vice Provost for Educational Equity addresses
+              the loss of George Floyd in Minnesota, Breonna Taylor in
+              Kentucky, and Ahmaud Arbrey in Georgia as victims of
+              unconscionable acts of violence.
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <h2>Our offices are here to help you</h2>
+        </div>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
+        <div class="col mb-5">
+          <div class="card h-100">
+            <img class="card-img-top d-none d-sm-block" src="images/office-sdr.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="">Student Disability Resources</a>
+              </h4>
+              <p class="card-text">
+                At Penn State, we are committed to providing a welcoming, encouraging, and empowering environment for students with disabilities to ensure equal access, full participation and reasonable accommodations for their academic pursuits.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-5">
+          <div class="card h-100">
+            <img class="card-img-top d-none d-sm-block" src="images/office-vets.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="">Office of Veterans Programs</a>
+              </h4>
+              <p class="card-text">
+                The Office of Veterans Programs (OVP) at the University Park campus is organized as a comprehensive, direct service unit for veterans and Department of Veterans Affairs (DVA) benefits recipients.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-5">
+          <div class="card h-100">
+            <img class="card-img-top d-none d-sm-block" src="images/office-mrc.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="">Multicultural Resource Center</a>
+              </h4>
+              <p class="card-text">
+                The Multicultural Resource Center (MRC) provides individual counseling and educational services for undergraduate multicultural students at University Park and assists students in meeting the challenges associated with education and attaining a degree at a major research institution.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-5">
+          <div class="card h-100">
+            <img class="card-img-top d-none d-sm-block" src="images/office-ts.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="">Talent Search</a>
+              </h4>
+              <p class="card-text">
+                Talent Search is primarily available to students who are from low-income households, and whose parents did not go to college, but anyone can apply.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-5">
+          <div class="card h-100">
+            <img class="card-img-top d-none d-sm-block" src="images/office-eoc.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="">Educational Opportunity Center (York/Reading)</a>
+              </h4>
+              <p class="card-text">
+                The Educational Opportunity Center (EOC) is one of the Federal TRIO programs dedicated to aiding adults in furthering their education.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-5">
+          <div class="card h-100">
+            <img class="card-img-top d-none d-sm-block" src="images/office-trio.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="">TRIO Training Academy</a>
+              </h4>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus totam ut praesentium aut.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-5">
+          <div class="card h-100">
+            <img class="card-img-top d-none d-sm-block" src="images/office-ub.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="">Upward Bound Programs</a>
+              </h4>
+              <p class="card-text">
+                Upward Bound is a federally-funded program that helps high-school students gain academic skills and motivation to continue their education beyond high school.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-5">
+          <div class="card h-100">
+            <img class="card-img-top d-none d-sm-block" src="images/office-scholars.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="">Scholars Programs</a>
+              </h4>
+              <p class="card-text">
+                The Office of Scholars Programs manages four scholars programs within the Office of the Vice Provost for Educational Equity: Bunton-Waller Fellows, Lenfest Scholars, Maguire Scholars, and Milton Hershey Scholars.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-5">
+          <div class="card h-100">
+            <img class="card-img-top d-none d-sm-block" src="images/office-eopc.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="">Equal Opportunity Planning Committee</a>
+              </h4>
+              <p class="card-text">
+                Educational Equity will review proposal drafts to provide feedback in advance of submission deadlines as time and capacity permits.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+    <!-- END Page Content -->
+
+    </div>  <!-- END .container -->
+
+    <footer class="pb-2 pt-4 bg-footer">
+      <div class="container-fluid constrain-width">
+        <div class="row">
+          <div class="col-lg-4">
+            <h3 class="text-white">Educational Equity</h3>
+            <ul class="list-unstyled">
+              <li><a class="text-white" href="">Awards</a></li>
+              <li><a class="text-white" href="">Organizational Chart</a></li>
+              <li><a class="text-white" href="">Staff Directory</a></li>
+              <li><a class="text-white" href="">Strategic Plan 2016-2020</a></li>
+            </ul>
+
+            <h3 class="text-white">Sponsored Events</h3>
+            <ul class="list-unstyled">
+              <li><a class="text-white" href="">Diversability</a></li>
+              <li><a class="text-white" href="">Hispanic Heritage Month</a></li>
+              <li><a class="text-white" href="">Martin Luther King Jr. Commemoration</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h3 class="text-white">Penn State Resources</h3>
+            <!--
+            <ul class="list-unstyled">
+              <li><a class="text-white" href="">Diversity Resources</a></li>
+              <li><a class="text-white" href="">Bulletin: Diversity Courses</a></li>
+              <li><a class="text-white" href="">Policy AD29: Statement on Intolerance</a></li>
+              <li><a class="text-white" href="">Policy AD84: Preferred Name and Gender Identification</a></li>
+            </ul>
+            -->
+            <ul class="list-unstyled">
+              <li><a class="text-white" href="">Affirmative Action Office</a></li>
+              <li><a class="text-white" href="">Clery Act</a></li>
+              <li><a class="text-white" href="">Council of College Multicultural Leadership</a></li>
+              <li><a class="text-white" href="">Ethics and Compliance Hotline</a></li>
+              <li><a class="text-white" href="">Office of Human Resources</a></li>
+              <li><a class="text-white" href="">Penn State Directory</a></li>
+              <li><a class="text-white" href="">Penn State Principles</a></li>
+              <li><a class="text-white" href="">University Police and Safety</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h3 class="text-white">For Faculty</h3>
+            <ul class="list-unstyled">
+              <li><a class="text-white" href="">Bulletin: Diversity Courses</a></li>
+              <li><a class="text-white" href="">Senior Faculty Mentor</a></li>
+            </ul>
+
+            <h3 class="text-white">For staff</h3>
+            <ul class="list-unstyled">
+              <li><a class="text-white" href="">Building Evacuation Maps</a></li>
+              <li><a class="text-white" href="">Communications and Marketing</a></li>
+            </ul>
+          </div>
+        </div>
 
         <div class="row">
-          <aside id="global_statusmessage"></aside>
+          <div class="col-lg-2 logo-wrapper">
+            <a href="http://www.psu.edu"
+               ><img src="images/psulogo-xs.png" alt="Penn State Educational Equity" /></a>
+          </div>
+          <div class="col-lg-9 text-white contact-wrapper">
+            <ul class="list-inline list-inline-links m-0">
+              <li class="list-inline-item">
+                <a class="text-white" href="">Site Map</a>
+              </li>
+              <li class="list-inline-item">
+                <a class="text-white" href="">Accessiblity</a>
+              </li>
+              <li class="list-inline-item">
+                <a class="text-white" href="">Privacy and Legal Statements</a>
+              </li>
+              <li class="list-inline-item">
+                <a class="text-white" href="">Copyright Information</a>
+              </li>
+            </ul>
+            <div>314 Old Main, University Park, PA 16802 | 814-865-5906</div>
+            <div>Copyright 2020 Educational Equity. All rights reserved.</div>
+
+            <div class="login-wrapper">
+              <!-- d-flex align-items-end  -->
+              <a class="btn btn-sm btn-secondary pat-plone-modal"
+                 data-pat-plone-modal="{&quot;prependContent&quot;: &quot;.portalMessage&quot;, &quot;title&quot;: &quot;Log in&quot;, &quot;width&quot;: &quot;26em&quot;}"
+                 href=""
+                 id="personaltools-login"
+                 title="Log in"
+                 >Log in</a>
+            </div>
+          </div>
         </div>
-        <main id="main-container" class="row row-offcanvas row-offcanvas-right">
-          <div id="content-container">
-          </div>
-          <div id="column1-container">
-          </div>
-          <div id="column2-container">
-          </div>
-        </main><!--/row-->
-      </div><!--/container-->
-    </div> <!--/outer-wrapper -->
-    <footer id="portal-footer-wrapper">
-      <div class="container" id="portal-footer">
-        <div class="doormat row"></div>
-        <div class="copyright row"><div class="col-xs-12"></div></div>
-        <div class="colophon row"><div class="col-xs-12"></div></div>
-        <div class="site-actions row"><div class="col-xs-12"></div></div>
       </div>
     </footer>
+
+    <script type="text/javascript">PORTAL_URL = 'https://beta.equity.psu.edu/web';</script>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/bootstrap.bundle.min.js"></script>
   </body>
 </html>
