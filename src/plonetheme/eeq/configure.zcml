@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:zope="http://namespaces.zope.org/zope"
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="plonetheme.eeq">
 
@@ -46,5 +47,17 @@
       name="psu-educational-equity"
       />
 
+  <!-- upgrade steps -->
+
+  <genericsetup:upgradeSteps
+      source="1000"
+      destination="1001"
+      sortkey="1"
+      profile="plonetheme.eeq:default">
+    <genericsetup:upgradeDepends
+        title="add lead images to Pages, Folders, Events and Links"
+        import_steps="typeinfo"
+        />
+  </genericsetup:upgradeSteps>
 
 </configure>
