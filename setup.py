@@ -53,6 +53,9 @@ setup(
         'plone.api>=1.8.4',
         'plone.restapi',
         'plone.app.dexterity',
+        'plone.app.imagecropping',
+        'plone.app.mosaic',
+        'jazkarta.tesserae',
     ],
     extras_require={
         'test': [
