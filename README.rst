@@ -1,5 +1,9 @@
 Educational Equity theme
 
+Installation:
+
+    TBD
+
 
 Credits:
 

@@ -1,0 +1,3 @@
+[submodule "plonetheme.barceloneta"]
+	path = plonetheme.barceloneta
+	url = https://github.com/plone/plonetheme.barceloneta.git

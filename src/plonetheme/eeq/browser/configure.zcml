@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="plonetheme.eeq">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="plonetheme.eeq.interfaces.IPlonethemeEeqLayer"
+      />
+
+  <!-- Publish static files -->
+  <plone:static
+      name="plonetheme.eeq"
+      type="plone"
+      directory="static"
+      />
+
+</configure>
