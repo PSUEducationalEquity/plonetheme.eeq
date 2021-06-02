@@ -3,6 +3,6 @@
         meta_type="Dexterity FTI">
 
   <property name="behaviors" purge="false">
-    <element value="plone.app.contenttypes.behaviors.leadimage.ILeadImage"/>
+    <element value="plone.leadimage"/>
   </property>
 </object>
