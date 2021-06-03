@@ -12,6 +12,7 @@
   <include package="plone.app.mosaic" />
 
   <include package=".browser" />
+  <include package=".content" />
 
   <include file="permissions.zcml" />
 
@@ -67,6 +68,17 @@
     <genericsetup:upgradeDepends
         title="add image cropping to Pages, Collections"
         import_steps="typeinfo plone.app.registry"
+        />
+  </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+      source="1002"
+      destination="1003"
+      sortkey="1"
+      profile="plonetheme.eeq:default">
+    <genericsetup:upgradeDepends
+        title="add Office content type"
+        import_steps="typeinfo"
         />
   </genericsetup:upgradeSteps>
 
