@@ -30,4 +30,5 @@ report.html
 .tox/
 reports/
 # excludes
+checkouts/
 theme-compiled.*
