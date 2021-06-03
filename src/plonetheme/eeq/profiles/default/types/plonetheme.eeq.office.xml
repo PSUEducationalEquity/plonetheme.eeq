@@ -22,7 +22,6 @@
      <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
      <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
      <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
-     <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
      <element value="plone.leadimage"/>
      <element value="plone.imagecropping"/>
   </property>
