@@ -34,8 +34,16 @@
   <replace css:theme-children="#mainnavigation" css:content-children="#portal-mainnavigation" method="raw" />
 
   <!-- full-width breadcrumb -->
-  <replace css:content="#viewlet-above-content" css:theme="#above-content" />
-
+  <replace css:theme-children="nav#portal-breadcrumbs">
+    <ol class="breadcrumb">
+      <xsl:for-each select="//*[@id='portal-breadcrumbs']//li">
+        <li class="breadcrumb-item">
+          <xsl:copy-of select="./*" />
+        </li>
+      </xsl:for-each>
+    </ol>
+  </replace>
+  
   <!-- Central column -->
   <replace css:theme="#content-container" method="raw">
 
