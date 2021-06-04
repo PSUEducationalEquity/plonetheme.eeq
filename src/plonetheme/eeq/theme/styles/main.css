@@ -3,14 +3,76 @@
 \*------------------------------------*/
 /**
  * CONTENTS.............You're reading it!
+ * ACTIONS..............Styles for call to action features
  * ANNOUNCEMENTS........Styles for home page announcements
+ * BREADCRUMBS..........Styles for the breadcrumb trail
  * COLORS...............Background colors
  * FEATURE_ITEM.........Styles for the feature item box
  * FOOTER...............Styles specific to the footer
+ * HERO.................Styles for the hero images
+ * LAYOUT...............Styles for the overall layout
  * LEAVES...............Styles for the top navigation "leaves"
+ * LINKS................Styles for accessible links
  * LISTS................Styles related to lists
  * NAVIGATION...........Styles specific to the top level navigation
  */
+
+
+
+/*------------------------------------*\
+    $ACTIONS
+\*------------------------------------*/
+
+.actions-list {
+  list-style: none;
+  margin: 0;
+}
+
+.actions-list li {
+  margin-bottom: 1rem;
+}
+.actions-list li img {
+  display: inline-block;
+  margin-right: 0.2rem;
+  width: 50px;
+}
+.actions-list li div {
+  display: inline-block;
+  font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .actions-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .actions-list li {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    min-width: 0;
+    padding-right: 15px;
+    padding-left: 15px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+  .actions-list li img {
+    width: 130px;
+  }
+  .actions-list li div {
+    display: block;
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .actions-list li img {
+    width: 180px;
+  }
+}
+
 
 
 
@@ -30,6 +92,17 @@
 .announcements .alert-danger h4 > a:hover {
   /*** TODO: test for contrast */
   color: #932430;
+}
+
+
+
+
+/*------------------------------------*\
+    $BREADCRUMBS
+\*------------------------------------*/
+
+.breadcrumb {
+  background-color: transparent;
 }
 
 
@@ -162,6 +235,57 @@ footer .login-wrapper {
 
 
 /*------------------------------------*\
+    $HERO
+\*------------------------------------*/
+
+.hero .office-name-wrapper {
+  background-color: white;
+  color: #222;
+  font-size: 1.2rem;
+  width: 100%;
+}
+.hero .office-name {
+  padding: 0.3rem 2rem;
+}
+.hero .office-name a {
+  color: #222;
+}
+.hero .office-name a:hover {
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .hero.collapsed .office-name-wrapper {
+    bottom: 0;
+    font-size: 2.5rem;
+    left: 0;
+    opacity: 70%;
+    position: absolute;
+  }
+  .hero .office-name-wrapper {
+    font-size: 1.5rem;
+    opacity: 100%;
+    position: relative;
+  }
+}
+
+
+
+
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
+
+.constrain-width {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1140px;
+}
+
+
+
+
+/*------------------------------------*\
     $LEAVES
 \*------------------------------------*/
 
@@ -201,6 +325,18 @@ footer .login-wrapper {
 
 
 
+
+/*------------------------------------*\
+    $LINKS
+\*------------------------------------*/
+
+.nav-link:focus, .nav-link:hover {
+  text-decoration: underline;
+}
+
+
+
+
 /*------------------------------------*\
     $LISTS
 \*------------------------------------*/
@@ -223,16 +359,16 @@ footer .login-wrapper {
     $NAVIGATION
 \*------------------------------------*/
 
+.navbar.navbar-header .constrain-width {
+  align-items: flex-start;
+}
+.navbar.navbar-header .constrain-width .navbar-collapse {
+  margin-top: -0.5rem;
+}
 .navbar.navbar-header .navbar-nav {
   font-size: 100%;
 }
 @media (min-width: 992px) {
-  .navbar.navbar-header .navbar-collapse {
-    position: absolute;
-    top: 0;
-    right: 10px;
-  }
-
   .navbar.navbar-header .navbar-nav {
     font-size: 80%;
   }
@@ -243,9 +379,25 @@ footer .login-wrapper {
   }
 }
 
+.navbar-brand img { width: 200px; }
+@media (min-width: 576px) {
+  .navbar-brand img { width: 270px; }
+}
+
+
 .navbar.navbar-global {
   padding: .1rem 1rem;
 }
+
+.navbar-office .navbar-nav .nav-link {
+  color: #ddd;
+}
+.navbar-office .navbar-nav .nav-link:hover {
+  color: #fff;
+}
+
+
+
 
 
 /* Responsive breakpoint statements
@@ -261,3 +413,4 @@ footer .login-wrapper {
 @media (min-width: 1200px) {
 }
 */
+

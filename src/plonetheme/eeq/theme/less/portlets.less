@@ -1,0 +1,32 @@
+.portlet {
+  .portletHeader {
+    font-weight: @plone-font-weight-medium;
+    font-size: @plone-font-size-large;
+  }
+	.portletFooter {
+		font-size: @plone-font-size-small;
+		font-weight: @plone-font-weight-regular;
+	}
+}
+.portletContent {
+  font-size: @plone-font-size-base;
+  font-weight: @plone-font-weight-regular;
+  > ul {
+    padding: 0;
+    list-style: none;
+    position: relative;
+    > li {
+      a {  
+				display: block;
+				padding: 10px 15px 26px 15px;
+				position: relative;
+				z-index: 1;
+      }
+    }
+    li:hover {background: @plone-portlet-list-hover-bg;}
+    ul {
+      padding-left:15px;
+      list-style: none;
+    }
+  }
+}

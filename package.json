@@ -16,6 +16,7 @@
   "scripts": {
     "compile": "node -e \"require('grunt').tasks(['compile']);\"",
     "watch": "node -e \"require('grunt').tasks(['watch']);\"",
+    "bsync": "node -e \"require('grunt').tasks(['bsync']);\"",
     "plone-bsync": "node -e \"require('grunt').tasks(['plone-bsync']);\""
   }
 }

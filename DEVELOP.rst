@@ -54,6 +54,11 @@ It will run a Grunt browser sync task in a new browser window and will reload
 after every change of the less files in the less folder. If your Plone is not
 running on port 8080 you have to adjust the proxy option in the Gruntfile.js.
 
+You can also view the base theme file in a browser with automatic CSS change
+syncing using::
+
+    $ npm run bsync
+
 If you prefer to do a one time compile of the less files you can run::
 
     $ npm run compile
@@ -68,6 +73,11 @@ The theme CSS is compiled (by npm/grunt) from LESS files ein the ``theme/less``
 directory. The ``theme.less`` file imports modules and mixins from
 ``plonetheme.barceloneta`` (pulled in as a git submodule) along with theme
 specific styles.
+
+Basic theme variable config changes can be made in ``theme.vars.less`` which
+contains less variables from plone that can be used to override default values.
+Similarly ``plone.toolbar.vars.less`` contains variables specific to styling the
+plone toolbar.
 
 
 Note
