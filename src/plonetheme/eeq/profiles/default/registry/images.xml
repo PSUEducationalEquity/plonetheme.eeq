@@ -19,9 +19,6 @@
 
   <records interface="plone.app.imagecropping.browser.settings.ISettings">
     <value key="constrain_cropping">True</value>
-  </records>
-
-  <records interface="plone.app.imagecropping.browser.settings.ISettings">
     <value key="cropping_for" purge="False">
       <element>psu_hero</element>
       <element>psu_tile</element>

@@ -4,11 +4,6 @@
        xmlns:security="http://namespaces.plone.org/supermodel/security"
        xmlns:indexer="http://namespaces.plone.org/supermodel/indexer">
   <schema>
-    <field name="title" type="zope.schema.TextLine"
-           indexer:searchable="true"
-           form:omitted="true">
-      <title>Title</title>
-    </field>
     <field name="facebook_url" type="zope.schema.TextLine">
       <title>Facebook url</title>
       <required>False</required>

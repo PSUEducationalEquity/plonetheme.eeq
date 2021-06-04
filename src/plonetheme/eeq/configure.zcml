@@ -47,6 +47,12 @@
       name="psu-educational-equity"
       />
 
+  <plone:static
+      type="contentlayout"
+      name="psu-educational-equity"
+      directory="layouts"
+      />
+
   <!-- upgrade steps -->
 
   <genericsetup:upgradeSteps

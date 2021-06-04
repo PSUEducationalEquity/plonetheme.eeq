@@ -1,0 +1,11 @@
+
+<registry
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="plonetheme.eeq">
+
+  <record name="plone.app.blocks.default_layout.plonetheme.eeq.office">
+    <field type="plone.registry.field.TextLine" />
+    <value>++contentlayout++psu-educational-equity/basic.html</value>
+  </record>
+
+</registry>

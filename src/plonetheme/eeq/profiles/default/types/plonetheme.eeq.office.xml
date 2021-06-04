@@ -16,12 +16,8 @@
   <property name="schema">plonetheme.eeq.content.office.IOffice</property>
   <property name="klass">plonetheme.eeq.content.office.Office</property>
   <property name="behaviors">
-     <element value="plone.app.dexterity.behaviors.metadata.IBasic" />
-     <element value="plone.app.blocks.layoutbehavior.ILayoutAware"/>
-     <element value="plone.app.content.interfaces.INameFromTitle" />
-     <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
-     <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
-     <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
+     <element value="plone.dublincore" />
+     <element value="plone.namefromtitle" />
      <element value="plone.leadimage"/>
      <element value="plone.imagecropping"/>
      <element value="plone.layoutaware" />
@@ -29,11 +25,12 @@
   </property>
 
   <!-- View information -->
-  <property name="default_view">view</property>
-  <property name="immediate_view">view</property>
+  <property name="default_view">layout_view</property>
+  <property name="immediate_view">layout_view</property>
   <property name="default_view_fallback">False</property>
   <property name="view_methods">
     <element value="layout_view"/>
+    <element value="view"/>
   </property>
   <alias from="(Default)" to="(selected layout)" />
   <alias from="edit" to="@@edit" />
