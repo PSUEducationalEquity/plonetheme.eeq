@@ -24,6 +24,8 @@
      <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
      <element value="plone.leadimage"/>
      <element value="plone.imagecropping"/>
+     <element value="plone.layoutaware" />
+     <element value="plone.draftable" />
   </property>
 
   <!-- View information -->
@@ -31,7 +33,7 @@
   <property name="immediate_view">view</property>
   <property name="default_view_fallback">False</property>
   <property name="view_methods">
-    <element value="view"/>
+    <element value="layout_view"/>
   </property>
   <alias from="(Default)" to="(selected layout)" />
   <alias from="edit" to="@@edit" />
