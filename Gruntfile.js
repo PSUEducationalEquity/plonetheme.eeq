@@ -16,7 +16,7 @@ module.exports = function (grunt) {
                     sourceMap: true,
                     outputSourceFiles: true,
                     sourceMapFileInline: false,
-                    sourceMapURL: '++theme++psu-educational-equity/less/theme-compiled.less.map',
+                    sourceMapURL: '../less/theme-compiled.less.map',
                     sourceMapFilename: 'styles/theme-compiled.less.map',
                     modifyVars: {
                         "isPlone": "false"
@@ -30,8 +30,7 @@ module.exports = function (grunt) {
         watch: {
             scripts: {
                 files: [
-                    'less/*.less',
-                    'barceloneta/less/*.less'
+                    'less/*.less'
                 ],
                 tasks: ['less', ]
             }
@@ -41,7 +40,6 @@ module.exports = function (grunt) {
                 bsFiles: {
                     src: [
                         'less/*.less',
-                        'barceloneta/less/*.less',
                         '*.html'
                     ]
                 },
@@ -50,7 +48,7 @@ module.exports = function (grunt) {
                     debugInfo: true,
                     online: true,
                     server: {
-                        baseDir: "."
+                        baseDir: "./"
                     },
                 }
             },
@@ -68,7 +66,8 @@ module.exports = function (grunt) {
                     proxy: "localhost:8080",
                     reloadDelay: 3000,
                     // reloadDebounce: 2000,
-                    online: true
+                    online: true,
+                    open: false
                 }
             }
         }
