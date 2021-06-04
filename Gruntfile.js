@@ -17,30 +17,61 @@ module.exports = function (grunt) {
                     outputSourceFiles: true,
                     sourceMapFileInline: false,
                     sourceMapURL: '../less/theme-compiled.less.map',
-                    sourceMapFilename: 'styles/theme-compiled.less.map',
+                    sourceMapFilename: '../less/theme-compiled.less.map',
                     modifyVars: {
                         "isPlone": "false"
                     }
                 },
                 files: {
-                    'styles/theme-compiled.css': 'less/theme.local.less',
+                    '../build/theme-compiled.css': '../less/theme.local.less',
+                }
+            }
+        },
+        cssmin: {
+            options: {
+                sourceMap: true
+            },
+            target: {
+                files: [{
+                    expand: false,
+                    dest: 'theme-compiled.min.css',
+                    src: ['../node_modules/bootstrap/dist/css/bootstrap.css',
+                          '../styles/open-iconic-bootstrap.css',
+                          '../build/theme-compiled.css']
+                }]
+            }
+        },
+        uglify: {
+            options: {
+                mergeIntoShorthands: false,
+                sourceMap: true
+            },
+            my_target: {
+                files: {
+                    'theme-compiled.min.js': ['../scripts/loader.js'],
+                    'main.min.js': ['../scripts/main.js']
                 }
             }
         },
         watch: {
             scripts: {
                 files: [
-                    'less/*.less'
+                    '../less/*.less',
+                    '../scripts/main.js',
                 ],
-                tasks: ['less', ]
+                tasks: ['compile'],
+                options: {
+                    spawn: false,
+                },
             }
         },
         browserSync: {
             html: {
                 bsFiles: {
                     src: [
-                        'less/*.less',
-                        '*.html'
+                        '../less/*.less',
+                        '../scripts/main.js',
+                        '../*.html'
                     ]
                 },
                 options: {
@@ -48,16 +79,17 @@ module.exports = function (grunt) {
                     debugInfo: true,
                     online: true,
                     server: {
-                        baseDir: "./"
+                        baseDir: "../"
                     },
                 }
             },
             plone: {
                 bsFiles: {
                     src: [
-                        'less/*.less',
-                        '*.html',
-                        '*.xml'
+                        '../less/*.less',
+                        '../scripts/main.js',
+                        '../*.html',
+                        '../*.xml'
                     ]
                 },
                 options: {
@@ -78,11 +110,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // CWD to theme folder
-    grunt.file.setBase('./src/plonetheme/eeq/theme');
+    grunt.file.setBase('./src/plonetheme/eeq/theme/build');
 
-    grunt.registerTask('compile', ['less', ]);
+    grunt.registerTask('compile', ['less', 'cssmin', 'uglify']);
     grunt.registerTask('default', ['compile']);
     grunt.registerTask('bsync', ["browserSync:html", "watch"]);
     grunt.registerTask('plone-bsync', ["browserSync:plone", "watch"]);

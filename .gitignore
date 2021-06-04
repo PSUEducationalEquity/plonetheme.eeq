@@ -32,3 +32,4 @@ reports/
 # excludes
 checkouts/
 theme-compiled.*
+main.min.js*

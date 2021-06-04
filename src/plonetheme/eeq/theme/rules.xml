@@ -20,6 +20,7 @@
     <!-- Don't use Plone icons, use the theme's -->
     <drop css:content="head link[rel='apple-touch-icon']" />
     <drop css:content="head link[rel='shortcut icon']" />
+    <drop css:theme=".theme-drop" />
     <!-- CSS -->
     <after css:theme-children="head" css:content="head link" />
     <after css:theme-children="head" css:content="head style" />
