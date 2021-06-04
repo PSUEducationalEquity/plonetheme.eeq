@@ -1,0 +1,28 @@
+<model xmlns="http://namespaces.plone.org/supermodel/schema"
+       xmlns:form="http://namespaces.plone.org/supermodel/form"
+       xmlns:sf="http://namespaces.plone.org/salesforce/schema"
+       xmlns:security="http://namespaces.plone.org/supermodel/security"
+       xmlns:indexer="http://namespaces.plone.org/supermodel/indexer">
+  <schema>
+    <field name="facebook_url" type="zope.schema.TextLine">
+      <title>Facebook url</title>
+      <required>False</required>
+    </field>
+    <field name="twitter_url" type="zope.schema.TextLine">
+      <title>Twitter url</title>
+      <required>False</required>
+    </field>
+    <field name="instagram_url" type="zope.schema.TextLine">
+      <title>Instagram url</title>
+      <required>False</required>
+    </field>
+    <field name="youtube_url" type="zope.schema.TextLine">
+      <title>YouTube url</title>
+      <required>False</required>
+    </field>
+    <field name="linkedin_url" type="zope.schema.TextLine">
+      <title>LinkedIn url</title>
+      <required>False</required>
+    </field>
+  </schema>
+</model>
