@@ -11,11 +11,13 @@ taking the following steps:
 1) Copy the ``deploy.cfg`` and ``psu_addons.cfg`` files from this repository
    into the buildout root directory.
 2) Update the ``buildout.cfg`` to add ``deploy.cfg`` to the
-   ``buildout:extends`` section,
+   ``buildout:extends`` section.
 3) Change the ``buildout:parts`` section from ``parts =`` to ``parts +=`` to
    include the additional parts from the new cfg files.
-4) Run buildout
-5) You should now see the theme respository in ``src/plonetheme.eeq``. Replace
+4) Change the ``buildout:eggs`` section from ``eggs =`` to ``eggs +=`` to
+   include eggs specified in the new cfg files.
+5) Run buildout
+6) You should now see the theme respository in ``src/plonetheme.eeq``. Replace
    the cfg files you copied above with symlinks to the cfg files from the
    repository::
 
