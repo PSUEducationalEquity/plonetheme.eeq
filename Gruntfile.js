@@ -48,8 +48,8 @@ module.exports = function (grunt) {
             },
             my_target: {
                 files: {
-                    'theme-compiled.min.js': ['../scripts/loader.js'],
-                    'main.min.js': ['../scripts/main.js']
+                    'eeq-loader.min.js': ['../scripts/loader.js'],
+                    'eeq-scripts.min.js': ['../scripts/bootstrap.bundle.js', '../scripts/main.js']
                 }
             }
         },

@@ -1,13 +1,12 @@
 requirejs.config({
     "paths" : {
-        "bootstrap": "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min",
-        "main": "++theme++psu-educational-equity/build/main.min"
+        "eeq-scripts": "++theme++psu-educational-equity/build/eeq-scripts.min"
     },
     "shim" : {
-        "bootstrap" : ["jquery"]
+        "eeq-scripts" : ["jquery"]
     }
 });
 
-require(["bootstrap", "main"], function (bootstrap, main) {
+require(["eeq-scripts"], function (scripts) {
     // load up our primary js via require
 });
