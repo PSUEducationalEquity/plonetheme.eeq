@@ -1,13 +1,47 @@
 .portlet {
+
+  background-color: @porlet-background;
+
   .portletHeader {
     font-weight: @plone-font-weight-medium;
     font-size: @plone-font-size-large;
   }
-	.portletFooter {
-		font-size: @plone-font-size-small;
-		font-weight: @plone-font-weight-regular;
-	}
+  .portletFooter {
+    font-size: @plone-font-size-small;
+    font-weight: @plone-font-weight-regular;
+  }
+    
+  
+  &.portletNavigationTree {
+    .portletHeader {
+      display: none !important;
+    }
+    
+    .portletContent {
+      
+
+      font-size: 1rem; 
+      padding: 15px; 
+      > ul {
+        > li {
+          a {  
+		    padding: 10px 15px 10px 15px;
+          }
+        }
+        li:hover {
+          background-color: @porlet-background;
+        }
+      }
+
+      .glyphicon.link-https {
+        display: none;
+      }
+
+    }
+  }
+
 }
+
 .portletContent {
   font-size: @plone-font-size-base;
   font-weight: @plone-font-weight-regular;
