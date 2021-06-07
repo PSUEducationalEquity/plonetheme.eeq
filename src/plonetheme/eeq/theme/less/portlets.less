@@ -11,6 +11,9 @@
     font-weight: @plone-font-weight-regular;
   }
     
+  .glyphicon {
+    display: none;
+  }
   
   &.portletNavigationTree {
     .portletHeader {
@@ -18,14 +21,13 @@
     }
     
     .portletContent {
-      
-
       font-size: 1rem; 
       padding: 15px; 
+
       > ul {
         > li {
           a {  
-		    padding: 10px 15px 10px 15px;
+		    padding: 10px 15px 5px 15px;
           }
         }
         li:hover {
@@ -33,11 +35,21 @@
         }
       }
 
-      .glyphicon.link-https {
-        display: none;
-      }
-
     }
+  }
+
+  &.portletStaticText {
+    .portletHeader {
+      font-size: 1.5rem;
+      padding-top: 15px;
+      padding-left: 25px;
+    }
+
+    .portletContent {
+      font-size: 1rem;
+      padding: 15px 15px 15px 25px;
+    }
+
   }
 
 }
