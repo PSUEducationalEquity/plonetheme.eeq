@@ -5,6 +5,7 @@
        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
        xmlns:xi="http://www.w3.org/2001/XInclude">
 
+  <xsl:param name="portal_url"></xsl:param>
   <theme href="index.html" />
   <notheme css:if-not-content="#visual-portal-wrapper" />
 
@@ -174,5 +175,9 @@
   <replace css:theme="#portal-toolbar" css:content="#edit-bar" css:if-not-content=".ajax_load" css:if-content=".userrole-authenticated" />
   <drop css:theme="#portal-toolbar" css:if-content=".userrole-anonymous" />
   <replace css:theme="#anonymous-actions" css:content-children="#portal-personaltools-wrapper" css:if-not-content=".ajax_load" css:if-content=".userrole-anonymous" />
+
+  <!-- Link normalization -->
+  <before css:theme-children="a.report-bias"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/report-bias</xsl:attribute></before>
+  <before css:theme-children="a.give-now"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/giving</xsl:attribute></before>
 
 </rules>
