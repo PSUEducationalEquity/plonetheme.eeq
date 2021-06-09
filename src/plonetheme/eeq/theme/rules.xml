@@ -177,7 +177,8 @@
   <replace css:theme="#anonymous-actions" css:content-children="#portal-personaltools-wrapper" css:if-not-content=".ajax_load" css:if-content=".userrole-anonymous" />
 
   <!-- Link normalization -->
+  <before css:theme-children="a.navbar-brand"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/</xsl:attribute></before>
   <before css:theme-children="a.report-bias"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/report-bias</xsl:attribute></before>
   <before css:theme-children="a.give-now"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/giving</xsl:attribute></before>
-
+  <before css:theme-children="a.contact-button"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/contact-info</xsl:attribute></before>
 </rules>
