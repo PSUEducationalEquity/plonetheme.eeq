@@ -181,4 +181,13 @@
   <before css:theme-children="a.report-bias"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/report-bias</xsl:attribute></before>
   <before css:theme-children="a.give-now"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/giving</xsl:attribute></before>
   <before css:theme-children="a.contact-button"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/contact-info</xsl:attribute></before>
+  <before css:theme-children="a.site-map"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/sitemap</xsl:attribute></before>
+  <before css:theme-children="a.accessibility"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/accessibility-info</xsl:attribute></before>
+
+  <!-- Login button -->
+  <before css:if-content="#portal-anontools" css:theme-children="#personaltools-login"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/login</xsl:attribute></before>
+  <before css:if-content="#portal-anontools" css:theme-children="#personaltools-login"><xsl:attribute name="class">btn btn-sm btn-secondary pat-plone-modal</xsl:attribute></before>
+  <before css:if-not-content="#portal-anontools" css:theme-children="#personaltools-login"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/logout</xsl:attribute></before>
+  <replace css:if-not-content="#portal-anontools" css:theme-children="#personaltools-login">Log out</replace>
+
 </rules>
