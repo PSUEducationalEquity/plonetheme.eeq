@@ -33,3 +33,5 @@ reports/
 checkouts/
 theme-compiled.*
 src/plonetheme/eeq/theme/build/*
+bundle_update/*
+!bundle_update/update_plone_resources.sh

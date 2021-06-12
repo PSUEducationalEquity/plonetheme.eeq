@@ -88,4 +88,13 @@
         />
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeDepends
+      source="1003"
+      destination="1004"
+      sortkey="1"
+      profile="plonetheme.eeq:default"
+      title="Update plone bundle to remove bootstrap references"
+      import_steps="plone.app.registry"
+      />
+
 </configure>

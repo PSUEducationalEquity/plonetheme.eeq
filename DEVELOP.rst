@@ -66,6 +66,23 @@ If you prefer to do a one time compile of the less files you can run::
 The buildout will automatically install npm packages and run the compile.
 
 
+Bootstrap Override
+------------------
+
+This theme incorporates Bootstrap v4 and Plone 5.2 includes portions of
+Bootstrap v3 javascript in it's primary ``plone`` resources bundle. To avoid
+conflicting implementation, the theme includes a customized compile of the
+``plone-compiled.min.js`` resource that removes it. That custom bundle can
+be updated using a script::
+
+    $ cd bundle_update
+    $ ./update_plone_resources.sh
+
+This step should only be necessary after upgrading Plone itself, and only if the
+``plone.staticresources`` version was changed. The current build is based on
+version ``1.4.2`` of ``plone.staticresources``.
+
+
 Theme Structure
 ---------------
 
