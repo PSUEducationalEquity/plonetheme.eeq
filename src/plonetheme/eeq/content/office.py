@@ -1,4 +1,4 @@
-from plone.dexterity.content import Item
+from plone.dexterity.content import Container
 from plone.supermodel import model
 from plone.dexterity.interfaces import IContentType
 from zope.interface import alsoProvides
@@ -11,5 +11,5 @@ class IOffice(model.Schema):
 alsoProvides(IOffice, IContentType)
 
 
-class Office(Item):
+class Office(Container):
     portal_type = 'plonetheme.eeq.office'
