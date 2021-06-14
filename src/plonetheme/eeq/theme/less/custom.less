@@ -7,8 +7,10 @@
  * ANNOUNCEMENTS........Styles for home page announcements
  * BREADCRUMBS..........Styles for the breadcrumb trail
  * COLORS...............Background colors
+ * CONTENT..............Styles for content related things
  * FEATURE_ITEM.........Styles for the feature item box
  * FOOTER...............Styles specific to the footer
+ * HEADINGS.............Styles for headings
  * HERO.................Styles for the hero images
  * LAYOUT...............Styles for the overall layout
  * LEAVES...............Styles for the top navigation "leaves"
@@ -103,6 +105,19 @@
 
 .breadcrumb {
   background-color: transparent;
+}
+
+
+
+
+/*------------------------------------*\
+    $CONTENT
+\*------------------------------------*/
+
+// description
+.documentDescription.description {
+  margin-bottom: 1.5em;
+  font-size: 1.3rem;
 }
 
 
@@ -232,6 +247,26 @@ footer .login-wrapper {
   footer .login-wrapper {
     float: right;
     margin-top: -1rem;
+  }
+}
+
+
+
+
+/*------------------------------------*\
+    $HEADINGS
+\*------------------------------------*/
+
+h1.documentFirstHeading {
+  font-size: 2.8em;
+  margin: .5em 0;
+}
+
+// front page and office page retain default size/setting
+.section-front-page, .section-offices {
+  h1.documentFirstHeading {
+    font-size: 2em;
+    margin: .67em 0;
   }
 }
 
