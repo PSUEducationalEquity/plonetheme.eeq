@@ -97,4 +97,14 @@
       import_steps="plone.app.registry"
       />
 
+  <genericsetup:upgradeDepends
+      source="1004"
+      destination="1005"
+      sortkey="1"
+      profile="plonetheme.eeq:default"
+      title="update Office content type"
+      import_steps="typeinfo"
+      />
+
+
 </configure>
