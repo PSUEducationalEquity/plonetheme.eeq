@@ -467,6 +467,44 @@ nav.navbar-header {
   padding-right: 8px;
 }
 
+// The boostrap 4 transition CSS is hiding mosaic modals that
+// should have faded in
+.mosaic-modal {
+  &.fade {
+    opacity: 0;
+    -webkit-transition: opacity .25s ease;
+    transition: opacity .25s ease;
+    &.in {
+      opacity: 1;
+      -webkit-transition: opacity .25s ease;
+      transition: opacity .25s ease;
+    }
+  }
+}
+
+.mosaic-toolbar .mosaic-menu {
+  padding: 3px 12px;
+  box-sizing: border-box;
+  height: auto;
+}
+
+// Related items font size tweaks
+.pattern-relateditems-result {
+  .pattern-relateditems-result-browse-wrapper {
+    .pattern-relateditems-result-browse {
+      font-size: 1em;
+      line-height: 2em;
+    }
+  }
+  .pattern-relateditems-item-title, .pattern-relateditems-result-title {
+    font-size: 1em;
+    &[class*="contenttype-"]::before {
+      font-size: 1em;
+    }
+  }
+}
+
+
 /* Responsive breakpoint statements
 @media (min-width: 576px) {
 }
