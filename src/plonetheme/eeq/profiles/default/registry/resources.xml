@@ -4,7 +4,7 @@
   <!-- Use overrideable resource for plone bundle -->
   <records prefix="plone.resources/plone"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-      <value key="js">++resource++static/plone.js</value>
+      <value key="js">++plone++static/plone.js</value>
       <value key="css">
         <element>++plone++static/plone.less</element>
       </value>

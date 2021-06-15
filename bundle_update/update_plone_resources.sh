@@ -5,5 +5,5 @@ cp ../src/plonetheme/eeq/browser/overrides/plone.staticresources.static.plone.js
 ../bin/plone-compile-resources -b plone -s equity --compile-dir . -i ../bin/instance
 
 # Copy files to overrides directory
-cp plone.min.js ../src/plonetheme/eeq/browser/overrides/plone.staticresource.static.plone-compiled.min.js
-cp plone.min.js.map ../src/plonetheme/eeq/browser/overrides/plone.staticresource.static.plone-compiled.min.js.map
+cp plone.min.js ../src/plonetheme/eeq/browser/overrides/plone.staticresources.static.plone-compiled.min.js
+cp plone.min.js.map ../src/plonetheme/eeq/browser/overrides/plone.staticresources.static.plone-compiled.min.js.map

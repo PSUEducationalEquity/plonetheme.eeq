@@ -94,7 +94,7 @@
       sortkey="1"
       profile="plonetheme.eeq:default"
       title="Update plone bundle to remove bootstrap references"
-      import_steps="plone.app.registry"
+      import_steps="plone.app.registry combine-bundles"
       />
 
   <genericsetup:upgradeDepends
