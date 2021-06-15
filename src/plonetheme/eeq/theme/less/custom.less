@@ -17,6 +17,7 @@
  * LINKS................Styles for accessible links
  * LISTS................Styles related to lists
  * NAVIGATION...........Styles specific to the top level navigation
+ * HEADER...............Styles specific to the top level header above the navigation
  */
 
 
@@ -401,9 +402,6 @@ h1.documentFirstHeading {
 .navbar.navbar-header .constrain-width {
   align-items: flex-start;
 }
-.navbar.navbar-header .constrain-width .navbar-collapse {
-  margin-top: -0.5rem;
-}
 .navbar.navbar-header .navbar-nav {
   font-size: 100%;
 }
@@ -436,8 +434,38 @@ h1.documentFirstHeading {
 }
 
 
+/*------------------------------------*\
+    $HEADER
+\*------------------------------------*/
 
+.LSBox .input-group {
+    display: flex;
+}
 
+nav.navbar-header {
+  padding: 0px;
+}
+
+.navbar-brand img{
+  margin: 8px;
+}
+
+.top-search-button .btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  height: calc(1.5em + .5rem + 2px);
+}
+
+#searchGadget {
+  width: auto;
+  height: calc(1.5em + .5rem + 2px);
+}
+
+.top-search-button .searchButton {
+  padding-left: 8px;
+  padding-right: 8px;
+}
 
 /* Responsive breakpoint statements
 @media (min-width: 576px) {
