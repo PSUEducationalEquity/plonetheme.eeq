@@ -80,7 +80,13 @@ be updated using a script::
 
 This step should only be necessary after upgrading Plone itself, and only if the
 ``plone.staticresources`` version was changed. The current build is based on
-version ``1.4.2`` of ``plone.staticresources``.
+version ``1.4.2`` of ``plone.staticresources``. After updating these resources,
+you will probably need to reinstall the
+``plone.staticresources EXPERIMENTAL: Async Resource Loading`` product from
+``portal_quickinstaller`` to rebuild the bundle.
+
+You need to have a site installed at ``/equity`` with the theme already installed
+and updated to successfully run this command.
 
 
 Theme Structure
