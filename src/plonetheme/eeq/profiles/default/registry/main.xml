@@ -7,4 +7,5 @@
   <records prefix="plone" interface="Products.CMFPlone.interfaces.ILinkSchema">
     <value key="mark_special_links">False</value>
   </records>
+  <records interface="plonetheme.eeq.interfaces.ISettings" />
 </registry>
