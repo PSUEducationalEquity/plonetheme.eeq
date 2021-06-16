@@ -16,6 +16,13 @@
 
   <include file="permissions.zcml" />
 
+  <genericsetup:importStep
+      name="merged-bundle-rebuilder"
+      handler=".setuphandlers.rebuild_bundles"
+      title="Rebuild Merged Bundles (reinstall staticresources)"
+      description="">
+  </genericsetup:importStep>
+
   <genericsetup:registerProfile
       name="default"
       title="plonetheme.eeq"
@@ -94,7 +101,7 @@
       sortkey="1"
       profile="plonetheme.eeq:default"
       title="Update plone bundle to remove bootstrap references"
-      import_steps="plone.app.registry combine-bundles"
+      import_steps="plone.app.registry merged-bundle-rebuilder"
       />
 
   <genericsetup:upgradeDepends
@@ -105,6 +112,5 @@
       title="update Office content type"
       import_steps="typeinfo"
       />
-
 
 </configure>

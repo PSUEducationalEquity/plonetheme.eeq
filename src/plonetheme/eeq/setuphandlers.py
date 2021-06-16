@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from Products.CMFPlone.interfaces import INonInstallable
+from Products.CMFCore.utils import getToolByName
 from zope.interface import implementer
 
 
@@ -21,3 +22,14 @@ def post_install(context):
 def uninstall(context):
     """Uninstall script"""
     # Do something at the end of the uninstallation of this package.
+
+
+def rebuild_bundles(context):
+    if hasattr(context, 'getSite'):
+        if context.readDataFile('doaks-content.txt') is None:
+            return
+        portal = context.getSite()
+    else:
+        portal = getToolByName(context, 'portal_url').getPortalObject()
+    qi = getToolByName(portal, 'portal_quickinstaller')
+    qi.reinstallProduct('plone.staticresources')
