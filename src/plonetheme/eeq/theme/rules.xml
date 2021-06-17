@@ -183,6 +183,7 @@
   <before css:theme-children="a.contact-button"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/contact-info</xsl:attribute></before>
   <before css:theme-children="a.site-map"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/sitemap</xsl:attribute></before>
   <before css:theme-children="a.accessibility"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/accessibility-info</xsl:attribute></before>
+  <before css:theme-children="#searchGadget_form"><xsl:attribute name="action"><xsl:value-of select="$portal_url" />/@@search</xsl:attribute></before>
 
   <!-- Login button -->
   <before css:if-content="#portal-anontools" css:theme-children="#personaltools-login"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/login</xsl:attribute></before>
