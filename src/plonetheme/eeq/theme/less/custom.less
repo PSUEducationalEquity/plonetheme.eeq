@@ -510,9 +510,9 @@ nav.navbar-header {
 \*------------------------------------*/
 
 #searchform {
-  cite::before{
-      content: "\a";
-      white-space: pre;
+  cite {
+    display: block;
+    margin-top: .4rem;
   }
 
   .documentAuthor,
@@ -539,11 +539,26 @@ nav.navbar-header {
   .actionMenu {
     display: none;
   }
+  .discreet {
+    color: #555555;
+  }
+  a {
+    color: #0056B3;
+  }
+  .result-title {
+    font-size: 1.75rem;
+    display: block;
+    margin-bottom: .3rem;
+    margin-top: 1.5rem;
+    font-weight: 440;
+    line-height: 1.2;
+  }
 }
 
 body.userrole-manager #searchform .actionMenu {
   display: block;
 }
+
 
 /* Responsive breakpoint statements
 @media (min-width: 576px) {
