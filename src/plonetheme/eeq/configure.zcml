@@ -113,4 +113,11 @@
       import_steps="typeinfo"
       />
 
+  <genericsetup:upgradeDepends
+      source="1005"
+      destination="1006"
+      title="Add settings control panel for top banner config"
+      profile="plonetheme.eeq:default"
+      import_steps="controlpanel plone.app.registry viewlets"
+      />
 </configure>
