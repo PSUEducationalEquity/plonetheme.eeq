@@ -191,4 +191,6 @@
   <before css:if-not-content="#portal-anontools" css:theme-children="#personaltools-login"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/logout</xsl:attribute></before>
   <replace css:if-not-content="#portal-anontools" css:theme-children="#personaltools-login">Log out</replace>
 
+  <!-- Search button in header -->
+  <replace css:theme="#searchGadget" css:content="#searchGadget" />
 </rules>
