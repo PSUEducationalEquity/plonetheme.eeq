@@ -18,6 +18,7 @@
  * LISTS................Styles related to lists
  * NAVIGATION...........Styles specific to the top level navigation
  * HEADER...............Styles specific to the top level header above the navigation
+ * SEARCH_RESULTS.......Styles for the search results page
  */
 
 
@@ -504,6 +505,45 @@ nav.navbar-header {
   }
 }
 
+/*------------------------------------*\
+    $SEARCH_RESULTS
+\*------------------------------------*/
+
+#searchform {
+  cite::before{
+      content: "\a";
+      white-space: pre;
+  }
+
+  .documentAuthor,
+  .documentPublished,
+  .documentModified {
+    display: none;
+  }
+
+  ol.searchResults {
+    li {
+      display: block;
+    }
+    padding-inline-start: 0px;
+  }
+
+  div#search-results {
+    padding-top: 1em;
+  }
+
+  #searchResultsSort {
+    display: none;
+  }
+
+  .actionMenu {
+    display: none;
+  }
+}
+
+body.userrole-manager #searchform .actionMenu {
+  display: block;
+}
 
 /* Responsive breakpoint statements
 @media (min-width: 576px) {
