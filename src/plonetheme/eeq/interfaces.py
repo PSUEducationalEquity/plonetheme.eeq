@@ -34,12 +34,12 @@ class ISettings(model.Schema):
             </div>
         """,
     )
-    top_banner_publication_date = schema.Date(
+    top_banner_publication_date = schema.Datetime(
         title="Only publish after this date",
         description="This date is the first day the banner will be shown",
         required=False
     )
-    top_banner_retire_date = schema.Date(
+    top_banner_retire_date = schema.Datetime(
         title="Do not publish after this date",
         description="This date is the first day the banner will be hidden",
         required=False

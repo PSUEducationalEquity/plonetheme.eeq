@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import datetime
 from zope.component import getUtility
 from plone.app.layout.viewlets import common as base
 from plone.registry.interfaces import IRegistry
@@ -11,10 +11,10 @@ class AboveHeaderBanner(base.ViewletBase):
         registry = getUtility(IRegistry)
         settings = registry.forInterface(ISettings, False)
 
-        today = date.today()
-        if settings.top_banner_publication_date and today < settings.top_banner_publication_date:
+        now = datetime.now()
+        if settings.top_banner_publication_date and now < settings.top_banner_publication_date:
             return ""
-        if settings.top_banner_retire_date and today >= settings.top_banner_retire_date:
+        if settings.top_banner_retire_date and now >= settings.top_banner_retire_date:
             return ""
         if not settings.top_banner_body:
             return ""
