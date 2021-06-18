@@ -34,8 +34,31 @@
           background-color: @porlet-background;
         }
       }
-
     }
+
+    /* fixes for site settings panel */
+    &.portletSiteSetup {
+      .portletContent {
+        font-size: 1rem;
+        font-weight: 400;
+        padding: inherit;
+
+        > li {
+          a {  
+		    padding: inherit !important;
+          }
+        }
+        > ul {
+          > li {
+            height: inherit;
+          }
+          li:hover {
+            background-color: #edecec;
+          }
+        }
+      }
+    }
+
   }
 
   &.portletStaticText {
