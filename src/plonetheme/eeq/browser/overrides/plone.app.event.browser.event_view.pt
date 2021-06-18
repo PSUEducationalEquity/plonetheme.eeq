@@ -49,7 +49,30 @@
       </div>
     </div>
   <div class="row">
-    <tal:eventsummary replace="structure context/@@event_summary"/>
+    <div class="eventFooter row">
+      <div class="col-4">
+        Contact:<br />
+        <a tal:condition="data/contact_email|nothing" tal:attributes="href string:mailto:${data/contact_email}">
+          <tal:name replace="data/contact_name" />
+        </a>
+        <tal:name replace="data/contact_name" tal:condition="not: data/contact_email|nothing" />
+        <tal:phone condition="data/contact_phone">
+        • <tal:phone replace="data/contact_phone" />
+        </tal:phone>
+      </div>
+      <div class="col-4" tal:condition="data/event_url">
+        More information:<br />
+        <a tal:attributes="href data/event_url" >
+          Visit external website
+        </a>
+      </div>
+      <div class="col-4">
+        Subscribe: <br />
+        <i class="fab fa-google"></i>
+        <i class="fas fa-calendar-alt"></i>
+        <i class="fas fa-clock"></i>
+      </div>
+    </div>
   </div>
 </tal:def>
 </metal:block>
