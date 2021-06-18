@@ -564,20 +564,26 @@ body.userrole-manager #searchform .actionMenu {
     $EVENT
 \*------------------------------------*/
 
-ul#event-row-above-body {
-  display: flex;
-  list-style-type: none;
-  padding-inline-start: 0px;
-  li {
-    margin-right: 2em;
-    font-size: 1.2em;
-    font-weight: 500;
-    i {
-      color: #1e3c7c;
+body.portaltype-event {
+  ul#event-row-above-body {
+    display: flex;
+    list-style-type: none;
+    padding-inline-start: 0px;
+    li {
+      margin-right: 2em;
+      font-weight: bold;
+      i {
+        color: #1e3c7c;
+      }
     }
   }
+  .event-image-column {
+    overflow: hidden;
+  }
+  .leadImage {
+    display: none;
+  }
 }
-
 
 /* Responsive breakpoint statements
 @media (min-width: 576px) {

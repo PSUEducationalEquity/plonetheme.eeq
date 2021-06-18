@@ -10,35 +10,47 @@
 <metal:content-core fill-slot="content-core">
 <metal:block define-macro="content-core">
 <tal:def tal:define="data nocall:view/data">
+  <div class="container event clearfix" itemscope itemtype="https://schema.org/Event">
+    <div class="row">
+      <div class="col-8">
+        <ul id="event-row-above-body" class="hiddenStructure">
+          <li itemprop="startDate">
+            <i class="fas fa-calendar-alt"></i>
+            <tal:date replace="python: data.start.strftime('%B')" />
+            <tal:date replace="python: data.start.strftime('%-d')" />,
+            <tal:date replace="python: data.start.strftime('%Y')" />
+          </li>
 
-  <div class="event clearfix" itemscope itemtype="https://schema.org/Event">
-    <ul id="event-row-above-body" class="hiddenStructure">
-      <li itemprop="startDate">
-        <i class="fas fa-calendar-alt"></i>
-        <tal:date replace="python: data.start.strftime('%B')" />
-        <tal:date replace="python: data.start.strftime('%-d')" />,
-        <tal:date replace="python: data.start.strftime('%Y')" />
-      </li>
+          <li itemprop="startTime">
+            <i class="fas fa-clock"></i>
+            <tal:date replace="python: data.start.strftime('%H:%S')" />
+          </li>
 
-      <li itemprop="startTime">
-        <i class="fas fa-clock"></i>
-        <tal:date replace="python: data.start.strftime('%H:%S')" />
-      </li>
-
-      <li itemprop="location">
-        <i class="fas fa-map-pin"></i>
-        <tal:date replace="python: data.location" />
-      </li>
-    </ul>
-
-    <tal:eventsummary replace="structure context/@@event_summary"/>
-
-    <div id="parent-fieldname-text" tal:condition="data/text">
-      <tal:text content="structure data/text" />
+          <li itemprop="location">
+            <i class="fas fa-map-pin"></i>
+            <tal:date replace="python: data.location" />
+          </li>
+        </ul>
+        <div id="parent-fieldname-text" tal:condition="data/text">
+          <tal:text content="structure data/text" />
+        </div>
+      </div>
+      <div class="col-4 event-image-column">
+        <div class="eventleadImage"
+        tal:define="scale_func context/@@images;
+                    scaled_image python: getattr(context.aq_explicit, 'image', False) and scale_func.scale('image', scale='large')">
+        <figure class="newsImageContainer" tal:condition="python: scaled_image">
+            <img tal:replace="structure scaled_image/tag" />
+            <figcaption tal:condition="context/image_caption|nothing"
+                tal:content="context/image_caption">
+            </figcaption>
+        </figure>
+      </div>
+      </div>
     </div>
-
+  <div class="row">
+    <tal:eventsummary replace="structure context/@@event_summary"/>
   </div>
-
 </tal:def>
 </metal:block>
 </metal:content-core>
