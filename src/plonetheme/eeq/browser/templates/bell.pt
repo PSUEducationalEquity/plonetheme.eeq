@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+  <body>
+    <metal:macro define-macro="bell"
+                 tal:define="url content/absolute_url|nothing;
+                             title content/Title|nothing;">
+
+          <div class="alert alert-danger">
+            <span class="oi oi-bell float-left d-none d-sm-inline" aria-hidden="true" title="Important announcement follows"></span>
+            <h4><a href="">Response to the loss of George Floyd</a></h4>
+            <p>
+              Dr. Whitehurst, Vice Provost for Educational Equity addresses
+              the loss of George Floyd in Minnesota, Breonna Taylor in
+              Kentucky, and Ahmaud Arbrey in Georgia as victims of
+              unconscionable acts of violence.
+            </p>
+          </div>
+
+
+<!--!    <div class="belltile" tal:condition="nocall:content">
+        <div>
+        <i class="fas fa-bell"></i>
+            <h4 class="cardTitle"><a href="${url}" title="${title}">${title}</a></h4>
+            <div class="cardDescription" tal:condition="view/show_description">
+                ${content/Description}
+            </div>
+        </div>
+    </div> -->
+    </metal:macro>
+  </body>
+</html>

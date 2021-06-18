@@ -1,24 +1,75 @@
 .mosaic-jazkarta\.tesserae\.content_summary-tile {
-    .mosaic-tile-content {
-      .card {
-        margin-bottom: 3rem !important;
-        height: 100%!important;
-        .cardTop {
-          text-align: center;
-          > a {
-            z-index: 2;
-            background-color: transparent;
-          }
-          @media (max-width: 576px) {
-            display: none;
-          }
+  .mosaic-tile-content {
+    .card {
+      margin-bottom: 3rem !important;
+      height: 100%!important;
+      .cardTop {
+        text-align: center;
+        > a {
+          z-index: 2;
+          background-color: transparent;
         }
-        .cardBottom {
-          -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
-          min-height: 1px;
-          padding: 1.25rem;
+        @media (max-width: 576px) {
+          display: none;
         }
       }
+      .cardBottom {
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 1.25rem;
+      }
     }
+  }
+}
+
+.mosaic-tile-content {
+  .alert {
+    .fa-bell {
+        font-size: 3rem;
+        margin: 0.5rem 1.5rem 1rem 0;
+        float: left!important;
+        @media (max-width: 576px) {
+          display: none;
+        }
+    }
+    h4.title {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .content {
+        display: block;
+    }
+    .noHover { /* disable hover/underline for links that contain no url */
+        pointer-events: none;  
+    }
+        
+    /* alert styles */ 
+    /* can add more alert styles here 3/3 */
+    &.alert-primary {
+        color: #004085;
+        background-color: #cce5ff;
+        border-color: #b8daff;
+        h4 > a {
+            color: #007bff;
+            &:hover {
+                color: #0056b3;
+                text-decoration: underline;
+            }
+        }
+    }
+    &.alert-danger {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        h4 > a {
+            color: #c12434;
+            &:hover {
+                color: #932430;
+                text-decoration: underline;
+            }
+        }
+
+    }
+  }
 }

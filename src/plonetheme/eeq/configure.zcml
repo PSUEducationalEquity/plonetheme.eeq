@@ -120,4 +120,13 @@
       profile="plonetheme.eeq:default"
       import_steps="controlpanel plone.app.registry viewlets"
       />
+
+  <genericsetup:upgradeDepends
+      source="1006"
+      destination="1007"
+      title="Update tile types"
+      profile="plonetheme.eeq:default"
+      import_steps="plone.app.registry"
+      />
+
 </configure>
