@@ -23,6 +23,7 @@
     .portletContent {
       font-size: 1rem; 
       padding: 15px 15px 15px 15px;
+      margin-bottom: 0rem;
 
       > ul {
         > li {
@@ -71,8 +72,32 @@
     .portletContent {
       font-size: 1rem;
       padding: 15px 15px 15px 30px;
+      margin-bottom: 0rem;
     }
 
+  }
+
+  &.portletCollection {
+    .portletHeader {
+      font-size: 1.5rem;
+      padding-top: 15px;
+      padding-left: 30px;
+      padding-right: 15px;
+    }
+
+    .portletContent {
+      font-size: 1rem;
+      padding: 15px 15px 15px 30px;
+      margin-bottom: 0rem;
+
+      > li {
+        padding: 7px 0px 7px 0px;
+        margin-left: 15px;
+      }
+      li:hover {
+        background-color: @porlet-background;
+      }
+    }
   }
 
 }
@@ -86,10 +111,10 @@
     position: relative;
     > li {
       a {  
-				display: block;
-				padding: 10px 15px 26px 15px;
-				position: relative;
-				z-index: 1;
+		display: block;
+		padding: 10px 15px 26px 15px;
+		position: relative;
+		z-index: 1;
       }
     }
     li:hover {background: @plone-portlet-list-hover-bg;}
