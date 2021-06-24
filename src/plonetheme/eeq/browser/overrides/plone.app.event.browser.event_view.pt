@@ -69,8 +69,7 @@
       <div class="col-4">
         Subscribe: <br />
         <i class="fab fa-google"></i>
-        <i class="fas fa-calendar-alt"></i>
-        <i class="fas fa-clock"></i>
+        <a tal:attributes="href string:${context/absolute_url}/ics_view"><i class="fas fa-calendar-alt"></i></a>
       </div>
     </div>
   </div>
