@@ -34,6 +34,18 @@
       permission="zope2.View"
       />
 
+  <plone:tile
+      name="plonetheme.eeq.alert"
+      title="Alert"
+      description="A tile that displays text, allows for style choice and optional title url link"
+      add_permission="cmf.ModifyPortalContent"
+      class=".tiles.AlertTile"
+      for="*"
+      permission="zope.Public"
+      schema=".tiles.IAlertTile"
+      template="templates/alert.pt"
+      />
+
   <browser:page
       for="plone.app.contenttypes.interfaces.IEvent"
       name="event-calendar-links"
@@ -41,4 +53,5 @@
       class=".event.CalendarLinks"
       allowed_attributes="portal_state"
       />
+
 </configure>
