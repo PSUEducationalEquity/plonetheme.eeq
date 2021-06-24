@@ -19,6 +19,7 @@
  * NAVIGATION...........Styles specific to the top level navigation
  * HEADER...............Styles specific to the top level header above the navigation
  * SEARCH_RESULTS.......Styles for the search results page
+ * EVENT................Styles for the event content
  */
 
 
@@ -559,6 +560,43 @@ body.userrole-manager #searchform .actionMenu {
   display: block;
 }
 
+/*------------------------------------*\
+    $EVENT
+\*------------------------------------*/
+
+body.portaltype-event {
+  ul#event-row-above-body {
+    display: flex;
+    list-style-type: none;
+    padding-inline-start: 0px;
+    li {
+      margin-right: 2em;
+      font-weight: bold;
+      i {
+        color: #1e3c7c;
+      }
+    }
+  }
+  .event-image-column {
+    overflow: hidden;
+  }
+  .leadImage {
+    display: none;
+  }
+  .eventFooter {
+    padding: 1em;
+    background-color: #e5eaf0;
+    width: 100%;
+    margin-top: 1em;
+    i {
+      color: #1e3c7c;
+      margin-right: 0.5em;
+    }
+  }
+  .newsImageContainer {
+    float: left;
+  }
+}
 
 /* Responsive breakpoint statements
 @media (min-width: 576px) {

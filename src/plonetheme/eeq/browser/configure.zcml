@@ -46,4 +46,12 @@
       template="templates/alert.pt"
       />
 
+  <browser:page
+      for="plone.app.contenttypes.interfaces.IEvent"
+      name="event-calendar-links"
+      permission="zope2.Public"
+      class=".event.CalendarLinks"
+      allowed_attributes="portal_state"
+      />
+
 </configure>
