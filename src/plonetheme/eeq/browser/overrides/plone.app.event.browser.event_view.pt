@@ -68,7 +68,7 @@
       </div>
       <div class="col-4">
         Subscribe: <br />
-        <i class="fab fa-google"></i>
+        <a tal:attributes="href context/@@event-calendar-links/gcal_url"><i class="fab fa-google"></i></a>
         <a tal:attributes="href string:${context/absolute_url}/ics_view"><i class="fas fa-calendar-alt"></i></a>
       </div>
     </div>
