@@ -27,10 +27,33 @@
   .alert {
     .fa-bell {
         font-size: 3rem;
-        margin: 0.5rem 1.5rem 1rem 0;
-        float: left!important;
+        margin: .5rem 1.5rem 1rem 0;
+        min-width: 40px;
+        vertical-align: top;
         @media (max-width: 576px) {
           display: none;
+        }
+    }
+    .text {
+        display: inline-block;
+        width: 90%;
+        @media (max-width: 1044px) {
+          width: 88%;
+        }
+        @media (max-width: 885px) {
+          width: 85%;
+        }
+        @media (max-width: 768px) {
+          width: 88%;
+        }
+        @media (max-width: 670px) {
+          width: 86%;
+        }
+        @media (max-width: 590px) {
+          width: 85%;
+        }
+        @media (max-width: 576px) {
+          width: 100%;
         }
     }
     h4.title {

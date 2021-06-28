@@ -11,8 +11,10 @@
                  tal:define="url nocall:view/content_url|nothing;">
         <div tal:attributes="class python:view.alert_style">
             <i class="fas fa-bell"></i>
-            <h4 class="title"><a tal:attributes="class python:url is None and 'noHover'" href="${url}" title="${title}">${title}</a></h4>
-            <p class="content" tal:content="content">
+            <div class="text">
+                <h4 tal:condition="title" class="title"><a tal:attributes="class python:url is None and 'noHover'" href="${url}" title="${title}">${title}</a></h4>
+                <p class="content" tal:content="content">
+            <div>
             </p>
        </div>
     </metal:macro>
