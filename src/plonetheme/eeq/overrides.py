@@ -38,7 +38,7 @@ class TileDatetimeWidgetConverter(DatetimeWidgetConverter):
         can use it: '2021-06-01T03:40:00' → '2021-06-30 09:00'.
 
         :param value: Field value.
-        :type value: str or None (misteriously not a datetime)
+        :type value: str or None (mysteriously not a datetime)
 
         :returns: Datetime in format `Y-m-d H:M`
         :rtype: string
