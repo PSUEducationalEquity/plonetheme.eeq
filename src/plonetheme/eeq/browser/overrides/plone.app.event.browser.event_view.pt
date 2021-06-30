@@ -12,25 +12,29 @@
 <tal:def tal:define="data nocall:view/data">
   <div class="container event clearfix" itemscope itemtype="https://schema.org/Event">
     <div class="row">
+      <div class="row">
+        <div class="col">
+          <ul id="event-row-above-body" class="hiddenStructure">
+            <li itemprop="startDate">
+              <i class="fas fa-calendar-alt"></i>
+              <tal:date replace="python: data.start.strftime('%B')" />
+              <tal:date replace="python: data.start.strftime('%-d')" />,
+              <tal:date replace="python: data.start.strftime('%Y')" />
+            </li>
+
+            <li itemprop="startTime">
+              <i class="fas fa-clock"></i>
+              <tal:date replace="python: data.start.strftime('%H:%S')" />
+            </li>
+
+            <li itemprop="location">
+              <i class="fas fa-map-pin"></i>
+              <tal:date replace="python: data.location" />
+            </li>
+          </ul>
+        </div>
+      </div>
       <div class="col-8">
-        <ul id="event-row-above-body" class="hiddenStructure">
-          <li itemprop="startDate">
-            <i class="fas fa-calendar-alt"></i>
-            <tal:date replace="python: data.start.strftime('%B')" />
-            <tal:date replace="python: data.start.strftime('%-d')" />,
-            <tal:date replace="python: data.start.strftime('%Y')" />
-          </li>
-
-          <li itemprop="startTime">
-            <i class="fas fa-clock"></i>
-            <tal:date replace="python: data.start.strftime('%H:%S')" />
-          </li>
-
-          <li itemprop="location">
-            <i class="fas fa-map-pin"></i>
-            <tal:date replace="python: data.location" />
-          </li>
-        </ul>
         <div id="parent-fieldname-text" tal:condition="data/text">
           <tal:text content="structure data/text" />
         </div>
