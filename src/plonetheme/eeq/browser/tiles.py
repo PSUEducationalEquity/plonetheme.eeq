@@ -1,12 +1,14 @@
 from plonetheme.eeq import _
+from plonetheme.eeq.overrides import TileDatetime
 from jazkarta.tesserae.utils import uuidToObject
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.vocabularies.catalog import CatalogSource
+from plone.autoform import directives as form
 try:
     from plone.app.widgets.dx import RelatedItemsWidget
-    from plone.autoform import directives as form
 except ImportError:
     RelatedItemsWidget = None
+from plone.app.z3cform.widget import DatetimeWidget
 from plone.memoize.view import memoize
 from plone.tiles import Tile
 from plone.supermodel import model
@@ -49,17 +51,20 @@ class IAlertTile(model.Schema):
         required=False
     )
 
-    publication_date = schema.Datetime(
+    publication_date = TileDatetime(
         description="Display tile from this date",
         title=_(u'Publication Date'),
         required=False
     )
 
-    expiration_date = schema.Datetime(
+    expiration_date = TileDatetime(
         description="Display tile until this date",
         title=_(u'Expiration Date'),
         required=False
     )
+
+    form.widget('publication_date', DatetimeWidget)
+    form.widget('expiration_date', DatetimeWidget)
 
     # can add more alert styles here 1/3
     style = schema.Choice(
