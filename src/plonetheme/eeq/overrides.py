@@ -34,11 +34,13 @@ class TileDatetimeWidgetConverter(DatetimeWidgetConverter):
         """Converts from field value to widget.
         Overridden because we're being passed a string, but the parent class
         expects a datetime object.
+        The format is also changed so that the patterns library datetime widget
+        can use it: '2021-06-01T03:40:00' → '2021-06-30 09:00'.
 
         :param value: Field value.
-        :type value: str (misteriously not a datetime)
+        :type value: str or None (misteriously not a datetime)
 
         :returns: Datetime in format `Y-m-d H:M`
         :rtype: string
         """
-        return value
+        return value and value.replace("T", " ")[:16]
