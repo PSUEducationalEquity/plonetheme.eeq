@@ -34,12 +34,12 @@
           </ul>
         </div>
       </div>
-      <div class="col-8">
+      <div class="col-md-8">
         <div id="parent-fieldname-text" tal:condition="data/text">
           <tal:text content="structure data/text" />
         </div>
       </div>
-      <div class="col-4 event-image-column">
+      <div class="col-4 event-image-column d-none d-md-block">
         <div class="eventleadImage"
         tal:define="scale_func context/@@images;
                     scaled_image python: getattr(context.aq_explicit, 'image', False) and scale_func.scale('image', scale='large')">
