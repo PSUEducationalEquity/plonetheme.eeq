@@ -1,18 +1,21 @@
 from plonetheme.eeq import _
+from plonetheme.eeq.overrides import TileDatetime
 from jazkarta.tesserae.utils import uuidToObject
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.vocabularies.catalog import CatalogSource
+from plone.autoform import directives as form
 try:
     from plone.app.widgets.dx import RelatedItemsWidget
-    from plone.autoform import directives as form
 except ImportError:
     RelatedItemsWidget = None
+from plone.app.z3cform.widget import DatetimeWidget
 from plone.memoize.view import memoize
 from plone.tiles import Tile
 from plone.supermodel import model
 from plone import api
 from zExceptions import Unauthorized
 from zope import schema
+from datetime import datetime
 
 
 class IAlertTile(model.Schema):
@@ -40,6 +43,28 @@ class IAlertTile(model.Schema):
         description="Please include full url with 'http/https' prefix",
         required=False,
     )
+
+    use_date_range = schema.Bool(
+        title=_(u'Use date range'),
+        description="Optionally, restrict display date range by providing publication and expiration dates",
+        default=False,
+        required=False
+    )
+
+    publication_date = TileDatetime(
+        description="Display tile from this date",
+        title=_(u'Publication Date'),
+        required=False
+    )
+
+    expiration_date = TileDatetime(
+        description="Display tile until this date",
+        title=_(u'Expiration Date'),
+        required=False
+    )
+
+    form.widget('publication_date', DatetimeWidget)
+    form.widget('expiration_date', DatetimeWidget)
 
     # can add more alert styles here 1/3
     style = schema.Choice(
@@ -98,5 +123,18 @@ class AlertTile(Tile):
 
         style_table = {'primary' : 'alert-primary', 
                        'warning' : 'alert-danger'}
+
+        # expiration check
+        if self.data.get('use_date_range'):
+
+            pub_date = self.data.get('publication_date')
+            exp_date = self.data.get('expiration_date')
+            now = datetime.now()
+            if pub_date:
+                if now < datetime.strptime(pub_date, '%Y-%m-%dT%H:%M:%S'):
+                    return 'alert ' + style_table[choice] + ' in-active'
+            if exp_date:
+                if now >= datetime.strptime(exp_date, '%Y-%m-%dT%H:%M:%S'):
+                    return 'alert ' + style_table[choice] + ' in-active'
 
         return 'alert ' + style_table[choice]

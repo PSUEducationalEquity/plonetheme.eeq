@@ -129,4 +129,6 @@
       import_steps="plone.app.registry"
       />
 
+  <adapter factory=".overrides.TileDatetimeWidgetConverter" />
+
 </configure>
