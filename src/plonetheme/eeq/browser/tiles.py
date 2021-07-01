@@ -44,22 +44,15 @@ class IAlertTile(model.Schema):
         required=False,
     )
 
-    use_date_range = schema.Bool(
-        title=_(u'Use date range'),
-        description="Optionally, restrict display date range by providing publication and expiration dates",
-        default=False,
-        required=False
-    )
-
     publication_date = TileDatetime(
+        title=_(u'Publication Date (optional)'),
         description="Display tile from this date",
-        title=_(u'Publication Date'),
         required=False
     )
 
     expiration_date = TileDatetime(
+        title=_(u'Expiration Date (optional)'),
         description="Display tile until this date",
-        title=_(u'Expiration Date'),
         required=False
     )
 
@@ -125,16 +118,14 @@ class AlertTile(Tile):
                        'warning' : 'alert-danger'}
 
         # expiration check
-        if self.data.get('use_date_range'):
-
-            pub_date = self.data.get('publication_date')
-            exp_date = self.data.get('expiration_date')
-            now = datetime.now()
-            if pub_date:
-                if now < datetime.strptime(pub_date, '%Y-%m-%dT%H:%M:%S'):
-                    return 'alert ' + style_table[choice] + ' in-active'
-            if exp_date:
-                if now >= datetime.strptime(exp_date, '%Y-%m-%dT%H:%M:%S'):
-                    return 'alert ' + style_table[choice] + ' in-active'
+        pub_date = self.data.get('publication_date')
+        exp_date = self.data.get('expiration_date')
+        now = datetime.now()
+        if pub_date:
+            if now < datetime.strptime(pub_date, '%Y-%m-%dT%H:%M:%S'):
+                return 'alert ' + style_table[choice] + ' in-active'
+        if exp_date:
+            if now >= datetime.strptime(exp_date, '%Y-%m-%dT%H:%M:%S'):
+                return 'alert ' + style_table[choice] + ' in-active'
 
         return 'alert ' + style_table[choice]
