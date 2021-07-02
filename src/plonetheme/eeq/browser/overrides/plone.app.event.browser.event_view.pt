@@ -50,7 +50,7 @@
     </div>
   <div class="row">
     <div class="eventFooter row">
-      <div class="col-md">
+      <div class="col-md-4 my-1 my-md-0">
         Contact:<br />
         <a tal:condition="data/contact_email|nothing" tal:attributes="href string:mailto:${data/contact_email}">
           <tal:name replace="data/contact_name" />
@@ -60,13 +60,15 @@
         • <tal:phone replace="data/contact_phone" />
         </tal:phone>
       </div>
-      <div class="col-md" tal:condition="data/event_url">
-        More information:<br />
-        <a tal:attributes="href data/event_url" >
-          Visit external website
-        </a>
+      <div class="col-md-4 my-1 my-md-0">
+        <span tal:condition="data/event_url">
+          More information:<br />
+          <a tal:attributes="href data/event_url" >
+            Visit external website
+          </a>
+        </span>
       </div>
-      <div class="col-md">
+      <div class="col-md-4 my-1 my-md-0">
         Subscribe: <br />
         <a tal:attributes="href context/@@event-calendar-links/gcal_url"><i class="fab fa-google"></i></a>
         <a tal:attributes="href string:${context/absolute_url}/ics_view"><i class="fas fa-calendar-alt"></i></a>
