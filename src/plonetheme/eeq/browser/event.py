@@ -3,7 +3,9 @@ from six.moves.urllib.parse import urlencode
 from Products.Five.browser import BrowserView
 
 
-class CalendarLinks(BrowserView):
+class PSUEventHelpers(BrowserView):
+    """Helper functions for event content type.
+    """
     def gcal_url(self):
         """Returns a Google Calendar URL for the context event.
         """
@@ -19,3 +21,13 @@ class CalendarLinks(BrowserView):
                 "dates": dates,
                 "location": self.context.location or "",
             })
+
+    def format_time(self, time):
+        """Format the given `time` (a datetime object) like this:
+        '7:00 p.m.' / '11:00 a.m.' / '9:00 a.m.'
+        """
+        formatted_time = time.strftime('%I:%S')
+        if formatted_time.startswith('0'):
+            formatted_time = formatted_time[1:]
+        am_or_pm = time.strftime('%p').lower().replace("am", "a.m.").replace("pm", "p.m.")
+        return formatted_time + " " + am_or_pm

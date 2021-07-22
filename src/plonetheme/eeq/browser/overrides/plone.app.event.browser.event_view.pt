@@ -9,7 +9,7 @@
 
 <metal:content-core fill-slot="content-core">
 <metal:block define-macro="content-core">
-<tal:def tal:define="data nocall:view/data">
+<tal:def tal:define="data nocall:view/data; helper_view context/@@psu-event-helper">
   <div class="container event clearfix" itemscope itemtype="https://schema.org/Event">
     <div class="row"
          tal:define="scale_func context/@@images;
@@ -25,7 +25,7 @@
 
         <li itemprop="startTime" class="col-xs-12 col-sm-6 col-md-4">
           <i class="fas fa-clock"></i>
-          <tal:date replace="python: data.start.strftime('%H:%S')" />
+          <tal:date replace="python: helper_view.format_time(data.start)" />
         </li>
 
         <li itemprop="location" class="col-xs-12 col-md-4">
@@ -71,7 +71,7 @@
       </div>
       <div class="col-md-4 my-1 my-md-0">
         Subscribe: <br />
-        <a tal:attributes="href context/@@event-calendar-links/gcal_url"><i class="fab fa-google"></i></a>
+        <a tal:attributes="href helper_view/gcal_url"><i class="fab fa-google"></i></a>
         <a tal:attributes="href string:${context/absolute_url}/ics_view"><i class="fas fa-calendar-alt"></i></a>
       </div>
     </div>
