@@ -2,12 +2,12 @@
 
   <records prefix="plone" interface="Products.CMFPlone.interfaces.controlpanel.IImagingSchema">
     <value key="allowed_sizes" purge="False">
-      <element>psu_hero 1900:520</element>
+      <element>psu_hero 1900:270</element>
       <element>large 768:768</element>
       <element>preview 400:400</element>
-      <element>psu_tile 396:210</element>
+      <element>psu_tile 335:200</element>
       <element>mini 200:300</element>
-      <element>psu_square 220:220</element>
+      <element>psu_office 396:32</element>
       <element>cover_medium 150:210</element>
       <element>thumb 128:128</element>
       <element>cover_small 100:145</element>
@@ -22,7 +22,7 @@
     <value key="cropping_for" purge="False">
       <element>psu_hero</element>
       <element>psu_tile</element>
-      <element>psu_square</element>
+      <element>psu_office</element>
     </value>
   </records>
 
