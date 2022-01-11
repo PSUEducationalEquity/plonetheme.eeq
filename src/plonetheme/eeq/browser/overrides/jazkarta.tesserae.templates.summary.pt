@@ -6,11 +6,12 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="plone">
-  <body tal:define="content nocall:view/content;">
+  <body tal:define="content nocall:view/content; type content/portal_type|nothing">
     <metal:macro define-macro="summary"
                  tal:define="url content/absolute_url|nothing;
                              title content/Title|nothing;
-                             image_url python: url + '/@@images/image/psu_tile';
+                             image_scale python:type == 'plonetheme.eeq.office' and 'psu_office' or 'psu_tile';
+                             image_url python: url + '/@@images/image/' + image_scale;
                              toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
     <div class="card" tal:condition="nocall:content">
         <div tal:condition="image_url"
