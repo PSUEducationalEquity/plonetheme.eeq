@@ -10,7 +10,7 @@
     <metal:macro define-macro="summary"
                  tal:define="url content/absolute_url|nothing;
                              title content/Title|nothing;
-                             image_url python: url + '/@@images/image';
+                             image_url python: url + '/@@images/image/psu_tile';
                              toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
     <div class="card" tal:condition="nocall:content">
         <div tal:condition="image_url"
