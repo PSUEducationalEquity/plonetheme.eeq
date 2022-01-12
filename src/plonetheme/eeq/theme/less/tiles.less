@@ -1,4 +1,4 @@
-.mosaic-jazkarta\.tesserae\.content_summary-tile {
+.mosaic-jazkarta\.tesserae\.content_summary-tile, .mosaic-jazkarta\.tesserae\.collection_summary-tile {
   .mosaic-tile-content {
     .card {
       margin-bottom: 3rem !important;
@@ -112,6 +112,25 @@
             }
         }
 
+    }
+  }
+}
+
+
+.collection-tile-cards {
+  display: flex;
+  flex-direction: column;
+  .cardContainer {
+    display: flex;
+    .card {
+      a {
+        text-align: center;
+        display: block;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
     }
   }
 }
