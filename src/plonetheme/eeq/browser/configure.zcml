@@ -44,6 +44,15 @@
       template="templates/office-links.pt"
       />
 
+  <browser:viewlet
+      name="plonetheme.eeq.hero-image"
+      for="*"
+      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+      layer="plonetheme.eeq.interfaces.IPlonethemeEeqLayer"
+      class=".hero.HeroImage"
+      permission="zope2.View"
+      />
+
   <plone:tile
       name="plonetheme.eeq.alert"
       title="Alert"

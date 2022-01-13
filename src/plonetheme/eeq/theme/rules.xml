@@ -52,6 +52,7 @@
 
   <!-- Office header -->
   <replace css:theme-children=".office-name-wrapper .office-name" css:content-children="#office-title" />
+  <replace css:theme="#hero-image" css:content="#hero-image" />
 
   <!-- full-width breadcrumb -->
   <replace css:theme-children="nav#portal-breadcrumbs">
