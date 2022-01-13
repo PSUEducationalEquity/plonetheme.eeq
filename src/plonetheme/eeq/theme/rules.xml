@@ -50,6 +50,9 @@
   <replace css:theme-children="#navbar-office-left" css:content-children="#office-navbar-left" />
   <replace css:theme-children="#navbar-office-right" css:content-children="#office-navbar-right" />
 
+  <!-- Office header -->
+  <replace css:theme-children=".office-name-wrapper .office-name" css:content-children="#office-title" />
+
   <!-- full-width breadcrumb -->
   <replace css:theme-children="nav#portal-breadcrumbs">
     <ol class="breadcrumb">

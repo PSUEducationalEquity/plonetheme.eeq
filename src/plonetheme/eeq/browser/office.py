@@ -3,10 +3,11 @@ from plone.app.layout.viewlets import common as base
 
 class OfficeLinks(base.ViewletBase):
     """Viewlet to render links in the office navigation bar.
+    Also renders the office title and the hero banner.
     """
 
     def render(self):
-        office = self.office_context()
+        self.office = office = self.office_context()
         if office is None:
             return ""
 
