@@ -46,6 +46,10 @@
       </ul>
   </replace>
 
+  <!-- Office navigation -->
+  <replace css:theme-children="#navbar-office-left" css:content-children="#office-navbar-left" />
+  <replace css:theme-children="#navbar-office-right" css:content-children="#office-navbar-right" />
+
   <!-- full-width breadcrumb -->
   <replace css:theme-children="nav#portal-breadcrumbs">
     <ol class="breadcrumb">
