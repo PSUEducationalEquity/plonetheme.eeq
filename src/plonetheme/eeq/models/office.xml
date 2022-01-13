@@ -24,5 +24,12 @@
       <title>LinkedIn url</title>
       <required>False</required>
     </field>
+    <field name="navigation_links" type="z3c.relationfield.schema.RelationList">
+      <title>Links on the right of the top bar</title>
+      <required>False</required>
+      <value_type type="z3c.relationfield.schema.RelationChoice">
+        <title>Office links</title>
+      </value_type>
+    </field>
   </schema>
 </model>
