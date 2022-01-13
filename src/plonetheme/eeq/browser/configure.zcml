@@ -34,6 +34,16 @@
       permission="zope2.View"
       />
 
+  <browser:viewlet
+      name="plonetheme.eeq.office-links"
+      for="*"
+      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+      layer="plonetheme.eeq.interfaces.IPlonethemeEeqLayer"
+      class=".office.OfficeLinks"
+      permission="zope2.View"
+      template="templates/office-links.pt"
+      />
+
   <plone:tile
       name="plonetheme.eeq.alert"
       title="Alert"
