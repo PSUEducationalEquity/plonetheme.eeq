@@ -13,7 +13,10 @@ class OfficeLinks(base.ViewletBase):
             return ""
 
         now = DateTime()
-        self.left_links = [
+        self.left_links = [{
+                "title": "Home",
+                "url": office.absolute_url()
+        }] + [
             {
                 "title": obj.title,
                 "url": obj.absolute_url()
