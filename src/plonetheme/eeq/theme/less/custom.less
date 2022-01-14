@@ -291,15 +291,20 @@ h1.documentFirstHeading {
   color: #222;
   font-size: 1.2rem;
   width: 100%;
-}
-.hero .office-name {
-  padding: 0.3rem 2rem;
-}
-.hero .office-name a {
-  color: #222;
-}
-.hero .office-name a:hover {
-  color: #000;
+  .office-name {
+    padding: 0.3rem 2rem;
+    #office-title, a {
+      display: inline;
+      font-size: 1.2rem;
+      margin: 0;
+      padding: 0;
+      color: #222;
+      font-weight: normal;
+    }
+    a:hover {
+      color: #000;
+    }
+  }
 }
 
 @media (min-width: 768px) {
@@ -307,13 +312,19 @@ h1.documentFirstHeading {
     bottom: 0;
     font-size: 2.5rem;
     left: 0;
-    opacity: 70%;
+    background-color: rgba(255, 255, 255, .7);
     position: absolute;
+    #office-title, a {
+      font-size: 2.5rem;
+    }
   }
   .hero .office-name-wrapper {
     font-size: 1.5rem;
     opacity: 100%;
     position: relative;
+    #office-title, a {
+      font-size: 1.5rem;
+    }
   }
 }
 

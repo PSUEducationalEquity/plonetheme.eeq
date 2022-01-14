@@ -35,6 +35,9 @@ class OfficeLinks(base.ViewletBase):
         ]
         return self.index()
 
+    def is_office(self):
+        return getattr(self.context, 'portal_type', None) == 'plonetheme.eeq.office'
+
     def office_context(self):
         """Walk up hierarchy to find the office context.
         """

@@ -14,6 +14,7 @@
         </li>
     </ul>
 </div>
-<span id="office-title">
+<h1 id="office-title" tal:condition="view/is_office" tal:content="context/title">Office Title</h1>
+<span tal:condition="not:view/is_office" tal:attributes="id string:office-title">
     <a href="${view/office/absolute_url}">${view/office/title}</a>
 </span>
