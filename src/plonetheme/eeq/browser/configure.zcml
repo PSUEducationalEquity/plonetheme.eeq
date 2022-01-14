@@ -73,4 +73,14 @@
       allowed_attributes="portal_state"
       />
 
+  <browser:page
+    for="plone.dexterity.interfaces.IDexterityContainer"
+    permission="zope2.View"
+    name="summary_with_images"
+    template="templates/summary_with_images.pt"
+    menu="plone_displayviews"
+    title="Summary view with images"
+    class="plone.app.contenttypes.browser.folder.FolderView"
+    />
+
 </configure>
