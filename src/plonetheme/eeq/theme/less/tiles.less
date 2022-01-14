@@ -124,21 +124,26 @@
 }
 
 
-.mosaic-jazkarta\.tesserae\.collection_summary-tile .mosaic-tile-content .cards {
-  display: flex;
-  flex-direction: column;
-  .cardContainer {
+.mosaic-jazkarta\.tesserae\.collection_summary-tile .mosaic-tile-content {
+  .viewAll {
+    display: none;
+  }
+  .cards {
     display: flex;
-    flex-wrap: wrap;
-    .card {
-      flex-basis: 50%;
-      flex-grow: 1;
-      a {
-        text-align: center;
-        display: block;
-        img {
-          width: 100%;
-          height: auto;
+    flex-direction: column;
+    .cardContainer {
+      display: flex;
+      flex-wrap: wrap;
+      .card {
+        flex-basis: 50%;
+        flex-grow: 1;
+        a {
+          text-align: center;
+          display: block;
+          img {
+            width: 100%;
+            height: auto;
+          }
         }
       }
     }
