@@ -7,15 +7,15 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="plone">
   <body tal:define="content nocall:view/content;
-                    type content/portal_type|nothing;
-                    url content/absolute_url|nothing;"
-        tal:condition="url">
+                    type content/portal_type|nothing"
+        tal:condition="content">
     <metal:macro define-macro="summary"
                  tal:define="title content/Title|nothing;
                              image_scale python:type == 'plonetheme.eeq.office' and 'psu_office' or 'psu_tile';
-                             image_url python: url + '/@@images/image/' + image_scale;
                              toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
-    <div class="card" tal:condition="nocall:content">
+    <div class="card" tal:condition="nocall:content"
+         tal:define="url content/absolute_url;
+                     image_url python: url + '/@@images/image/' + image_scale">
         <div tal:condition="image_url"
              tal:attributes="class python:view.orientation == 'portrait' and 'cardLeft' or 'cardTop'">
             <a href="${url}" title="${title}">
