@@ -3,6 +3,13 @@
     .card {
       margin-bottom: 3rem !important;
       height: 100%!important;
+    }
+  }
+}
+
+.mosaic-jazkarta\.tesserae\.content_summary-tile, .mosaic-jazkarta\.tesserae\.collection_summary-tile {
+  .mosaic-tile-content {
+    .card {
       .cardTop {
         img {
           width: 100%;
@@ -112,6 +119,28 @@
             }
         }
 
+    }
+  }
+}
+
+
+.mosaic-jazkarta\.tesserae\.collection_summary-tile .mosaic-tile-content .cards {
+  display: flex;
+  flex-direction: column;
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    .card {
+      flex-basis: 50%;
+      flex-grow: 1;
+      a {
+        text-align: center;
+        display: block;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
     }
   }
 }
