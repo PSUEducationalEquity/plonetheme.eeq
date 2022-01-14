@@ -25,6 +25,7 @@ class OfficeLinks(base.ViewletBase):
                 "url": obj.to_object.absolute_url()
             }
             for obj in office.navigation_links or []
+            if obj.to_object
         ]
         return self.index()
 
