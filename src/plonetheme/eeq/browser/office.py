@@ -1,4 +1,5 @@
 from plone.app.layout.viewlets import common as base
+from DateTime import DateTime
 
 
 class OfficeLinks(base.ViewletBase):
@@ -11,6 +12,7 @@ class OfficeLinks(base.ViewletBase):
         if office is None:
             return ""
 
+        now = DateTime()
         self.left_links = [
             {
                 "title": obj.title,
@@ -18,6 +20,7 @@ class OfficeLinks(base.ViewletBase):
             }
             for obj in office.listFolderContents()
             if not obj.exclude_from_nav
+            and obj.isEffective(now)
         ]
         self.right_links = [
             {
