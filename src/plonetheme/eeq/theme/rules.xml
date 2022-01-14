@@ -49,9 +49,11 @@
   <!-- Office navigation -->
   <replace css:theme-children="#navbar-office-left" css:content-children="#office-navbar-left" />
   <replace css:theme-children="#navbar-office-right" css:content-children="#office-navbar-right" />
+  <drop css:theme=".navbar-office" css:if-not-content="#office-links li"/>
 
   <!-- Office header -->
   <replace css:theme-children=".office-name-wrapper .office-name" css:content-children="#office-title" />
+  <drop css:theme=".office-name-wrapper" css:if-not-content="#office-title"/>
   <replace css:theme="#hero-image" css:content="#hero-image" />
 
   <!-- full-width breadcrumb -->
