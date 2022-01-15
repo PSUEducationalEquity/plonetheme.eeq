@@ -74,13 +74,21 @@
       />
 
   <browser:page
-    for="plone.dexterity.interfaces.IDexterityContainer"
-    permission="zope2.View"
-    name="summary_with_images"
-    template="templates/summary_with_images.pt"
-    menu="plone_displayviews"
-    title="Summary view with images"
-    class="plone.app.contenttypes.browser.folder.FolderView"
-    />
+      for="plone.dexterity.interfaces.IDexterityContainer"
+      permission="zope2.View"
+      name="summary_with_images"
+      template="templates/summary_with_images.pt"
+      menu="plone_displayviews"
+      title="Summary view with images"
+      class="plone.app.contenttypes.browser.folder.FolderView"
+      />
+
+  <plone:portlet
+      name="eeq.social_links"
+      interface=".portlets.ISocialLinksPortlet"
+      assignment=".portlets.SocialLinksAssignment"
+      renderer=".portlets.SocialLinksRenderer"
+      addview=".portlets.SocialLinksAddForm"
+      />
 
 </configure>

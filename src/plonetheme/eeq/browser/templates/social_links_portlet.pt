@@ -1,0 +1,7 @@
+<ul id="social-links-portlet" class="portlet">
+    <li tal:repeat="link view/links">
+        <a tal:define="type python:link[0]; url python: link[1]" tal:attributes="href url; title type;">
+            <i class="fab fa-${type}"></i>
+        </a>
+    </li>
+</ul>

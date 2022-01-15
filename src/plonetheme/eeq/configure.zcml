@@ -129,6 +129,14 @@
       import_steps="plone.app.registry"
       />
 
+  <genericsetup:upgradeDepends
+      source="1007"
+      destination="1008"
+      title="Update portlets"
+      profile="plonetheme.eeq:default"
+      import_steps="portlets"
+      />
+
   <adapter factory=".overrides.TileDatetimeWidgetConverter" />
 
 </configure>

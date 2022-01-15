@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<portlets>
+ 
+  <portlet 
+    addview="eeq.social_links"
+    title="Social Links Portlet"
+    description="A portlet that social links acquired from an office">
+    <for interface="plone.app.portlets.interfaces.IColumn" />
+  </portlet>
+
+  <assignment
+    manager="plone.rightcolumn"
+    category="context"
+    key="/"
+    type="eeq.social_links"
+    name="eeq.social_links"
+    visible="1"
+    />
+
+</portlets>
+
