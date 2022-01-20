@@ -17,6 +17,7 @@
                       <p class="section-crumb">
                         <!-- <tal:date tal:replace="item/CreationDate"/> -->
                       </p>
+                      <p class="mt-0 card-date">${item/@@psu-equity-date-info/date}</p>
                       <h3 class="h3 mt-0">${item/title}</h3>
                       <p class="d-none d-md-block">${item/description}</p>
                     </div>

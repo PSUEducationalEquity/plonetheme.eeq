@@ -93,6 +93,13 @@
       class="plone.app.contenttypes.browser.collection.CollectionView"
       />
 
+  <browser:page
+      name="psu-equity-date-info"
+      class=".summary_view_with_images.BrainDateInfo"
+      permission="zope2.View"
+      for="plone.app.contentlisting.interfaces.IContentListingObject"
+      />
+
   <plone:portlet
       name="eeq.social_links"
       interface=".portlets.ISocialLinksPortlet"
