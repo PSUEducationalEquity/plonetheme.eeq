@@ -83,6 +83,16 @@
       class="plone.app.contenttypes.browser.folder.FolderView"
       />
 
+  <browser:page
+      for="plone.app.contenttypes.interfaces.ICollection"
+      permission="zope2.View"
+      name="summary_with_images"
+      template="templates/summary_with_images.pt"
+      menu="plone_displayviews"
+      title="Summary view with images"
+      class="plone.app.contenttypes.browser.collection.CollectionView"
+      />
+
   <plone:portlet
       name="eeq.social_links"
       interface=".portlets.ISocialLinksPortlet"
