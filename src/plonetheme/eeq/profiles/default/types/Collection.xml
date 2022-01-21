@@ -6,5 +6,7 @@
     <element value="plone.leadimage"/>
     <element value="plone.imagecropping"/>
   </property>
-
+  <property name="view_methods" purge="False">
+    <element value="summary_with_images"/>
+  </property>
 </object>
