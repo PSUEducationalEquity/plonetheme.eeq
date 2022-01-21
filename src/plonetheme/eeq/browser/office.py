@@ -13,8 +13,12 @@ class OfficeLinks(base.ViewletBase):
             return ""
 
         now = DateTime()
+        if office.abbreviation:
+            office_home_link = office.abbreviation + " Home"
+        else:
+            office_home_link = "Home"
         self.left_links = [{
-                "title": "Home",
+                "title": office_home_link,
                 "url": office.absolute_url()
         }] + [
             {

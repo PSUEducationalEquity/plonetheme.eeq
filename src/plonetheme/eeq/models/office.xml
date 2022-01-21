@@ -4,6 +4,13 @@
        xmlns:security="http://namespaces.plone.org/supermodel/security"
        xmlns:indexer="http://namespaces.plone.org/supermodel/indexer">
   <schema>
+    <field name="abbreviation" type="zope.schema.TextLine">
+      <title>Abbreviation</title>
+      <description>
+        Shown in the office breadcrumbs as &lt;b&gt;&amp;lt;Abbreviation&amp;gt; Home&lt;/b&gt; link.
+      </description>
+      <required>False</required>
+    </field>
     <field name="facebook_url" type="zope.schema.TextLine">
       <title>Facebook url</title>
       <required>False</required>
