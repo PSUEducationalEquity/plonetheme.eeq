@@ -123,6 +123,12 @@
   }
 }
 
+@media (max-width: 991px) {
+  .mosaic-width-third, .mosaic-width-half {
+    width: 100%;
+  }
+}
+
 
 .mosaic-jazkarta\.tesserae\.collection_summary-tile .mosaic-tile-content {
   .viewAll {
@@ -135,10 +141,12 @@
       display: flex;
       flex-wrap: wrap;
       .card {
-        flex-basis: 40%;
         flex-grow: 1;
         margin: 0.5rem;
         text-align: left;
+        @media (min-width: 992px) {
+          flex-basis: 40%;
+        }
         a {
           display: block;
           img {
