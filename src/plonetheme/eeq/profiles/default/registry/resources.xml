@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<registry>
+
+  <!-- Use overrideable resource for plone bundle -->
+  <records prefix="plone.resources/plone"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++static/plone.js</value>
+      <value key="css">
+        <element>++plone++static/plone.less</element>
+      </value>
+  </records>
+
+
+  <!-- Use shims for tesserae bootstrap carousel support -->
+  <records prefix="plone.bundles/jazkarta-tesserae"
+            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+    <value key="resources">
+      <element>jazkarta-tesserae</element>
+    </value>
+    <value key="enabled">True</value>
+    <value key="csscompilation">++plone++jazkarta.tesserae/jazkarta-tesserae-compiled.css</value>
+    <value key="jscompilation">++plone++jazkarta.tesserae/jazkarta-tesserae-compiled.js</value>
+    <value key="stub_js_modules">
+      <element>jquery</element>
+      <element>bootstrap-transition</element>
+      <element>bootstrap-carousel</element>
+    </value>
+    <value key="compile">True</value>
+    <value key="enabled">True</value>
+    <value key="load_async">False</value>
+    <value key="load_defer">False</value>
+    <value key="depends">plone</value>
+    <value key="last_compilation">2021-06-16 13:00:00</value>
+  </records>
+
+</registry>

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal" xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="plone" metal:use-macro="context/@@main_template/macros/master">
+  <body>
+    <metal:content-core fill-slot="content-core">
+      <metal:listingmacro define-macro="listing">
+        <tal:results define="batch view/batch">
+          <tal:listing condition="batch">
+
+            <div metal:use-macro="context/batch_macros/macros/navigation" />
+            <tal:entries tal:repeat="item batch">
+
+              <a class="summary-with-images-link" href="${item/getURL}" tal:define="img_url string: ${item/getURL}/@@images/image/psu_square">
+              <div class="card card-summary-with-images">
+                <div class="container">
+                  <div class="row align-items-stretch">
+                    <div class="col-8 col-lg-9 order-12 mt-0">
+                      <p class="section-crumb">
+                        <!-- <tal:date tal:replace="item/CreationDate"/> -->
+                      </p>
+                      <p class="mt-0 card-date">${item/@@psu-equity-date-info/date}</p>
+                      <h3 class="h3 mt-0">${item/title}</h3>
+                      <p class="d-none d-md-block">${item/description}</p>
+                    </div>
+                    <div class="col-4 col-lg-3 profile-img order-1 px-0">
+                        <img alt="" title="" class="w-100" src="${img_url}" data-src="${img_url}">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+            </tal:entries>
+          </tal:listing>
+        </tal:results>
+      </metal:listingmacro>
+    </metal:content-core>
+  </body>
+</html>

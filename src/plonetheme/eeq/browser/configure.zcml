@@ -1,0 +1,111 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="plonetheme.eeq">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="plonetheme.eeq.interfaces.IPlonethemeEeqLayer"
+      />
+
+  <!-- Publish static files -->
+  <plone:static
+      name="plonetheme.eeq"
+      type="plone"
+      directory="static"
+      />
+
+  <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="psu-equity-settings"
+      class=".controlpanel.SettingsControlPanelView"
+      permission="cmf.ManagePortal"
+      />
+
+  <browser:viewlet
+      name="plonetheme.eeq.above-header-banner"
+      for="*"
+      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+      layer="plonetheme.eeq.interfaces.IPlonethemeEeqLayer"
+      class=".banner.AboveHeaderBanner"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name="plonetheme.eeq.office-links"
+      for="*"
+      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+      layer="plonetheme.eeq.interfaces.IPlonethemeEeqLayer"
+      class=".office.OfficeLinks"
+      permission="zope2.View"
+      template="templates/office-links.pt"
+      />
+
+  <browser:viewlet
+      name="plonetheme.eeq.hero-image"
+      for="*"
+      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+      layer="plonetheme.eeq.interfaces.IPlonethemeEeqLayer"
+      class=".hero.HeroImage"
+      permission="zope2.View"
+      />
+
+  <plone:tile
+      name="plonetheme.eeq.alert"
+      title="Alert"
+      description="A tile that displays text, allows for style choice and optional title url link"
+      add_permission="cmf.ModifyPortalContent"
+      class=".tiles.AlertTile"
+      for="*"
+      permission="zope.Public"
+      schema=".tiles.IAlertTile"
+      template="templates/alert.pt"
+      />
+
+  <browser:page
+      for="plone.app.contenttypes.interfaces.IEvent"
+      name="psu-event-helper"
+      permission="zope2.Public"
+      class=".event.PSUEventHelpers"
+      allowed_attributes="portal_state"
+      />
+
+  <browser:page
+      for="plone.dexterity.interfaces.IDexterityContainer"
+      permission="zope2.View"
+      name="summary_with_images"
+      template="templates/summary_with_images.pt"
+      menu="plone_displayviews"
+      title="Summary view with images"
+      class="plone.app.contenttypes.browser.folder.FolderView"
+      />
+
+  <browser:page
+      for="plone.app.contenttypes.interfaces.ICollection"
+      permission="zope2.View"
+      name="summary_with_images"
+      template="templates/summary_with_images.pt"
+      menu="plone_displayviews"
+      title="Summary view with images"
+      class="plone.app.contenttypes.browser.collection.CollectionView"
+      />
+
+  <browser:page
+      name="psu-equity-date-info"
+      class=".summary_view_with_images.BrainDateInfo"
+      permission="zope2.View"
+      for="plone.app.contentlisting.interfaces.IContentListingObject"
+      />
+
+  <plone:portlet
+      name="eeq.social_links"
+      interface=".portlets.ISocialLinksPortlet"
+      assignment=".portlets.SocialLinksAssignment"
+      renderer=".portlets.SocialLinksRenderer"
+      addview=".portlets.SocialLinksAddForm"
+      />
+
+</configure>

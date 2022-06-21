@@ -1,0 +1,31 @@
+
+<registry
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="plonetheme.eeq">
+
+  <record name="plone.app.blocks.default_layout.plonetheme.eeq.office">
+    <field type="plone.registry.field.TextLine" />
+    <value>++contentlayout++psu-educational-equity/basic.html</value>
+  </record>
+
+  <record name="plone.app.tiles">
+    <value purge="false">
+      <element>plonetheme.eeq.alert</element>
+    </value>
+  </record>
+
+  <records prefix="plone.app.mosaic.app_tiles.plonetheme_eeq_alert"
+           interface="plone.app.mosaic.interfaces.ITile">
+    <value key="name">plonetheme.eeq.alert</value>
+    <value key="label">Alert</value>
+    <value key="category">advanced</value>
+    <value key="tile_type">app</value>
+    <value key="default_value"></value>
+    <value key="read_only">false</value>
+    <value key="settings">true</value>
+    <value key="favorite">false</value>
+    <value key="rich_text">false</value>
+    <value key="weight">20</value>
+  </records>
+
+</registry>

@@ -1,0 +1,160 @@
+.mosaic-jazkarta\.tesserae\.content_summary-tile {
+  .mosaic-tile-content {
+    .card {
+      margin-bottom: 3rem !important;
+      height: 100%!important;
+    }
+  }
+}
+
+.mosaic-jazkarta\.tesserae\.content_summary-tile, .mosaic-jazkarta\.tesserae\.collection_summary-tile {
+  .mosaic-tile-content {
+    .card {
+      .cardTop {
+        img {
+          width: 100%;
+        }
+        text-align: center;
+        > a {
+          z-index: 2;
+          background-color: transparent;
+        }
+        @media (max-width: 576px) {
+          display: none;
+        }
+      }
+      .cardBottom {
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 1.25rem;
+      }
+    }
+  }
+}
+
+/* show in-active alert tiles on edit page */
+.template-edit {
+  .mosaic-tile-content {
+    .alert {
+      &.in-active {
+        display: inline-block;
+        background-color: #eee;
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+.mosaic-tile-content {
+  .alert {
+    &.in-active {
+        display: none;
+    }
+    .fa-bell {
+        font-size: 3rem;
+        margin: .5rem 1.5rem 1rem 0;
+        min-width: 40px;
+        vertical-align: top;
+        @media (max-width: 576px) {
+          display: none;
+        }
+    }
+    .text {
+        display: inline-block;
+        width: 90%;
+        @media (max-width: 1044px) {
+          width: 88%;
+        }
+        @media (max-width: 885px) {
+          width: 85%;
+        }
+        @media (max-width: 768px) {
+          width: 88%;
+        }
+        @media (max-width: 670px) {
+          width: 86%;
+        }
+        @media (max-width: 590px) {
+          width: 85%;
+        }
+        @media (max-width: 576px) {
+          width: 100%;
+        }
+    }
+    h4.title {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .content {
+        display: block;
+    }
+    .noHover { /* disable hover/underline for links that contain no url */
+        pointer-events: none;  
+    }
+        
+    /* alert styles */ 
+    /* can add more alert styles here 3/3 */
+    &.alert-primary {
+        color: #004085;
+        background-color: #cce5ff;
+        border-color: #b8daff;
+        h4 > a {
+            color: #007bff;
+            &:hover {
+                color: #0056b3;
+                text-decoration: underline;
+            }
+        }
+    }
+    &.alert-danger {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        h4 > a {
+            color: #c12434;
+            &:hover {
+                color: #932430;
+                text-decoration: underline;
+            }
+        }
+
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .mosaic-width-third, .mosaic-width-half {
+    width: 100%;
+  }
+}
+
+
+.mosaic-jazkarta\.tesserae\.collection_summary-tile .mosaic-tile-content {
+  .viewAll {
+    display: none;
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+    .cardContainer {
+      display: flex;
+      flex-wrap: wrap;
+      .card {
+        flex-grow: 1;
+        margin: 0.5rem;
+        text-align: left;
+        @media (min-width: 992px) {
+          flex-basis: 40%;
+        }
+        a {
+          display: block;
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

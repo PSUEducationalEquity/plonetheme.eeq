@@ -1,0 +1,674 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * CONTENTS.............You're reading it!
+ * ACTIONS..............Styles for call to action features
+ * ANNOUNCEMENTS........Styles for home page announcements
+ * BREADCRUMBS..........Styles for the breadcrumb trail
+ * COLORS...............Background colors
+ * CONTENT..............Styles for content related things
+ * FEATURE_ITEM.........Styles for the feature item box
+ * FOOTER...............Styles specific to the footer
+ * HEADINGS.............Styles for headings
+ * HERO.................Styles for the hero images
+ * LAYOUT...............Styles for the overall layout
+ * LEAVES...............Styles for the top navigation "leaves"
+ * LINKS................Styles for accessible links
+ * LISTS................Styles related to lists
+ * NAVIGATION...........Styles specific to the top level navigation
+ * HEADER...............Styles specific to the top level header above the navigation
+ * SEARCH_RESULTS.......Styles for the search results page
+ * EVENT................Styles for the event content
+ */
+
+
+
+/*------------------------------------*\
+    $ACTIONS
+\*------------------------------------*/
+
+.actions-list {
+  list-style: none;
+  margin: 0;
+}
+
+.actions-list li {
+  margin-bottom: 1rem;
+}
+.actions-list li img {
+  display: inline-block;
+  margin-right: 0.2rem;
+  width: 50px;
+}
+.actions-list li div {
+  display: inline-block;
+  font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .actions-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .actions-list li {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    min-width: 0;
+    padding-right: 15px;
+    padding-left: 15px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+  .actions-list li img {
+    width: 130px;
+  }
+  .actions-list li div {
+    display: block;
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .actions-list li img {
+    width: 180px;
+  }
+}
+
+
+
+
+/*------------------------------------*\
+    $ANNOUNCEMENTS
+\*------------------------------------*/
+
+.announcements span.oi {
+  font-size: 3rem;
+  margin: 0.5rem 1.5rem 1rem 0;
+}
+
+.announcements .alert-danger h4 > a {
+  /*** TODO: test for contrast */
+  color: #c12434;
+}
+.announcements .alert-danger h4 > a:hover {
+  /*** TODO: test for contrast */
+  color: #932430;
+}
+
+
+
+
+/*------------------------------------*\
+    $BREADCRUMBS
+\*------------------------------------*/
+
+.breadcrumb {
+  background-color: transparent;
+}
+
+
+
+
+/*------------------------------------*\
+    $CONTENT
+\*------------------------------------*/
+
+// description
+.documentDescription.description {
+  margin-bottom: 1.5em;
+  font-size: 1.3rem;
+}
+
+
+
+
+/*------------------------------------*\
+    $COLORS
+\*------------------------------------*/
+
+.bg-header {
+  background-color: #001e44 !important;
+  /*background-color: #343a40 !important;*/
+}
+
+.bg-globalnav {
+  background-color: #1e407c !important;
+}
+
+.bg-footer {
+  background-color: #343a40 !important;
+  /*background-color: #001e44 !important;*/
+}
+
+.discreet {
+  color: #555555;
+}
+a {
+  color: #0056B3;
+}
+
+
+
+/*------------------------------------*\
+    $FEATURE_ITEM
+\*------------------------------------*/
+
+.feature-item {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.feature-item > .feature-container {
+  background: inherit;
+  background-attachment: fixed;
+  left: 0;
+  padding: 20px 30px;
+  position: absolute;
+  width: 100%;
+}
+.feature-item > .feature-container.bottom {
+  bottom: 0;
+}
+.feature-item > .feature-container.top {
+  top: 0;
+}
+
+.feature-item > .feature-container:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  background-attachment: fixed;
+  opacity: 70%;
+  -webkit-filter: blur(8px);
+  filter: blur(8px);
+  z-index: 10;
+}
+
+.feature-item > .bottom.feature-container:before {
+  top: 5px;
+  height: 150%;
+}
+.feature-item > .top.feature-container:before {
+  top: -5px;
+  height: 110%;
+}
+
+.feature-item > .feature-container > .feature-content {
+  margin: 0;
+  color: white;
+  position: relative;
+  z-index: 20;
+}
+
+.feature-item > .feature-container > .feature-content a {
+  color: white;
+}
+
+
+
+
+/*------------------------------------*\
+    $FOOTER
+\*------------------------------------*/
+
+footer {
+  font-size: 0.9rem;
+}
+
+#footer-portlet-row a {
+  color: white;
+}
+
+footer h3 {
+  font-size: 1.25rem;
+}
+
+footer .logo-wrapper {
+  margin-top: 2rem;
+  text-align: center;
+}
+footer .contact-wrapper {
+  margin: 1rem 0;
+  text-align: center;
+}
+footer .login-wrapper {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  footer .logo-wrapper {
+    margin-right: 1rem;
+    margin-top: 1rem;
+    text-align: left;
+  }
+  footer .contact-wrapper {
+    margin-bottom: 0;
+    text-align: left;
+  }
+  footer .login-wrapper {
+    float: right;
+    margin-top: -1rem;
+  }
+}
+
+
+
+
+/*------------------------------------*\
+    $HEADINGS
+\*------------------------------------*/
+
+h1.documentFirstHeading {
+  font-size: 2.8em;
+  margin: .5em 0;
+}
+
+// front page retains default size/setting
+.section-front-page {
+  h1.documentFirstHeading {
+    font-size: 2em;
+    margin: .67em 0;
+  }
+}
+
+
+
+
+/*------------------------------------*\
+    $HERO
+\*------------------------------------*/
+
+.hero .office-name-wrapper {
+  background-color: white;
+  color: #222;
+  font-size: 1.2rem;
+  width: 100%;
+  .office-name {
+    padding: 0.3rem 2rem;
+    #office-title, a {
+      display: inline;
+      font-size: 1.2rem;
+      margin: 0;
+      padding: 0;
+      color: #222;
+      font-weight: normal;
+    }
+    a:hover {
+      color: #000;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .hero.collapsed .office-name-wrapper {
+    bottom: 0;
+    font-size: 2.5rem;
+    left: 0;
+    background-color: rgba(255, 255, 255, .7);
+    position: absolute;
+    #office-title, a {
+      font-size: 2.5rem;
+    }
+  }
+  .hero .office-name-wrapper {
+    font-size: 1.5rem;
+    opacity: 100%;
+    position: relative;
+    #office-title, a {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+
+
+
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
+
+.constrain-width {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1140px;
+}
+
+
+
+
+/*------------------------------------*\
+    $LEAVES
+\*------------------------------------*/
+
+@media (min-width: 992px) {
+  .leaf {
+    background-color: #001e44;
+    color: #fff;
+    font-style: italic;
+    font-weight: bold;
+    margin-right: 5px;
+    padding: 6px 8px;
+  }
+
+  .leaf-lg-gold {
+    background-color: #efc900 !important;
+    color: #000 !important;
+  }
+  a.leaf-lg-gold:hover,
+  a.leaf-lg-gold:focus {
+    background-color: #fae24c !important;
+  }
+
+  .leaf-lg-primary {
+    /*** TODO: test for contrast */
+    background-color: #007bff !important;
+    color: #fff !important;
+  }
+  a.leaf-lg-primary:hover,
+  a.leaf-lg-primary:focus {
+    background-color: #0062cc !important;
+  }
+
+  .leaf-external > span {
+    font-color: #333;
+  }
+}
+
+
+
+
+/*------------------------------------*\
+    $LINKS
+\*------------------------------------*/
+
+.nav-link:focus, .nav-link:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/*------------------------------------*\
+    $LISTS
+\*------------------------------------*/
+
+/** Inline list of links separated by a pipe **/
+.list-inline-links .list-inline-item:after {
+  content: "|";
+}
+.list-inline-links .list-inline-item:last-child:after {
+  content: "";
+}
+.list-inline-links .list-inline-item a {
+  margin-right: 0.5rem;
+}
+
+
+
+
+/*------------------------------------*\
+    $NAVIGATION
+\*------------------------------------*/
+
+.navbar.navbar-header .constrain-width {
+  align-items: flex-start;
+}
+.navbar.navbar-header .navbar-nav {
+  font-size: 100%;
+}
+@media (min-width: 992px) {
+  .navbar.navbar-header .navbar-nav {
+    font-size: 80%;
+  }
+
+  .navbar.navbar-header .navbar-collapse form input {
+    border: 0;
+    border-radius: 0;
+  }
+}
+
+.navbar-brand img { width: 200px; }
+@media (min-width: 576px) {
+  .navbar-brand img { width: 270px; }
+}
+
+
+.navbar.navbar-global {
+  padding: .1rem 1rem;
+}
+
+.navbar-office .navbar-nav .nav-link {
+  color: #ddd;
+}
+.navbar-office .navbar-nav .nav-link:hover {
+  color: #fff;
+}
+
+
+/*------------------------------------*\
+    $HEADER
+\*------------------------------------*/
+
+.LSBox .input-group {
+    display: flex;
+}
+
+nav.navbar-header {
+  padding: 0px;
+}
+
+.navbar-brand img{
+  margin: 8px;
+}
+
+.top-search-button .btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  height: calc(1.5em + .5rem + 2px);
+}
+
+#searchGadget {
+  width: auto;
+  height: calc(1.5em + .5rem + 2px);
+}
+
+.top-search-button .searchButton {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+// The boostrap 4 transition CSS is hiding mosaic modals that
+// should have faded in
+.mosaic-modal {
+  &.fade {
+    opacity: 0;
+    -webkit-transition: opacity .25s ease;
+    transition: opacity .25s ease;
+    &.in {
+      opacity: 1;
+      -webkit-transition: opacity .25s ease;
+      transition: opacity .25s ease;
+    }
+  }
+}
+
+.mosaic-toolbar .mosaic-menu {
+  padding: 3px 12px;
+  box-sizing: border-box;
+  height: auto;
+}
+
+// Related items font size tweaks
+.pattern-relateditems-result {
+  .pattern-relateditems-result-browse-wrapper {
+    .pattern-relateditems-result-browse {
+      font-size: 1em;
+      line-height: 2em;
+    }
+  }
+  .pattern-relateditems-item-title, .pattern-relateditems-result-title {
+    font-size: 1em;
+    &[class*="contenttype-"]::before {
+      font-size: 1em;
+    }
+  }
+}
+
+/*------------------------------------*\
+    $SEARCH_RESULTS
+\*------------------------------------*/
+
+#searchform {
+  cite {
+    display: block;
+    margin-top: .4rem;
+  }
+
+  .documentAuthor,
+  .documentPublished,
+  .documentModified {
+    display: none;
+  }
+
+  ol.searchResults {
+    li {
+      display: block;
+    }
+    padding-inline-start: 0px;
+  }
+
+  div#search-results {
+    padding-top: 1em;
+  }
+
+  #searchResultsSort {
+    display: none;
+  }
+
+  .actionMenu {
+    display: none;
+  }
+  .result-title {
+    font-size: 1.75rem;
+    display: block;
+    margin-bottom: .3rem;
+    margin-top: 1.5rem;
+    font-weight: 440;
+    line-height: 1.2;
+  }
+}
+
+body.userrole-manager #searchform .actionMenu {
+  display: block;
+}
+
+/*------------------------------------*\
+    $EVENT
+\*------------------------------------*/
+
+body.portaltype-event {
+  #event-row-above-body {
+    display: flex;
+    list-style-type: none;
+    padding-inline-start: 0px;
+    width: 100%;
+    li {
+      font-weight: bold;
+      display: block;
+      i {
+        color: #1e3c7c;
+      }
+    }
+  }
+  .event-image-column {
+    overflow: hidden;
+  }
+  .leadImage {
+    display: none;
+  }
+  .eventFooter {
+    padding: 1em;
+    background-color: #e5eaf0;
+    width: 100%;
+    margin-top: 1em;
+    i {
+      color: #1e3c7c;
+      margin-right: 0.5em;
+    }
+  }
+  .newsImageContainer {
+    float: left;
+    img {
+      width: 100%;
+      height: auto;
+      max-width: 250px;
+    }
+  }
+
+  .newsImageContainer figcaption {
+    display: block;
+  }
+  .container {
+      width: 100%;
+  }
+}
+
+/* Responsive breakpoint statements
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}
+*/
+
+.card-summary-with-images {
+  box-shadow: 0 0.25rem 0.75rem rgba(102, 102, 102, 0.25);
+  margin: 1rem;
+  font-size: 0.8rem;
+  h3 {
+    font-size: 1rem;
+  }
+  p, p:hover {
+    text-decoration: none;
+    color: #231e20;
+  }
+  .card-date {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+a.summary-with-images-link, a.summary-with-images-link:hover {
+  text-decoration: none;
+}
+
+a.summary-with-images-link:hover h3{
+  text-decoration: underline;
+}
+
+#social-links-portlet {
+  list-style: none;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.75rem;
+  li {
+    display: inline-block;
+    padding: 0 0.25rem;
+  }
+}

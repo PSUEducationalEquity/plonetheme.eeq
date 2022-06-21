@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:block define-macro="content-core">
+<tal:def tal:define="data nocall:view/data; helper_view context/@@psu-event-helper">
+  <div class="container event clearfix" itemscope itemtype="https://schema.org/Event">
+    <div class="row"
+         tal:define="scale_func context/@@images;
+                     scaled_image python: getattr(context.aq_explicit, 'image', False) and scale_func.scale('image', scale='large');
+                     main_content_class python: 'col-md-8' if scaled_image else 'col-md-12'">
+      <ul id="event-row-above-body" class="hiddenStructure row">
+        <li itemprop="startDate" class="col-xs-12 col-sm-6 col-md-4">
+          <i class="fas fa-calendar-alt"></i>
+          <tal:date replace="python: data.start.strftime('%B')" />
+          <tal:date replace="python: data.start.strftime('%-d')" />,
+          <tal:date replace="python: data.start.strftime('%Y')" />
+        </li>
+
+        <li itemprop="startTime" class="col-xs-12 col-sm-6 col-md-4">
+          <i class="fas fa-clock"></i>
+          <tal:date replace="python: helper_view.format_time(data.start)" />
+        </li>
+
+        <li itemprop="location" class="col-xs-12 col-md-4">
+          <i class="fas fa-map-pin"></i>
+          <tal:date replace="python: data.location" />
+        </li>
+      </ul>
+      <div tal:attributes="class main_content_class">
+        <div id="parent-fieldname-text" tal:condition="data/text">
+          <tal:text content="structure data/text" />
+        </div>
+      </div>
+      <div class="col-4 event-image-column d-none d-md-block" tal:condition="python: scaled_image">
+        <div class="eventleadImage">
+          <figure class="newsImageContainer">
+            <img tal:replace="structure scaled_image/tag" />
+            <figcaption tal:condition="context/image_caption|nothing"
+                tal:content="context/image_caption">
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  <div class="row">
+    <div class="eventFooter row">
+      <div class="col-md-4 my-1 my-md-0">
+        Contact:<br />
+        <a tal:condition="data/contact_email|nothing" tal:attributes="href string:mailto:${data/contact_email}">
+          <tal:name replace="data/contact_name" />
+        </a>
+        <tal:name replace="data/contact_name" tal:condition="not: data/contact_email|nothing" />
+        <tal:phone condition="data/contact_phone">
+        • <tal:phone replace="data/contact_phone" />
+        </tal:phone>
+      </div>
+      <div class="col-md-4 my-1 my-md-0">
+        <span tal:condition="data/event_url">
+          More information:<br />
+          <a tal:attributes="href data/event_url" >
+            Visit external website
+          </a>
+        </span>
+      </div>
+      <div class="col-md-4 my-1 my-md-0">
+        Subscribe: <br />
+        <a tal:attributes="href helper_view/gcal_url"><i class="fab fa-google"></i></a>
+        <a tal:attributes="href string:${context/absolute_url}/ics_view"><i class="fas fa-calendar-alt"></i></a>
+      </div>
+    </div>
+  </div>
+</tal:def>
+</metal:block>
+</metal:content-core>
+
+</body>
+</html>

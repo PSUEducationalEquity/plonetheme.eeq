@@ -1,0 +1,126 @@
+.portlet {
+
+  background-color: @porlet-background;
+
+  .portletHeader {
+    font-weight: @plone-font-weight-medium;
+    font-size: @plone-font-size-large;
+  }
+  .portletFooter {
+    font-size: @plone-font-size-small;
+    font-weight: @plone-font-weight-regular;
+  }
+    
+  .glyphicon {
+    display: none;
+  }
+  
+  &.portletNavigationTree {
+    .portletHeader {
+      display: none !important;
+    }
+    
+    .portletContent {
+      font-size: 1rem; 
+      padding: 15px 15px 15px 15px;
+      margin-bottom: 0rem;
+
+      > ul {
+        > li {
+          a {  
+		    padding: 10px 15px 5px 15px !important;
+          }
+        }
+        li:hover {
+          background-color: @porlet-background;
+        }
+      }
+    }
+
+    /* fixes for site settings panel */
+    &.portletSiteSetup {
+      .portletContent {
+        font-size: 1rem;
+        font-weight: 400;
+        padding: inherit;
+
+        > li {
+          a {  
+		    padding: inherit !important;
+          }
+        }
+        > ul {
+          > li {
+            height: inherit;
+          }
+          li:hover {
+            background-color: #edecec;
+          }
+        }
+      }
+    }
+
+  }
+
+  &.portletStaticText {
+    .portletHeader {
+      font-size: 1.5rem;
+      padding-top: 15px;
+      padding-left: 30px;
+    }
+
+    .portletContent {
+      font-size: 1rem;
+      padding: 15px 15px 15px 30px;
+      margin-bottom: 0rem;
+    }
+
+  }
+
+  &.portletCollection {
+    .portletHeader {
+      font-size: 1.5rem;
+      padding-top: 15px;
+      padding-left: 30px;
+      padding-right: 15px;
+    }
+
+    .portletContent {
+      font-size: 1rem;
+      padding: 15px 15px 15px 30px;
+      margin-bottom: 0rem;
+
+      > li {
+        padding: 7px 0px 7px 0px;
+        margin-left: 15px;
+      }
+      li:hover {
+        background-color: @porlet-background;
+      }
+    }
+  }
+
+}
+
+.portletContent {
+  font-size: @plone-font-size-base;
+  font-weight: @plone-font-weight-regular;
+  > ul {
+    padding: 0;
+    list-style: none;
+    position: relative;
+    > li {
+      a {  
+		display: block;
+		padding: 10px 15px 26px 15px;
+		position: relative;
+		z-index: 1;
+      }
+    }
+    li:hover {background: @plone-portlet-list-hover-bg;}
+    ul {
+      padding-left:15px;
+      list-style: none;
+    }
+  }
+}
