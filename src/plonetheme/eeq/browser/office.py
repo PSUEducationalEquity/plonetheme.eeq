@@ -37,6 +37,25 @@ class OfficeLinks(base.ViewletBase):
             for obj in office.navigation_links or []
             if obj.to_object
         ]
+        self.office_nav = [{
+            'title': office_home_link,
+            'url': office.absolute_url()
+        }] + [
+            {
+                'title': obj.to_object.title,
+                'url': obj.to_object.absolute_url()
+            }
+            for obj in office.office_nav or []
+            if obj.to_object
+        ]
+        self.audience_nav = [
+            {
+                'title': obj.to_object.title,
+                'url': obj.to_object.absolute_url()
+            }
+            for obj in office.audience_nav or []
+            if obj.to_object
+        ]
         return self.index()
 
     def is_office(self):

@@ -38,5 +38,19 @@
         <title>Office links</title>
       </value_type>
     </field>
+    <field name="office_nav" type="z3c.relationfield.schema.RelationList">
+      <title>Office navigation (left-side nav bar)</title>
+      <required>False</required>
+      <value_type type="z3c.relationfield.schema.RelationChoice">
+        <title>Office main navigation</title>
+      </value_type>
+    </field>
+    <field name="audience_nav" type="z3c.relationfield.schema.RelationList">
+      <title>Audience navigation (right-side nav bar)</title>
+      <required>False</required>
+      <value_type type="z3c.relationfield.schema.RelationChoice">
+        <title>Office audience navigation</title>
+      </value_type>
+    </field>
   </schema>
 </model>

@@ -3,4 +3,8 @@
   <order manager="plone.portaltop" skinname="*">
     <viewlet name="plonetheme.eeq.above-header-banner" insert-before="*"/>
   </order>
+  <hidden manager="plone.belowcontent" skinname="Plone Default">
+    <viewlet name="plone.manage_portlets_fallback"/>
+    <viewlet name="plone.belowcontenttitle.keywords"/>
+  </hidden>
 </object>

@@ -1,13 +1,13 @@
 <div id="office-links">
     <ul id="office-navbar-left">
-        <li class="nav-item" tal:repeat="link view/left_links">
+        <li class="nav-item" tal:repeat="link view/office_nav">
             <a class="nav-link" href="${link/url}">
                 ${link/title}
             </a>
         </li>
     </ul>
     <ul id="office-navbar-right">
-        <li class="nav-item" tal:repeat="link view/right_links">
+        <li class="nav-item" tal:repeat="link view/audience_nav">
             <a class="nav-link" href="${link/url}">
                 ${link/title}
             </a>
