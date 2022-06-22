@@ -145,6 +145,14 @@
       import_steps="typeinfo"
       />
 
+  <genericsetup:upgradeDepends
+      source="1009"
+      destination="1010"
+      title="Hide keywords viewlet"
+      profile="plonetheme.eeq:default"
+      import_steps="viewlets"
+      />
+
   <adapter factory=".overrides.TileDatetimeWidgetConverter" />
 
 </configure>
