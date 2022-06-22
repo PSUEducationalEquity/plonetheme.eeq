@@ -153,6 +153,14 @@
       import_steps="viewlets"
       />
 
+  <genericsetup:upgradeDepends
+      source="1010"
+      destination="1011"
+      title="update Office content type"
+      profile="plonetheme.eeq:default"
+      import_steps="typeinfo"
+      />
+
   <adapter factory=".overrides.TileDatetimeWidgetConverter" />
 
 </configure>
