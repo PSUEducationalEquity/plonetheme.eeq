@@ -9,6 +9,7 @@
  * COLORS...............Background colors
  * CONTENT..............Styles for content related things
  * FEATURE_ITEM.........Styles for the feature item box
+ * FOLDER_SUMMARY.......Styles for the Folder Summary view
  * FOOTER...............Styles specific to the footer
  * HEADINGS.............Styles for headings
  * HERO.................Styles for the hero images
@@ -214,6 +215,48 @@ a {
 
 .feature-item > .feature-container > .feature-content a {
   color: white;
+}
+
+
+
+
+/*------------------------------------*\
+    $FOLDER_SUMMARY
+\*------------------------------------*/
+
+
+/** Folder Summary w/ Images view **/
+
+.card-summary-with-images {
+  box-shadow: 0 0.25rem 0.75rem rgba(102, 102, 102, 0.25);
+  margin: 1rem;
+
+  .content {
+    padding-top: 1rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  p, p:hover {
+    text-decoration: none;
+    color: #231e20;
+  }
+
+  .card-date {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+a.summary-with-images-link, a.summary-with-images-link:hover {
+  text-decoration: none;
+}
+
+a.summary-with-images-link:hover h3 {
+  text-decoration: underline;
 }
 
 
@@ -651,32 +694,6 @@ body.portaltype-event {
 @media (min-width: 1200px) {
 }
 */
-
-.card-summary-with-images {
-  box-shadow: 0 0.25rem 0.75rem rgba(102, 102, 102, 0.25);
-  margin: 1rem;
-  font-size: 0.8rem;
-  h3 {
-    font-size: 1rem;
-  }
-  p, p:hover {
-    text-decoration: none;
-    color: #231e20;
-  }
-  .card-date {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-  }
-}
-
-a.summary-with-images-link, a.summary-with-images-link:hover {
-  text-decoration: none;
-}
-
-a.summary-with-images-link:hover h3{
-  text-decoration: underline;
-}
 
 #social-links-portlet {
   list-style: none;
