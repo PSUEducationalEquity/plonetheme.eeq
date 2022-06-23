@@ -9,6 +9,7 @@
  * COLORS...............Background colors
  * CONTENT..............Styles for content related things
  * FEATURE_ITEM.........Styles for the feature item box
+ * FOLDER_SUMMARY.......Styles for the Folder Summary view
  * FOOTER...............Styles specific to the footer
  * HEADINGS.............Styles for headings
  * HERO.................Styles for the hero images
@@ -17,6 +18,7 @@
  * LINKS................Styles for accessible links
  * LISTS................Styles related to lists
  * NAVIGATION...........Styles specific to the top level navigation
+ * RELATED_ITEMS........Styles for related items/content
  * HEADER...............Styles specific to the top level header above the navigation
  * SEARCH_RESULTS.......Styles for the search results page
  * EVENT................Styles for the event content
@@ -83,6 +85,7 @@
   }
 }
 */
+
 
 
 
@@ -214,6 +217,95 @@ a {
 
 .feature-item > .feature-container > .feature-content a {
   color: white;
+}
+
+
+
+
+/*------------------------------------*\
+    $FOLDER_SUMMARY
+\*------------------------------------*/
+
+/** Folder Summary view **/
+
+.template-summary_view .tileHeadline {
+  font-size: 1.5rem;
+}
+
+.template-summary_view .tileBody {
+  margin-left: 0.5rem;
+}
+
+
+/** Folder Summary w/ Images view **/
+
+.card-summary-with-images {
+  box-shadow: 0 0.25rem 0.75rem rgba(102, 102, 102, 0.25);
+  margin: 1rem;
+
+  .content {
+    padding-top: 1rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  p, p:hover {
+    text-decoration: none;
+    color: #231e20;
+  }
+
+  .card-date {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+a.summary-with-images-link, a.summary-with-images-link:hover {
+  text-decoration: none;
+}
+
+a.summary-with-images-link:hover h3 {
+  text-decoration: underline;
+}
+
+
+/** All Content view **/
+
+.template-full_view .headline {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+}
+.template-full_view .headline:first {
+  margin-top: 0;
+}
+
+.template-full_view div.description {
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+}
+
+.template-full_view .subcontent-container {
+  margin-top: 0.5rem;
+}
+
+.template-full_view .subcontent-container > div {
+  height: 0;
+}
+
+.template-full_view .subcontent-container .tileItem {
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+.template-full_view .subcontent-container .tileItem .tileHeadline {
+  font-size: 1.5rem;
+}
+
+.template-full_view .subcontent-container .tileItem .tileBody {
+  margin-left: 0.5rem;
 }
 
 
@@ -469,6 +561,31 @@ h1.documentFirstHeading {
 }
 
 
+
+
+/*------------------------------------*\
+    $RELATED_ITEMS
+\*------------------------------------*/
+
+.relatedItems {
+  background-color: #E5E4E2;
+  border: 5px solid #E5E4E2;
+  border-radius: 5px;
+  margin-top: 4em;
+  padding: 5px;
+}
+
+.relatedItems header {
+  font-size: 1.75em;
+}
+
+.relatedItems ul li a {
+  font-size: 1.25em;
+}
+
+
+
+
 /*------------------------------------*\
     $HEADER
 \*------------------------------------*/
@@ -651,32 +768,6 @@ body.portaltype-event {
 @media (min-width: 1200px) {
 }
 */
-
-.card-summary-with-images {
-  box-shadow: 0 0.25rem 0.75rem rgba(102, 102, 102, 0.25);
-  margin: 1rem;
-  font-size: 0.8rem;
-  h3 {
-    font-size: 1rem;
-  }
-  p, p:hover {
-    text-decoration: none;
-    color: #231e20;
-  }
-  .card-date {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-  }
-}
-
-a.summary-with-images-link, a.summary-with-images-link:hover {
-  text-decoration: none;
-}
-
-a.summary-with-images-link:hover h3{
-  text-decoration: underline;
-}
 
 #social-links-portlet {
   list-style: none;
