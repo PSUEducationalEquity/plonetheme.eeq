@@ -160,13 +160,13 @@
       </ul>
     </div>
     <div class="col-lg-4">
-      <h3 class="text-white">For Faculty</h3>
+      <h3 class="text-white">For Penn State Faculty</h3>
       <ul class="list-unstyled">
         <xsl:for-each css:select="footer#portal-footer-wrapper .portlet-collection-for-faculty li">
           <xsl:copy-of select="." />
         </xsl:for-each>
       </ul>
-      <h3 class="text-white">For Staff</h3>
+      <h3 class="text-white">For Internal Staff</h3>
       <ul class="list-unstyled">
         <xsl:for-each css:select="footer#portal-footer-wrapper .portlet-collection-for-staff li">
           <xsl:copy-of select="." />
