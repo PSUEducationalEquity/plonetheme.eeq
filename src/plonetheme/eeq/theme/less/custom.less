@@ -8,22 +8,31 @@
  * BREADCRUMBS..........Styles for the breadcrumb trail
  * COLORS...............Background colors
  * CONTENT..............Styles for content related things
+ * EVENT................Styles for the event content
  * FEATURE_ITEM.........Styles for the feature item box
  * FOLDER_SUMMARY.......Styles for the Folder Summary view
  * FOOTER...............Styles specific to the footer
+ * HEADER...............Styles specific to the top level header above nav
  * HEADINGS.............Styles for headings
  * HERO.................Styles for the hero images
  * LAYOUT...............Styles for the overall layout
  * LEAVES...............Styles for the top navigation "leaves"
  * LINKS................Styles for accessible links
  * LISTS................Styles related to lists
+ * MOSAIC...............Styles specific to the Mosaic layouts
  * NAVIGATION...........Styles specific to the top level navigation
  * PORTLETS.............Styles for the various portlets
  * RELATED_ITEMS........Styles for related items/content
- * HEADER...............Styles specific to the top level header above the navigation
  * SEARCH_RESULTS.......Styles for the search results page
- * EVENT................Styles for the event content
  */
+
+/* Responsive breakpoint statements
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+*/
+
 
 
 
@@ -123,19 +132,6 @@
 
 
 /*------------------------------------*\
-    $CONTENT
-\*------------------------------------*/
-
-// description
-.documentDescription {
-  margin-bottom: 1.5em;
-  font-size: 1.3rem;
-}
-
-
-
-
-/*------------------------------------*\
     $COLORS
 \*------------------------------------*/
 
@@ -156,9 +152,86 @@
 .discreet {
   color: #555555;
 }
+
 a {
   color: #0056B3;
 }
+
+
+
+
+/*------------------------------------*\
+    $CONTENT
+\*------------------------------------*/
+
+.documentDescription {
+  margin-bottom: 1.5em;
+  font-size: 1.3rem;
+}
+
+
+
+
+/*------------------------------------*\
+    $EVENT
+\*------------------------------------*/
+
+body.portaltype-event {
+  #event-row-above-body {
+    display: flex;
+    list-style-type: none;
+    padding-inline-start: 0px;
+    width: 100%;
+
+    li {
+      font-weight: bold;
+      display: block;
+
+      i {
+        color: #1e3c7c;
+      }
+    }
+  }
+
+  .event-image-column {
+    overflow: hidden;
+  }
+
+  .leadImage {
+    display: none;
+  }
+
+  .eventFooter {
+    padding: 1em;
+    background-color: #e5eaf0;
+    width: 100%;
+    margin-top: 1em;
+
+    i {
+      color: #1e3c7c;
+      margin-right: 0.5em;
+    }
+  }
+
+  .newsImageContainer {
+    float: left;
+
+    img {
+      width: 100%;
+      height: auto;
+      max-width: 250px;
+    }
+  }
+
+  .newsImageContainer figcaption {
+    display: block;
+  }
+
+  .container {
+      width: 100%;
+  }
+}
+
 
 
 
@@ -361,6 +434,42 @@ footer .login-wrapper {
 
 
 /*------------------------------------*\
+    $HEADER
+\*------------------------------------*/
+
+.LSBox .input-group {
+    display: flex;
+}
+
+nav.navbar-header {
+  padding: 0px;
+}
+
+.navbar-brand img{
+  margin: 8px;
+}
+
+.top-search-button .btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  height: calc(1.5em + .5rem + 2px);
+}
+
+#searchGadget {
+  width: auto;
+  height: calc(1.5em + .5rem + 2px);
+}
+
+.top-search-button .searchButton {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+
+
+
+/*------------------------------------*\
     $HEADINGS
 \*------------------------------------*/
 
@@ -386,8 +495,10 @@ h5 { font-size: 1.1rem; font-weight: bold; }
   color: #222;
   font-size: 1.2rem;
   width: 100%;
+
   .office-name {
     padding: 0.3rem 2rem;
+
     #office-title, a {
       display: inline;
       font-size: 1.2rem;
@@ -396,6 +507,7 @@ h5 { font-size: 1.1rem; font-weight: bold; }
       color: #222;
       font-weight: normal;
     }
+
     a:hover {
       color: #000;
     }
@@ -409,14 +521,17 @@ h5 { font-size: 1.1rem; font-weight: bold; }
     left: 0;
     background-color: rgba(255, 255, 255, .7);
     position: absolute;
+
     #office-title, a {
       font-size: 2.5rem;
     }
   }
+
   .hero .office-name-wrapper {
     font-size: 1.5rem;
     opacity: 100%;
     position: relative;
+
     #office-title, a {
       font-size: 1.5rem;
     }
@@ -514,9 +629,34 @@ h5 { font-size: 1.1rem; font-weight: bold; }
 \*------------------------------------*/
 
 /** Summary Tiles - home page **/
+
 .section-home .mosaic-tile.mosaic-jazkarta\.tesserae\.content_summary-tile .cardBottom {
   background-color: #E5E4E2;
 }
+
+
+/* The boostrap 4 transition CSS is hiding mosaic modals that
+   should have faded in */
+.mosaic-modal {
+  &.fade {
+    opacity: 0;
+    -webkit-transition: opacity .25s ease;
+    transition: opacity .25s ease;
+
+    &.in {
+      opacity: 1;
+      -webkit-transition: opacity .25s ease;
+      transition: opacity .25s ease;
+    }
+  }
+}
+
+.mosaic-toolbar .mosaic-menu {
+  padding: 3px 12px;
+  box-sizing: border-box;
+  height: auto;
+}
+
 
 
 
@@ -527,9 +667,11 @@ h5 { font-size: 1.1rem; font-weight: bold; }
 .navbar.navbar-header .constrain-width {
   align-items: flex-start;
 }
+
 .navbar.navbar-header .navbar-nav {
   font-size: 100%;
 }
+
 @media (min-width: 992px) {
   .navbar.navbar-header .navbar-nav {
     font-size: 80%;
@@ -542,6 +684,7 @@ h5 { font-size: 1.1rem; font-weight: bold; }
 }
 
 .navbar-brand img { width: 200px; }
+
 @media (min-width: 576px) {
   .navbar-brand img { width: 270px; }
 }
@@ -566,6 +709,7 @@ h5 { font-size: 1.1rem; font-weight: bold; }
 \*------------------------------------*/
 
 /** Secondary Nav collection portlets **/
+
 .portlet.portlet-collection-secondary-navigation {
   header.portletHeader {
     position: absolute;
@@ -590,6 +734,22 @@ h5 { font-size: 1.1rem; font-weight: bold; }
 }
 
 
+/** Social Media links portlet **/
+
+#social-links-portlet {
+  list-style: none;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.75rem;
+
+  li {
+    display: inline-block;
+    padding: 0 0.25rem;
+  }
+}
+
+
+
 
 /*------------------------------------*\
     $RELATED_ITEMS
@@ -612,63 +772,8 @@ h5 { font-size: 1.1rem; font-weight: bold; }
 }
 
 
+/* Related items font size tweaks - editing */
 
-
-/*------------------------------------*\
-    $HEADER
-\*------------------------------------*/
-
-.LSBox .input-group {
-    display: flex;
-}
-
-nav.navbar-header {
-  padding: 0px;
-}
-
-.navbar-brand img{
-  margin: 8px;
-}
-
-.top-search-button .btn-primary {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-  height: calc(1.5em + .5rem + 2px);
-}
-
-#searchGadget {
-  width: auto;
-  height: calc(1.5em + .5rem + 2px);
-}
-
-.top-search-button .searchButton {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-// The boostrap 4 transition CSS is hiding mosaic modals that
-// should have faded in
-.mosaic-modal {
-  &.fade {
-    opacity: 0;
-    -webkit-transition: opacity .25s ease;
-    transition: opacity .25s ease;
-    &.in {
-      opacity: 1;
-      -webkit-transition: opacity .25s ease;
-      transition: opacity .25s ease;
-    }
-  }
-}
-
-.mosaic-toolbar .mosaic-menu {
-  padding: 3px 12px;
-  box-sizing: border-box;
-  height: auto;
-}
-
-// Related items font size tweaks
 .pattern-relateditems-result {
   .pattern-relateditems-result-browse-wrapper {
     .pattern-relateditems-result-browse {
@@ -676,6 +781,7 @@ nav.navbar-header {
       line-height: 2em;
     }
   }
+
   .pattern-relateditems-item-title, .pattern-relateditems-result-title {
     font-size: 1em;
     &[class*="contenttype-"]::before {
@@ -683,6 +789,9 @@ nav.navbar-header {
     }
   }
 }
+
+
+
 
 /*------------------------------------*\
     $SEARCH_RESULTS
@@ -701,10 +810,11 @@ nav.navbar-header {
   }
 
   ol.searchResults {
+    padding-inline-start: 0px;
+
     li {
       display: block;
     }
-    padding-inline-start: 0px;
   }
 
   div#search-results {
@@ -718,6 +828,7 @@ nav.navbar-header {
   .actionMenu {
     display: none;
   }
+
   .result-title {
     font-size: 1.75rem;
     display: block;
@@ -730,80 +841,4 @@ nav.navbar-header {
 
 body.userrole-manager #searchform .actionMenu {
   display: block;
-}
-
-/*------------------------------------*\
-    $EVENT
-\*------------------------------------*/
-
-body.portaltype-event {
-  #event-row-above-body {
-    display: flex;
-    list-style-type: none;
-    padding-inline-start: 0px;
-    width: 100%;
-    li {
-      font-weight: bold;
-      display: block;
-      i {
-        color: #1e3c7c;
-      }
-    }
-  }
-  .event-image-column {
-    overflow: hidden;
-  }
-  .leadImage {
-    display: none;
-  }
-  .eventFooter {
-    padding: 1em;
-    background-color: #e5eaf0;
-    width: 100%;
-    margin-top: 1em;
-    i {
-      color: #1e3c7c;
-      margin-right: 0.5em;
-    }
-  }
-  .newsImageContainer {
-    float: left;
-    img {
-      width: 100%;
-      height: auto;
-      max-width: 250px;
-    }
-  }
-
-  .newsImageContainer figcaption {
-    display: block;
-  }
-  .container {
-      width: 100%;
-  }
-}
-
-/* Responsive breakpoint statements
-@media (min-width: 576px) {
-}
-
-@media (min-width: 768px) {
-}
-
-@media (min-width: 992px) {
-}
-
-@media (min-width: 1200px) {
-}
-*/
-
-#social-links-portlet {
-  list-style: none;
-  padding: 20px;
-  text-align: center;
-  font-size: 1.75rem;
-  li {
-    display: inline-block;
-    padding: 0 0.25rem;
-  }
 }
