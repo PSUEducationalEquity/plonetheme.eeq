@@ -34,16 +34,20 @@
 
   <!-- move global nav -->
   <replace css:theme-children="#mainnavigation" css:content-children="#portal-mainnavigation" method="raw" />
+
   <replace css:theme-children="#navbarGlobal">
-      <ul class="navbar-nav">
-        <xsl:for-each css:select="#portal-globalnav li a">
-          <li class="nav-item">
-            <a class="nav-link"><xsl:attribute name='href'><xsl:value-of select='@href'/></xsl:attribute>
-              <xsl:copy-of select="./text()" />
-            </a>
-          </li>
-        </xsl:for-each>
-      </ul>
+    <ul class="navbar-nav">
+      <xsl:for-each css:select="#portal-globalnav li">
+        <li><xsl:attribute name="class"><xsl:value-of select="@class" /> nav-item</xsl:attribute>
+          <a class="nav-link"
+             ><xsl:attribute name="href">
+              <xsl:value-of select="a[1]/@href" />
+            </xsl:attribute>
+            <xsl:copy-of select="a[1]/text()" />
+          </a>
+        </li>
+      </xsl:for-each>
+    </ul>
   </replace>
 
   <!-- Office navigation -->
@@ -66,7 +70,7 @@
       </xsl:for-each>
     </ol>
   </replace>
-  
+
   <!-- Central column -->
   <replace css:theme="#content-container" method="raw">
 
