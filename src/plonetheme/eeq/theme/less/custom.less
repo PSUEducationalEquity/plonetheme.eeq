@@ -4,7 +4,7 @@
 /**
  * CONTENTS.............You're reading it!
  * ACTIONS..............Styles for call to action features
- * ANNOUNCEMENTS........Styles for home page announcements
+ * ANNOUNCEMENTS........Styles for announcements
  * BREADCRUMBS..........Styles for the breadcrumb trail
  * COLORS...............Background colors
  * CONTENT..............Styles for content related things
@@ -239,6 +239,7 @@ body.portaltype-event {
     $FEATURE_ITEM
 \*------------------------------------*/
 
+/*
 .feature-item {
   position: relative;
   overflow: hidden;
@@ -292,7 +293,7 @@ body.portaltype-event {
 .feature-item > .feature-container > .feature-content a {
   color: white;
 }
-
+*/
 
 
 
@@ -628,12 +629,7 @@ h5 { font-size: 1.1rem; font-weight: bold; }
     $MOSAIC
 \*------------------------------------*/
 
-/** Summary Tiles - home page **/
-
-.section-home .mosaic-tile.mosaic-jazkarta\.tesserae\.content_summary-tile .cardBottom {
-  background-color: #E5E4E2;
-}
-
+/** General fixes/tweaks **/
 
 /* The boostrap 4 transition CSS is hiding mosaic modals that
    should have faded in */
@@ -655,6 +651,20 @@ h5 { font-size: 1.1rem; font-weight: bold; }
   padding: 3px 12px;
   box-sizing: border-box;
   height: auto;
+}
+
+
+/** Summary Tiles - home page **/
+
+.section-home .mosaic-tile.mosaic-jazkarta\.tesserae\.content_summary-tile .cardBottom {
+  background-color: #E5E4E2;
+}
+
+
+/** Background Image tiles **/
+
+.background-image-tile .colored-background {
+  padding:  45px 5px;
 }
 
 
