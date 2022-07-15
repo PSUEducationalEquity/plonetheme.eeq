@@ -11,6 +11,7 @@ except ImportError:
 from plone.app.z3cform.widget import DatetimeWidget
 from plone.memoize.view import memoize
 from plone.tiles import Tile
+from plone.subrequest import ISubRequest
 from plone.supermodel import model
 from plone import api
 from zExceptions import Unauthorized
@@ -63,14 +64,13 @@ class IAlertTile(model.Schema):
     style = schema.Choice(
         title=_(u'Select alert style'),
         default=u'primary',
-        values=(u'primary', 
+        values=(u'primary',
                 u'warning'),
     )
 
 
 class AlertTile(Tile):
-    """ Custom alert tile with style selection and optional url link
-    """
+    """ Custom alert tile with style selection and optional url link"""
 
     template = ViewPageTemplateFile('templates/alert.pt')
 
@@ -114,7 +114,7 @@ class AlertTile(Tile):
         # setting : css class map
         # can add more alert styles here 2/3
 
-        style_table = {'primary' : 'alert-primary', 
+        style_table = {'primary' : 'alert-primary',
                        'warning' : 'alert-danger'}
 
         # expiration check
@@ -129,3 +129,63 @@ class AlertTile(Tile):
                 return 'alert ' + style_table[choice] + ' in-active'
 
         return 'alert ' + style_table[choice]
+
+
+class ITwentyFiveLiveTile(model.Schema):
+
+    web_name = schema.TextLine(
+        title=_('Calendar webName'),
+        description='The "webName" value for the spud.',
+        required=True,
+    )
+    spud_type = schema.TextLine(
+        title=_('Spud type'),
+        description='The "spudType" value for the spud.',
+        required=True,
+    )
+    options = schema.Text(
+        title=_('Options'),
+        description='Any additional key/value options for the spud.',
+        required=False,
+    )
+
+
+class TwentyFiveLiveTile(Tile):
+    """Tile for inserting calendar data from 25Live"""
+
+    template = ViewPageTemplateFile('templates/twentyfivelive.pt')
+
+    def __call__(self):
+        return self.template()
+
+    @property
+    @memoize
+    def javascript_code(self):
+        """Provides the JavaScript for configuring and displaying the spud"""
+        # only output the javascript if not rendering for layout editor
+        if (self.request.get('_layouteditor') is True or
+                ISubRequest.providedBy(self.request)):
+            js = '$Trumba.addSpud({webName: "%s", spudType: "%s"' % (
+                self.data.get('web_name'),
+                self.data.get('spud_type'),
+            )
+            options = self.data.get('options')
+            if options:
+                options = options.strip()
+                if options.endswith(','):
+                    options = options[:-1]
+                js += ', {}'.format(options)
+            js += '});'
+            return js
+        else:
+            return ''
+
+    @property
+    @memoize
+    def spud_type(self):
+        return self.data.get('spud_type')
+
+    @property
+    @memoize
+    def web_name(self):
+        return self.data.get('web_name')

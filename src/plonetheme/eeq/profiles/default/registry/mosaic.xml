@@ -13,11 +13,29 @@
       <element>plonetheme.eeq.alert</element>
     </value>
   </record>
-
   <records prefix="plone.app.mosaic.app_tiles.plonetheme_eeq_alert"
            interface="plone.app.mosaic.interfaces.ITile">
     <value key="name">plonetheme.eeq.alert</value>
     <value key="label">Alert</value>
+    <value key="category">advanced</value>
+    <value key="tile_type">app</value>
+    <value key="default_value"></value>
+    <value key="read_only">false</value>
+    <value key="settings">true</value>
+    <value key="favorite">false</value>
+    <value key="rich_text">false</value>
+    <value key="weight">20</value>
+  </records>
+
+  <record name="plone.app.tiles">
+    <value purge="false">
+      <element>plonetheme.eeq.twentyfivelive</element>
+    </value>
+  </record>
+  <records prefix="plone.app.mosaic.app_tiles.plonetheme_eeq_twentyfivelive"
+           interface="plone.app.mosaic.interfaces.ITile">
+    <value key="name">plonetheme.eeq.twentyfivelive</value>
+    <value key="label">25Live Calendar Spud</value>
     <value key="category">advanced</value>
     <value key="tile_type">app</value>
     <value key="default_value"></value>
