@@ -61,7 +61,12 @@
   <replace css:theme="#hero-image" css:content="#hero-image" />
 
   <!-- full-width breadcrumb -->
-  <replace css:theme-children="nav#portal-breadcrumbs">
+  <replace css:theme-children="nav#portal-breadcrumbs"
+           css:if-content="body.section-home">
+    <ol class="breadcrumb"></ol>
+  </replace>
+  <replace css:theme-children="nav#portal-breadcrumbs"
+           css:if-not-content="body.section-home">
     <ol class="breadcrumb">
       <xsl:for-each select="//*[@id='portal-breadcrumbs']//li">
         <li class="breadcrumb-item">
