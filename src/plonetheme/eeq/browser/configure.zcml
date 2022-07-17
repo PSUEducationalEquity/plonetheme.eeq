@@ -65,6 +65,18 @@
       template="templates/alert.pt"
       />
 
+  <plone:tile
+      name="plonetheme.eeq.twentyfivelive"
+      title="25Live calendar"
+      description="A tile that displays calendar information from 25Live"
+      add_permission="cmf.ModifyPortalContent"
+      class=".tiles.TwentyFiveLiveTile"
+      for="*"
+      permission="zope.Public"
+      schema=".tiles.ITwentyFiveLiveTile"
+      template="templates/twentyfivelive.pt"
+      />
+
   <browser:page
       for="plone.app.contenttypes.interfaces.IEvent"
       name="psu-event-helper"

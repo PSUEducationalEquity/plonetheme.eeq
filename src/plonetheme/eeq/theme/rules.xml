@@ -34,16 +34,20 @@
 
   <!-- move global nav -->
   <replace css:theme-children="#mainnavigation" css:content-children="#portal-mainnavigation" method="raw" />
+
   <replace css:theme-children="#navbarGlobal">
-      <ul class="navbar-nav">
-        <xsl:for-each css:select="#portal-globalnav li a">
-          <li class="nav-item">
-            <a class="nav-link"><xsl:attribute name='href'><xsl:value-of select='@href'/></xsl:attribute>
-              <xsl:copy-of select="./text()" />
-            </a>
-          </li>
-        </xsl:for-each>
-      </ul>
+    <ul class="navbar-nav">
+      <xsl:for-each css:select="#portal-globalnav li">
+        <li><xsl:attribute name="class"><xsl:value-of select="@class" /> nav-item</xsl:attribute>
+          <a class="nav-link"
+             ><xsl:attribute name="href">
+              <xsl:value-of select="a[1]/@href" />
+            </xsl:attribute>
+            <xsl:copy-of select="a[1]/text()" />
+          </a>
+        </li>
+      </xsl:for-each>
+    </ul>
   </replace>
 
   <!-- Office navigation -->
@@ -57,7 +61,12 @@
   <replace css:theme="#hero-image" css:content="#hero-image" />
 
   <!-- full-width breadcrumb -->
-  <replace css:theme-children="nav#portal-breadcrumbs">
+  <replace css:theme-children="nav#portal-breadcrumbs"
+           css:if-content="body.section-home">
+    <ol class="breadcrumb"></ol>
+  </replace>
+  <replace css:theme-children="nav#portal-breadcrumbs"
+           css:if-not-content="body.section-home">
     <ol class="breadcrumb">
       <xsl:for-each select="//*[@id='portal-breadcrumbs']//li">
         <li class="breadcrumb-item">
@@ -66,7 +75,7 @@
       </xsl:for-each>
     </ol>
   </replace>
-  
+
   <!-- Central column -->
   <replace css:theme="#content-container" method="raw">
 
@@ -160,13 +169,13 @@
       </ul>
     </div>
     <div class="col-lg-4">
-      <h3 class="text-white">For Faculty</h3>
+      <h3 class="text-white">For Penn State Faculty</h3>
       <ul class="list-unstyled">
         <xsl:for-each css:select="footer#portal-footer-wrapper .portlet-collection-for-faculty li">
           <xsl:copy-of select="." />
         </xsl:for-each>
       </ul>
-      <h3 class="text-white">For Staff</h3>
+      <h3 class="text-white">For Internal Staff</h3>
       <ul class="list-unstyled">
         <xsl:for-each css:select="footer#portal-footer-wrapper .portlet-collection-for-staff li">
           <xsl:copy-of select="." />

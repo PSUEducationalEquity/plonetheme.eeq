@@ -9,14 +9,17 @@
   <body tal:define="content nocall:view/content; title nocall:view/title;">
     <metal:macro define-macro="alert"
                  tal:define="url nocall:view/content_url|nothing;">
-        <div tal:attributes="class python:view.alert_style">
-            <i class="fas fa-bell"></i>
-            <div class="text">
-                <h4 tal:condition="title" class="title"><a tal:attributes="class python:url is None and 'noHover'" href="${url}" title="${title}">${title}</a></h4>
-                <p class="content" tal:content="content">
-            <div>
-            </p>
-       </div>
+      <div tal:attributes="class python:view.alert_style">
+        <i class="fas fa-bell"></i>
+        <div class="text">
+          <h4 tal:condition="title"
+              class="title"
+              ><a tal:attributes="class python:url is None and 'noHover'"
+                  href="${url}"
+                  title="${title}">${title}</a></h4>
+          <p class="content" tal:content="content"></p>
+        <div>
+      </div>
     </metal:macro>
   </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+  <body tal:define="code      view/javascript_code;
+                    spudType  view/spud_type;
+                    webName   view/web_name">
+    <metal:macro define-macro="twentyfivelive">
+      <div class="twentyfivelive">
+        <div tal:condition="code">
+          <script type="text/javascript"
+                  src="//25livepub.collegenet.com/scripts/spuds.js"></script>
+          <script type="text/javascript">${code}</script>
+        </div>
+
+        <div class="alert alert-secondary"
+             tal:condition="python:not code">
+          <i aria-hidden="true"
+             class="far fa-calendar-alt"
+             style="font-size: 3rem; margin: 0.5rem; margin-left: 0; vertical-align: top"></i>
+          <div style="display: inline-block;">
+            <h4>25Live calendar spud</h4>
+            <div>
+              <i>Renders the 25Live calendar spud when the page is viewed</i>
+            </div>
+            <small style="display: block; margin-left: 1rem;">
+              webName: <b>${webName}</b>
+            </small>
+            <small style="display: block; margin-left: 1rem;">
+              spudType: <b>${spudType}</b>
+            </small>
+          </div>
+        </div>
+      </div>
+    </metal:macro>
+  </body>
+</html>
