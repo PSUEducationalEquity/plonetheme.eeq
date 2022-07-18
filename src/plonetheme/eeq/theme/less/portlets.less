@@ -10,25 +10,27 @@
     font-size: @plone-font-size-small;
     font-weight: @plone-font-weight-regular;
   }
-    
+
   .glyphicon {
     display: none;
   }
-  
+
   &.portletNavigationTree {
+    /*
     .portletHeader {
       display: none !important;
     }
-    
+    */
+
     .portletContent {
-      font-size: 1rem; 
+      font-size: 1rem;
       padding: 15px 15px 15px 15px;
       margin-bottom: 0rem;
 
       > ul {
         > li {
-          a {  
-		    padding: 10px 15px 5px 15px !important;
+          a {
+		        padding: 10px 15px 5px 15px !important;
           }
         }
         li:hover {
@@ -45,8 +47,8 @@
         padding: inherit;
 
         > li {
-          a {  
-		    padding: inherit !important;
+          a {
+		        padding: inherit !important;
           }
         }
         > ul {
@@ -110,14 +112,16 @@
     list-style: none;
     position: relative;
     > li {
-      a {  
-		display: block;
-		padding: 10px 15px 26px 15px;
-		position: relative;
-		z-index: 1;
+      a {
+    		display: block;
+    		padding: 10px 15px 26px 15px;
+    		position: relative;
+    		z-index: 1;
       }
     }
-    li:hover {background: @plone-portlet-list-hover-bg;}
+    li:hover {
+      background: @plone-portlet-list-hover-bg;
+    }
     ul {
       padding-left:15px;
       list-style: none;
