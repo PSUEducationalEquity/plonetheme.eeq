@@ -169,6 +169,22 @@
       import_steps="typeinfo"
       />
 
+  <genericsetup:upgradeDepends
+      source="1012"
+      destination="1013"
+      title="TinyMCE formatting for buttons and alerts"
+      profile="plonetheme.eeq:default"
+      import_steps="typeinfo"
+      />
+
+  <genericsetup:upgradeDepends
+      source="1013"
+      destination="1014"
+      title="Collection Chronology Mosaic tile"
+      profile="plonetheme.eeq:default"
+      import_steps="typeinfo"
+      />
+
   <adapter factory=".overrides.TileDatetimeWidgetConverter" />
 
 </configure>

@@ -77,6 +77,18 @@
       template="templates/twentyfivelive.pt"
       />
 
+  <plone:tile
+      name="plonetheme.eeq.collectionchronology"
+      title="Collection chronology"
+      description="A tile that displays collection items with chronological data"
+      add_permission="cmf.ModifyPortalContent"
+      class=".tiles.CollectionChronology"
+      for="*"
+      permission="zope.Public"
+      schema=".tiles.ICollectionChronology"
+      template="templates/collectionchronology.pt"
+      />
+
   <browser:page
       for="plone.app.contenttypes.interfaces.IEvent"
       name="psu-event-helper"

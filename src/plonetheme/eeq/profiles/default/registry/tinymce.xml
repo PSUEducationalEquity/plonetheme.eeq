@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<registry>
+
+  <records interface="Products.CMFPlone.interfaces.controlpanel.ITinyMCESchema"
+           prefix="plone">
+
+    <value key="header_styles" purge="True">
+      <element>Header 1|h2</element>
+      <element>Header 2|h3</element>
+      <element>Header 3|h4</element>
+      <element>Header 4|h5</element>
+      <element>Header 5|h6</element>
+    </value>
+
+    <value key="block_styles" purge="False">
+      <element>Alert: primary|alert-primary</element>
+      <element>Alert: secondary|alert-secondary</element>
+      <element>Alert: success|alert-success</element>
+      <element>Alert: danger|alert-danger</element>
+      <element>Alert: warning|alert-warning</element>
+      <element>Alert: info|alert-info</element>
+    </value>
+
+    <value key="inline_styles" purge="False">
+      <element>Action Item title|actionitem|actionitem</element>
+
+      <element>Button: primary|btn-primary|button</element>
+      <element>Button: secondary|btn-secondary|button</element>
+      <element>Button: success|btn-success|button</element>
+      <element>Button: danger|btn-danger|button</element>
+      <element>Button: warning|btn-warning|button</element>
+      <element>Button: info|btn-info|button</element>
+
+      <element>Button (large)|btn-lg|button-lg</element>
+      <element>Button (small)|btn-sm|button-sm</element>
+    </value>
+
+    <value key="formats">
+{
+  "actionitem": {
+    "inline": "span",
+    "classes": "action-item-title"
+  },
+
+  "alert-primary": {
+    "block": "div",
+    "classes": "alert alert-primary"
+  },
+  "alert-secondary": {
+    "block": "div",
+    "classes": "alert alert-secondary"
+  },
+  "alert-success": {
+    "block": "div",
+    "classes": "alert alert-success"
+  },
+  "alert-danger": {
+    "block": "div",
+    "classes": "alert alert-danger"
+  },
+  "alert-warning": {
+    "block": "div",
+    "classes": "alert alert-warning"
+  },
+  "alert-info": {
+    "block": "div",
+    "classes": "alert alert-info"
+  },
+
+  "btn-primary": {
+    "selector": "a",
+    "classes": "btn btn-primary"
+  },
+  "btn-secondary": {
+    "selector": "a",
+    "classes": "btn btn-secondary"
+  },
+  "btn-success": {
+    "selector": "a",
+    "classes": "btn btn-success"
+  },
+  "btn-danger": {
+    "selector": "a",
+    "classes": "btn btn-danger"
+  },
+  "btn-warning": {
+    "selector": "a",
+    "classes": "btn btn-warning"
+  },
+  "btn-info": {
+    "selector": "a",
+    "classes": "btn btn-info"
+  },
+
+  "btn-lg": {
+    "selector": "a",
+    "classes": "btn-lg"
+  },
+  "btn-sm": {
+    "selector": "a",
+    "classes": "btn-sm"
+  },
+
+  "clearfix": {
+    "block": "div",
+    "classes": "clearfix"
+  },
+  "discreet": {
+    "inline": "span",
+    "classes": "discreet"
+  }
+}
+    </value>
+  </records>
+
+</registry>

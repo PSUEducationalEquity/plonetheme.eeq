@@ -24,6 +24,7 @@
  * PORTLETS.............Styles for the various portlets
  * RELATED_ITEMS........Styles for related items/content
  * SEARCH_RESULTS.......Styles for the search results page
+ * TINYMCE..............Styles related to the TinyMCE editor
  */
 
 /* Responsive breakpoint statements
@@ -654,17 +655,144 @@ h5 { font-size: 1.1rem; font-weight: bold; }
 }
 
 
-/** Summary Tiles - home page **/
-
-.section-home .mosaic-tile.mosaic-jazkarta\.tesserae\.content_summary-tile .cardBottom {
-  background-color: #E5E4E2;
-}
-
-
 /** Background Image tiles **/
 
 .background-image-tile .colored-background {
   padding:  45px 5px;
+}
+
+
+/** Collection Chronology tile **/
+
+.mosaic-plonetheme\.eeq\.collectionchronology-tile {
+  margin-top: 1em;
+
+  .cardsDescription {
+    margin-bottom: 0.5em;
+    margin-top: -0.5em;
+    padding-left: 0.3em;
+  }
+}
+
+.mosaic-plonetheme\.eeq\.collectionchronology-tile .cardsTop .viewAll {
+  display: none;
+}
+
+.mosaic-plonetheme\.eeq\.collectionchronology-tile .cardContainer .col {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.mosaic-plonetheme\.eeq\.collectionchronology-tile .card-event {
+  background-color: #E5E4E2;
+  border: 1px solid #D6D5D4;
+  margin-bottom: 1em;
+}
+
+.mosaic-plonetheme\.eeq\.collectionchronology-tile .eventTop {
+  border-bottom: 1px solid #D6D5D4;
+  padding-top: 3em;
+
+  .date-block {
+    display: inline-block;
+    margin-bottom: -1px;
+    padding: 5px;
+  }
+  &.bgimage .date-block {
+    background: white;
+    opacity: 0.8;
+  }
+
+  .month {
+    line-height: 1em;
+    text-transform: uppercase;
+  }
+
+  .day {
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1em;
+  }
+}
+
+.mosaic-plonetheme\.eeq\.collectionchronology-tile .eventContent {
+  padding: 5px;
+
+  .title {
+    margin-bottom: 0.7em;
+  }
+}
+
+.mosaic-plonetheme\.eeq\.collectionchronology-tile .eventBottom {
+  border-top: 1px solid #D6D5D4;
+  padding: 5px;
+
+  a {
+    display: inline-block;
+    margin-right: 0.3em;
+  }
+}
+
+
+/** Content Listing - Listing **/
+
+.mosaic-plone\.app\.standardtiles\.contentlisting-tile {
+  dl dt {
+    .summary img,
+    .summary a:before {
+      display: none;
+    }
+
+    .documentByLine {
+      display: none;
+    }
+  }
+
+  dd {
+    display: none;
+  }
+}
+
+
+/** Content Listing - Summary **/
+
+.mosaic-plone\.app\.standardtiles\.contentlisting-tile {
+  .documentDescription {
+    font-size: 1.1rem;
+    margin-bottom: 0.5em;
+    margin-top: -0.3em;
+  }
+
+  .summary-image {
+    display: none;
+  }
+
+  .tileHeadline {
+    font-size: 1.5rem;
+  }
+
+  .tileBody {
+    margin-left: 0.5rem;
+    margin-top: -0.4em;
+  }
+
+  .tileFooter {
+    display: none;
+  }
+}
+
+
+
+/** Summary Tiles **/
+
+.card.card-blank {
+  border: 0;
+}
+
+/** Summary Tiles - home page **/
+
+.section-home .mosaic-tile.mosaic-jazkarta\.tesserae\.content_summary-tile .cardBottom {
+  background-color: #E5E4E2;
 }
 
 
@@ -852,3 +980,35 @@ h5 { font-size: 1.1rem; font-weight: bold; }
 body.userrole-manager #searchform .actionMenu {
   display: block;
 }
+
+
+
+
+/*------------------------------------*\
+    $TINY_MCE
+\*------------------------------------*/
+
+/** icons for the format dropdown menu */
+
+.mce-ico.mce-i-actionitem,
+.mce-ico.mce-i-button-lg,
+.mce-ico.mce-i-button-sm {
+  font-family: 'Icons';
+}
+.mce-i-actionitem:before {
+  content:'\e04d';
+}
+.mce-i-button-lg:before {
+  content: '\e037';
+}
+.mce-i-button-sm:before {
+  content: '\e034';
+}
+
+.mce-ico.mce-i-button {
+  font-family: 'Font Awesome 5 Pro';
+}
+.mce-i-button:before {
+  content: '\f1d8';
+}
+

@@ -26,6 +26,8 @@ class PSUEventHelpers(BrowserView):
         """Format the given `time` (a datetime object) like this:
         '7:00 p.m.' / '11:00 a.m.' / '9:00 a.m.'
         """
+        if self.context.whole_day:
+            return 'All day'
         formatted_time = time.strftime('%I:%S')
         if formatted_time.startswith('0'):
             formatted_time = formatted_time[1:]
