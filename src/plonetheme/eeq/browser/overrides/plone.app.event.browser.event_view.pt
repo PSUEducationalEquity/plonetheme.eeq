@@ -9,7 +9,8 @@
 
 <metal:content-core fill-slot="content-core">
 <metal:block define-macro="content-core">
-<tal:def tal:define="data nocall:view/data; helper_view context/@@psu-event-helper">
+<tal:def tal:define="data nocall:view/data;
+                     helper_view context/@@psu-event-helper">
   <div class="container event clearfix" itemscope itemtype="https://schema.org/Event">
     <div class="row"
          tal:define="scale_func context/@@images;
@@ -71,8 +72,12 @@
       </div>
       <div class="col-md-4 my-1 my-md-0">
         Subscribe: <br />
-        <a tal:attributes="href helper_view/gcal_url"><i class="fab fa-google"></i></a>
-        <a tal:attributes="href string:${context/absolute_url}/ics_view"><i class="fas fa-calendar-alt"></i></a>
+        <a tal:attributes="href helper_view/gcal_url"
+           title="Add to my Google calendar"
+           ><i class="fab fa-google"></i></a>
+        <a tal:attributes="href string:${context/absolute_url}/ics_view"
+           title="Add to my calendar"
+           ><i class="fas fa-calendar-alt"></i></a>
       </div>
     </div>
   </div>
