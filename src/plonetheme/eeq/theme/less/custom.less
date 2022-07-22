@@ -24,6 +24,7 @@
  * PORTLETS.............Styles for the various portlets
  * RELATED_ITEMS........Styles for related items/content
  * SEARCH_RESULTS.......Styles for the search results page
+ * TINYMCE..............Styles related to the TinyMCE editor
  */
 
 /* Responsive breakpoint statements
@@ -852,3 +853,35 @@ h5 { font-size: 1.1rem; font-weight: bold; }
 body.userrole-manager #searchform .actionMenu {
   display: block;
 }
+
+
+
+
+/*------------------------------------*\
+    $TINY_MCE
+\*------------------------------------*/
+
+/** icons for the format dropdown menu */
+
+.mce-ico.mce-i-actionitem,
+.mce-ico.mce-i-button-lg,
+.mce-ico.mce-i-button-sm {
+  font-family: 'Icons';
+}
+.mce-i-actionitem:before {
+  content:'\e04d';
+}
+.mce-i-button-lg:before {
+  content: '\e037';
+}
+.mce-i-button-sm:before {
+  content: '\e034';
+}
+
+.mce-ico.mce-i-button {
+  font-family: 'Font Awesome 5 Pro';
+}
+.mce-i-button:before {
+  content: '\f1d8';
+}
+
