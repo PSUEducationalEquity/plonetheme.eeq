@@ -17,6 +17,11 @@ from plone import api
 from zExceptions import Unauthorized
 from zope import schema
 from datetime import datetime
+from DateTime import DateTime
+
+
+DATE_FORMAT = '%B %-d, %Y'
+TIME_FORMAT = '%-I:%M%p'
 
 
 class IAlertTile(model.Schema):
@@ -129,6 +134,156 @@ class AlertTile(Tile):
                 return 'alert ' + style_table[choice] + ' in-active'
 
         return 'alert ' + style_table[choice]
+
+
+class ICollectionChronology(model.Schema):
+
+    content_uid = schema.Choice(
+        title=_(u'Select an existing collection'),
+        required=True,
+        source=CatalogSource(
+            object_provides=(
+                'plone.app.contenttypes.behaviors.collection.IFolder',
+                'plone.app.contenttypes.behaviors.collection.ICollection',
+                'plone.app.contenttypes.behaviors.collection.ISyndicatableCollection',
+                'plone.app.collection.interfaces.ICollection',
+            )
+        ),
+    )
+    if RelatedItemsWidget is not None:
+        form.widget('content_uid', RelatedItemsWidget)
+
+    show_title = schema.Bool(
+        title=_(u'Show collection title'),
+        default=True,
+    )
+
+    show_description = schema.Bool(
+        title=_(u'Show collection description'),
+        default=False,
+    )
+
+    show_lead_image = schema.Bool(
+        title=_(u'Show lead image as background'),
+        default=False,
+    )
+
+    limit = schema.Int(
+        title=_(u'Number of items to display'),
+        default=3,
+        min=1,
+    )
+
+
+class CollectionChronology(Tile):
+    """Tile for displaying collection items with chronological data"""
+
+    template = ViewPageTemplateFile('templates/collectionchronology.pt')
+
+    def __call__(self):
+        self.update()
+        return self.template()
+
+    def update(self):
+        limit = self.data.get('limit', 3)
+        self.results = []
+        for b in self.content.results(batch=False, b_size=limit)[:limit]:
+            try:
+                obj = b.getObject()
+                self.results.append(obj)
+            except Unauthorized:
+                continue
+        self.show_title = self.data.get('show_title', False)
+        self.show_description = self.data.get('show_description', False)
+        self.show_lead_image = self.data.get('show_lead_image', False)
+
+    @property
+    @memoize
+    def content(self):
+        uuid = self.data.get('content_uid')
+        if uuid != api.content.get_uuid(self.context):
+            try:
+                item = uuidToObject(uuid)
+            except Unauthorized:
+                item = None
+                if not self.request.get('PUBLISHED'):
+                    raise  # Should raise while still traversing
+            if item is not None:
+                return item
+        return None
+
+    def day(self, obj=None):
+        start_date = self._start_date(obj)
+        end_date = self._end_date(obj)
+        result = start_date.strftime('%-d')
+        try:
+            end_day = end_date.strftime('%-d')
+        except AttributeError:
+            pass
+        else:
+            if result != end_day:
+                result += '-' + end_day
+        return result
+
+    def _end_date(self, obj=None):
+        content = obj or self.content
+        try:
+            return content.end
+        except AttributeError:
+            return None
+
+    def image_url(self, obj=None, scale_name="preview"):
+        content = obj or self.content
+        if content is None:
+            return
+
+        images_view = content.unrestrictedTraverse('@@images')
+
+        for field_name in ['image', 'leadImage']:
+            try:
+                scale = images_view.scale(fieldname=field_name,
+                                          scale=scale_name)
+            except AttributeError:
+                continue
+            if scale is not None:
+                return scale.url
+
+    def month(self, obj=None):
+        start_date = self._start_date(obj)
+        end_date = self._end_date(obj)
+        result = start_date.strftime('%b')
+        try:
+            end_month = end_date.strftime('%b')
+        except AttributeError:
+            pass
+        else:
+            if result != end_month:
+                result += '-' + end_month
+        return result
+
+    def start(self, obj=None):
+        start_date = self._start_date(obj)
+        try:
+            all_day = obj.whole_day
+        except AttributeError:
+            all_day = False
+        result = start_date.strftime('%a, %b %-d, ')
+        if all_day:
+            result += 'All day'
+        else:
+            result += start_date.strftime(TIME_FORMAT)
+        return result
+
+    def _start_date(self, obj=None):
+        content = obj or self.content
+        try:
+            return content.start
+        except AttributeError:
+            try:
+                return content.effective_date
+            except AttributeError:
+                return None
+        return None
 
 
 class ITwentyFiveLiveTile(model.Schema):

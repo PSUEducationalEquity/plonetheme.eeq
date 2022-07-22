@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+  <body tal:define="collection nocall:view/content;
+                    url collection/absolute_url|nothing;
+                    title collection/Title|nothing;
+                    description collection/Description|nothing;
+                    results view/results;">
+    <div class="cards" tal:condition="results">
+      <div class="cardsTop" tal:condition="view/show_title">
+        <h2 class="cardsTitle"><a href="${url}" title="${description}">${title}</a></h2>
+        <div class="cardsDescription"
+             tal:condition="view/show_description"
+             >${description}</div>
+        <a class="viewAll" href="${url}" title="${title}">View All</a>
+      </div>
+      <div class="cardContainer container-fluid">
+        <div class="row">
+
+          <tal:results repeat="content results">
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="card-event"
+                   tal:define="item_title content/Title|nothing;
+                               item_desc  content/Description|nothing;
+                               item_url   content/absolute_url|nothing;">
+                <tal:background tal:define="item_image python: view.image_url(content);"
+                                tal:condition="view/show_lead_image">
+                  <div class="eventTop bgimage"
+                       style="background-image: url(${item_image});
+                              background-repeat: no-repeat;
+                              background-size: cover;"
+
+                       >
+                    <div class="date-block">
+                      <div class="month"
+                           tal:content="python: view.month(content)"
+                           >Feb</div>
+                      <div class="day"
+                           tal:content="python: view.day(content)"
+                           >2</div>
+                    </div>
+                  </div>
+                </tal:background>
+                <tal:plain tal:condition="python: not view.show_lead_image">
+                  <div class="eventTop">
+                    <div class="date-block">
+                      <div class="month"
+                           tal:content="python: view.month(content)"
+                           >Feb</div>
+                      <div class="day"
+                           tal:content="python: view.day(content)"
+                           >2</div>
+                    </div>
+                  </div>
+                </tal:plain>
+                <div class="eventContent">
+                  <div class="title">
+                    <a href="${item_url}"
+                       title="${item_desc}"
+                       tal:condition="item_url"
+                       >${item_title}</a>
+                    <span title="${item_desc}"
+                          tal:condition="python: not item_url"
+                          >${item_title}</span>
+                  </div>
+                  <small tal:content="python: view.start(content)"
+                         >Tue, Feb 2, 5pm</small>
+                </div>
+                <div class="eventBottom">
+                  <a tal:attributes="href content/@@psu-event-helper/gcal_url"
+                     title="Add to my Google calendar"
+                     ><i class="fab fa-google"></i></a>
+                  <a href="${item_url}/ics_view"
+                     title="Add to my calendar"
+                     ><i class="fas fa-calendar-alt"></i></a>
+                </div>
+              </div>
+            </div>
+
+          </tal:results>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
