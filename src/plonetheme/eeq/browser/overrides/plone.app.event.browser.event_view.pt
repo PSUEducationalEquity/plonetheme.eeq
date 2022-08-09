@@ -29,7 +29,9 @@
           <tal:date replace="python: helper_view.format_time(data.start)" />
         </li>
 
-        <li itemprop="location" class="col-xs-12 col-md-4">
+        <li itemprop="location"
+            class="col-xs-12 col-md-4"
+            tal:condition="python: data.location">
           <i class="fas fa-map-pin"></i>
           <tal:date replace="python: data.location" />
         </li>
