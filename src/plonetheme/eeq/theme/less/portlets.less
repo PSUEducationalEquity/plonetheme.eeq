@@ -1,11 +1,13 @@
 .portlet {
-
-  background-color: @porlet-background;
+  background-color: @portlet-background;
+  padding-bottom: 1rem;
 
   .portletHeader {
     font-weight: @plone-font-weight-medium;
-    font-size: @plone-font-size-large;
+    font-size: 1.25rem;
+    padding: 5px 15px 0 15px;
   }
+
   .portletFooter {
     font-size: @plone-font-size-small;
     font-weight: @plone-font-weight-regular;
@@ -15,102 +17,95 @@
     display: none;
   }
 
-  &.portletNavigationTree {
-    /*
-    .portletHeader {
-      display: none !important;
-    }
-    */
 
+  &.portletNavigationTree {
     .portletContent {
-      font-size: 1rem;
-      padding: 15px 15px 15px 15px;
-      margin-bottom: 0rem;
+      padding: 5px 15px 15px 15px;
 
       > ul {
+        margin-bottom: 0;
+
         > li {
+          border-bottom: 1px solid #ddd;
+
           a {
-		        padding: 10px 15px 5px 15px !important;
+            border-left: 4px solid transparent;
+		        padding: 10px 15px !important;
+          }
+
+          a:hover {
+            background-color: #eee;
+          }
+
+          .navTreeCurrentItem {
+            border-left: 4px solid #0056b3;
           }
         }
+
         li:hover {
-          background-color: @porlet-background;
+          background-color: @portlet-background;
+        }
+
+        li:first-of-type {
+          border-top: 1px solid #ddd;
         }
       }
     }
+
 
     /* fixes for site settings panel */
     &.portletSiteSetup {
-      .portletContent {
-        font-size: 1rem;
-        font-weight: 400;
-        padding: inherit;
+      ul {
+        background-color: transparent;
+      }
 
-        > li {
-          a {
-		        padding: inherit !important;
-          }
-        }
+      .portletContent {
         > ul {
-          > li {
-            height: inherit;
+          li {
+            border-bottom: none;
+
+            > ul li a:before {
+              display: none;
+            }
           }
-          li:hover {
-            background-color: #edecec;
+
+          li:first-of-type {
+            border-top: none;
           }
         }
       }
     }
-
   }
 
-  &.portletStaticText {
-    .portletHeader {
-      font-size: 1.5rem;
-      padding-top: 15px;
-      padding-left: 30px;
-    }
-
-    .portletContent {
-      font-size: 1rem;
-      padding: 15px 15px 15px 30px;
-      margin-bottom: 0rem;
-    }
-
-  }
 
   &.portletCollection {
-    .portletHeader {
-      font-size: 1.5rem;
-      padding-top: 15px;
-      padding-left: 30px;
-      padding-right: 15px;
-    }
 
     .portletContent {
-      font-size: 1rem;
-      padding: 15px 15px 15px 30px;
-      margin-bottom: 0rem;
 
       > li {
         padding: 7px 0px 7px 0px;
         margin-left: 15px;
       }
+
       li:hover {
-        background-color: @porlet-background;
+        background-color: @portlet-background;
       }
     }
   }
-
 }
+
 
 .portletContent {
   font-size: @plone-font-size-base;
   font-weight: @plone-font-weight-regular;
+  margin-bottom: 0;
+  padding: 15px 15px 15px 30px;
+
   > ul {
     padding: 0;
     list-style: none;
     position: relative;
+
     > li {
       a {
     		display: block;
@@ -119,11 +114,13 @@
     		z-index: 1;
       }
     }
+
     li:hover {
       background: @plone-portlet-list-hover-bg;
     }
+
     ul {
-      padding-left:15px;
+      padding-left: 15px;
       list-style: none;
     }
   }

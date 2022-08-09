@@ -8,14 +8,5 @@
     <for interface="plone.app.portlets.interfaces.IColumn" />
   </portlet>
 
-  <assignment
-    manager="plone.rightcolumn"
-    category="context"
-    key="/"
-    type="eeq.social_links"
-    name="eeq.social_links"
-    visible="1"
-    />
-
 </portlets>
 

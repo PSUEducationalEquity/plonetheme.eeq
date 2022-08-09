@@ -185,6 +185,14 @@
       import_steps="typeinfo"
       />
 
+  <genericsetup:upgradeDepends
+      source="1014"
+      destination="1015"
+      title="Area content type"
+      profile="plonetheme.eeq:default"
+      import_steps="typeinfo"
+      />
+
   <adapter factory=".overrides.TileDatetimeWidgetConverter" />
 
 </configure>

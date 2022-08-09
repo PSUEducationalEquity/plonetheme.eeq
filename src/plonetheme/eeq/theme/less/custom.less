@@ -858,26 +858,32 @@ h3 + h4, h4:first-of-type { margin-top: 0 }
 
 /** Secondary Nav collection portlets **/
 
+.portlet.portlet-collection-information,
 .portlet.portlet-collection-secondary-navigation {
-  header.portletHeader {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border: 0;
-  }
 
   ul.portletContent {
     list-style-type: none;
-  }
+    padding: 5px 15px 15px 15px;
 
-  ul.portletContent li {
-    margin-left: 0;
-    padding: 3px 0;
+    li {
+      border-bottom: 1px solid #ddd;
+      margin-left: 0;
+      padding: 0;
+
+      a {
+        border-left: 4px solid transparent;
+        display: block;
+        padding: 10px 15px;
+      }
+
+      a:hover {
+        background-color: #eee;
+      }
+    }
+
+    li:first-of-type {
+      border-top: 1px solid #ddd;
+    }
   }
 }
 
@@ -885,10 +891,12 @@ h3 + h4, h4:first-of-type { margin-top: 0 }
 /** Social Media links portlet **/
 
 #social-links-portlet {
-  list-style: none;
-  padding: 20px;
-  text-align: center;
   font-size: 1.75rem;
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: -2.5rem;
+  padding: 0 15px 1rem 15px;
+  text-align: center;
 
   li {
     display: inline-block;
