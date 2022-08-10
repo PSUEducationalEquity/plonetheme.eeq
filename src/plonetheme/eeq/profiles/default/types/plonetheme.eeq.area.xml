@@ -20,6 +20,13 @@
      <element value="plone.namefromtitle" />
      <element value="plone.leadimage"/>
      <element value="plone.imagecropping"/>
+     <element value="plone.allowdiscussion" />
+     <element vaule="plone.publication" />
+     <element value="plone.shortname" />
+     <element value="plone.excludefromnavigation" />
+     <element value="plone.nextprevioustoggle" />
+     <element value="plone.relateditems" />
+     <element value="plone.selectableconstraintstypes" />
      <element value="plone.layoutaware" />
      <element value="plone.draftable" />
   </property>
