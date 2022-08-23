@@ -18,7 +18,8 @@
                   href="${url}"
                   title="${title}">${title}</a></h4>
           <p class="content" tal:content="content"></p>
-        <div>
+        </div>
+        <div class="visualClear clearfix"><!-- --></div>
       </div>
     </metal:macro>
   </body>
