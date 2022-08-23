@@ -189,8 +189,16 @@
       css:theme-children="html body"
       content="//footer[@id='portal-footer-wrapper']/*[not(@class='row')]"
       />
+
   <!-- Top banner viewlet -->
   <replace css:theme="#above-header-banner" css:content-children="#AboveHeaderBanner" />
+
+  <!-- clear floats CSS class change -->
+  <replace content="//div[@class='visualClear']">
+    <xsl:copy>
+      <xsl:attribute name="class">clearfix</xsl:attribute>
+    </xsl:copy>
+  </replace>
 
   <!-- toolbar -->
   <replace css:theme="#portal-toolbar" css:content="#edit-bar" css:if-not-content=".ajax_load" css:if-content=".userrole-authenticated" />
