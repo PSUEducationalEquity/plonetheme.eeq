@@ -108,12 +108,32 @@
       />
 
   <browser:page
+      for="plone.dexterity.interfaces.IDexterityContainer"
+      permission="zope2.View"
+      name="grid"
+      template="templates/grid.pt"
+      menu="plone_displayviews"
+      title="Grid view"
+      class="plone.app.contenttypes.browser.folder.FolderView"
+      />
+
+  <browser:page
       for="plone.app.contenttypes.interfaces.ICollection"
       permission="zope2.View"
       name="summary_with_images"
       template="templates/summary_with_images.pt"
       menu="plone_displayviews"
       title="Summary view with images"
+      class="plone.app.contenttypes.browser.collection.CollectionView"
+      />
+
+  <browser:page
+      for="plone.app.contenttypes.interfaces.ICollection"
+      permission="zope2.View"
+      name="grid"
+      template="templates/grid.pt"
+      menu="plone_displayviews"
+      title="Grid view"
       class="plone.app.contenttypes.browser.collection.CollectionView"
       />
 

@@ -8,5 +8,6 @@
   </property>
   <property name="view_methods" purge="False">
     <element value="summary_with_images"/>
+    <element value="grid"/>
   </property>
 </object>

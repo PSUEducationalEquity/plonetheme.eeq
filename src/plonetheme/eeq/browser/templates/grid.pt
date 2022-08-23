@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal" xmlns:metal="http://xml.zope.org/namespaces/metal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="plone" metal:use-macro="context/@@main_template/macros/master">
+  <body>
+    <metal:content-core fill-slot="content-core">
+
+      <div metal:define-macro="text-field-view"
+          id="parent-fieldname-text" class="stx"
+          tal:define="text view/text"
+          tal:condition="text"
+          tal:attributes="class view/text_class">
+        <div metal:define-slot="inside"
+             tal:replace="structure text">The body</div>
+      </div>
+
+      <div class="visualClear"><!-- --></div>
+
+      <metal:listingmacro define-macro="listing">
+        <tal:results define="batch view/batch">
+          <tal:listing condition="batch">
+
+            <div metal:use-macro="context/batch_macros/macros/navigation" />
+            <div class="container">
+              <div class="row">
+                <tal:entries tal:repeat="item batch">
+
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <a class="grid-link"
+                       href="${item/getURL}"
+                       tal:define="img_url string: ${item/getURL}/@@images/image/thumb"
+                       title="${item/description}">
+                      <div class="grid-item py-4 text-center">
+                        <div class="grid-image">
+                          <img alt=""
+                               class=""
+                               data-src="${img_url}"
+                               src="${img_url}"
+                               >
+                        </div>
+                        <div class="grid-title">
+                          <h3 class="h3 mt-0">${item/title}</h3>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                </tal:entries>
+              </div>
+            </div>
+          </tal:listing>
+        </tal:results>
+      </metal:listingmacro>
+    </metal:content-core>
+  </body>
+</html>
