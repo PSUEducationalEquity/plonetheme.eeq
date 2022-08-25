@@ -157,6 +157,14 @@
       class="plone.app.contenttypes.browser.collection.CollectionView"
       />
 
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="grid_view"
+      template="templates/grid_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
 
   <!-- Set the portlets -->
   <plone:portlet

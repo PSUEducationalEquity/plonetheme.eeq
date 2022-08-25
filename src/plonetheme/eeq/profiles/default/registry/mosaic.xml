@@ -8,6 +8,20 @@
     <value>++contentlayout++psu-educational-equity/basic.html</value>
   </record>
 
+  <record name="plone.app.standardtiles.listing_views">
+    <field type="plone.registry.field.Dict">
+      <title>Listing Views</title>
+      <key_type type="plone.registry.field.TextLine" />
+      <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value purge="true">
+      <element key="listing_view">Listing view</element>
+      <element key="summary_view">Summary view</element>
+      <element key="tabular_view">Tabular view</element>
+      <element key="grid_view">Grid view</element>
+    </value>
+  </record>
+
   <record name="plone.app.tiles">
     <value purge="false">
       <element>plonetheme.eeq.alert</element>
