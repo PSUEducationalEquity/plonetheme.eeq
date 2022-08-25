@@ -18,26 +18,32 @@
         <div>
           <tal:entries tal:repeat="item results">
 
-            <div class="card card-summary-with-images">
-              <a class="summary-with-images-link"
-                 href="${item/getURL}"
-                 tal:define="img_url string: ${item/getURL}/@@images/image/thumb"
-                 title="${item/description}">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-8 col-sm-9 col-lg-10 px-0 px-sm-3 order-last content">
-                      <h3 class="h3 mt-0">${item/title}</h3>
-                      <p class="d-none d-sm-block">${item/description}</p>
-                    </div>
-                    <div class="col-4 col-sm-3 col-lg-2 order-first profile-img lead-image">
-                      <img class="w-100"
-                           data-src="${img_url}"
-                           src="${img_url}"
-                           />
-                    </div>
+            <div class="card card-summary-with-images"
+                 tal:define="item_has_image python:item.getIcon;
+                             img_url string: ${item/getURL}/@@images/image/thumb">
+              <div class="container">
+                <div class="row">
+                  <div class="col-8 col-sm-9 col-lg-10 px-0 px-sm-3 order-last content">
+                    <h3 class="h3 mt-0">
+                      <a class="summary-with-images-link"
+                         href="${item/getURL}"
+                         title="${item/description}"
+                         >${item/title}</a>
+                    </h3>
+                    <p class="d-none d-sm-block">${item/description}</p>
+                  </div>
+                  <div class="col-4 col-sm-3 col-lg-2 order-first profile-img lead-image">
+                    <a class="summary-with-images-link"
+                       href="${item/getURL}"
+                       title="${item/description}"
+                       tal:condition="item_has_image"
+                       ><img class="w-100"
+                             data-src="${img_url}"
+                             src="${img_url}"
+                             /></a>
                   </div>
                 </div>
-              </a>
+              </div>
             </div>
 
           </tal:entries>

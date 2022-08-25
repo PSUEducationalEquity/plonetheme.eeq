@@ -23,21 +23,25 @@
                    tal:define="item_has_image python:item.getIcon;
                                item_url python: item.portal_type in view_types and item.getURL() + '/view' or item.getURL();
                                img_url string: ${item/getURL}/@@images/image/thumb">
-                <a class="grid-link ${item/review_state}"
-                   href="${item_url}"
-                   title="${item/description}">
-                  <div class="grid-item py-4 text-center">
-                    <div class="grid-image">
-                      <img data-src="${img_url}"
-                           src="${img_url}"
-                           tal:condition="item_has_image"
-                           >
-                    </div>
-                    <div class="grid-title">
-                      <h3 class="h3 mt-0">${item/title}</h3>
-                    </div>
+                <div class="grid-item py-4 text-center">
+                  <div class="grid-image">
+                    <a class="grid-link ${item/review_state}"
+                       href="${item_url}"
+                       title="${item/description}"
+                       tal:condition="item_has_image"
+                       ><img data-src="${img_url}"
+                             src="${img_url}"
+                             /></a>
                   </div>
-                </a>
+                  <div class="grid-title">
+                    <h3 class="h3 mt-0">
+                    <a class="grid-link ${item/review_state}"
+                       href="${item_url}"
+                       title="${item/description}"
+                       >${item/title}</a>
+                      </h3>
+                  </div>
+                </div>
               </div>
 
             </tal:entries>

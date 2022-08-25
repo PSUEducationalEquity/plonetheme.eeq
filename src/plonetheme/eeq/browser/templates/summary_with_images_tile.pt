@@ -18,27 +18,34 @@
         <div>
           <tal:entries tal:repeat="item results">
 
-            <a class="summary-with-images-link"
-               href="${item/getURL}"
-               tal:define="img_url string: ${item/getURL}/@@images/image/psu_square">
-              <div class="card card-summary-with-images card-border">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-12 col-sm-9 col-xl-10 order-last content">
-                      <p class="mt-0 card-date">${item/@@psu-equity-date-info/date}</p>
-                      <h3 class="h3 mt-0">${item/title}</h3>
-                      <p>${item/description}</p>
-                    </div>
-                    <div class="col-sm-3 col-xl-2 order-first d-none d-sm-block lead-image">
-                      <img class="w-100"
-                           data-src="${img_url}"
-                           src="${img_url}"
-                           />
-                    </div>
+            <div class="card card-summary-with-images card-border"
+                 tal:define="item_has_image python:item.getIcon;
+                             img_url string: ${item/getURL}/@@images/image/psu_square">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 col-sm-9 col-xl-10 order-last content">
+                    <p class="mt-0 card-date">
+                      ${item/@@psu-equity-date-info/date}
+                    </p>
+                    <h3 class="h3 mt-0">
+                      <a class="summary-with-images-link"
+                         href="${item/getURL}"
+                         >${item/title}</a>
+                    </h3>
+                    <p>${item/description}</p>
+                  </div>
+                  <div class="col-sm-3 col-xl-2 order-first d-none d-sm-block lead-image">
+                    <a class="summary-with-images-link"
+                       href="${item/getURL}"
+                       tal:condition="item_has_image"
+                       ><img class="w-100"
+                             data-src="${img_url}"
+                             src="${img_url}"
+                             /></a>
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
 
           </tal:entries>
         </div>

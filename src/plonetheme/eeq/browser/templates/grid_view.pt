@@ -29,25 +29,30 @@
           <div class="row">
             <tal:entries tal:repeat="item batch">
 
-              <div class="col-12 col-sm-6 col-lg-4">
-                <a class="grid-link"
-                   href="${item/getURL}"
-                   tal:define="img_url string: ${item/getURL}/@@images/image/thumb"
-                   title="${item/description}">
+              <tal:block tal:define="item_has_image python:item.getIcon;
+                                     img_url string: ${item/getURL}/@@images/image/thumb">
+                <div class="col-12 col-sm-6 col-lg-4">
                   <div class="grid-item py-4 text-center">
                     <div class="grid-image">
-                      <img alt=""
-                           class=""
-                           data-src="${img_url}"
-                           src="${img_url}"
-                           >
+                      <a class="grid-link"
+                         href="${item/getURL}"
+                         title="${item/description}"
+                         tal:condition="item_has_image"
+                         ><img data-src="${img_url}"
+                               src="${img_url}"
+                               /></a>
                     </div>
                     <div class="grid-title">
-                      <h3 class="h3 mt-0">${item/title}</h3>
+                      <h3 class="h3 mt-0">
+                        <a class="grid-link"
+                               href="${item/getURL}"
+                               title="${item/description}"
+                               >${item/title}</a>
+                      </h3>
                     </div>
                   </div>
-                </a>
-              </div>
+                </div>
+              </tal:block>
 
             </tal:entries>
           </div>
