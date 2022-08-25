@@ -45,7 +45,7 @@
     <element value="layout_view"/>
     <element value="tesserae-slider-view"/>
     <element value="summary_with_images"/>
-    <element value="grid"/>
+    <element value="grid_view"/>
   </property>
   <alias from="(Default)" to="(dynamic view)" />
   <alias from="edit" to="@@edit" />
