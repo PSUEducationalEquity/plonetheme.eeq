@@ -135,6 +135,22 @@
       class="plone.app.contenttypes.browser.collection.CollectionView"
       />
 
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="summary_with_images_view"
+      template="templates/summary_with_images_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="simple_summary_with_images_view"
+      template="templates/simple_summary_with_images_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
 
   <!-- Register the Grid view template -->
   <browser:page

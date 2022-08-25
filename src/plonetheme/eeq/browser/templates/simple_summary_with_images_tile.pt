@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+  <body>
+    <tal:defines define="results context;
+                         original_context nocall:options/original_context|context;
+                         toLocalizedTime nocall:original_context/@@plone/toLocalizedTime;
+                         pas_member original_context/@@pas_member;
+                         show_about python:True;
+                         registry original_context/portal_registry;
+                         view_types python: registry.get('plone.types_use_view_action_in_listings', [])">
+      <tal:listing condition="results">
+
+        <div>
+          <tal:entries tal:repeat="item results">
+
+            <div class="card card-summary-with-images">
+              <a class="summary-with-images-link"
+                 href="${item/getURL}"
+                 tal:define="img_url string: ${item/getURL}/@@images/image/thumb"
+                 title="${item/description}">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-8 col-sm-9 col-lg-10 px-0 px-sm-3 order-last content">
+                      <h3 class="h3 mt-0">${item/title}</h3>
+                      <p class="d-none d-sm-block">${item/description}</p>
+                    </div>
+                    <div class="col-4 col-sm-3 col-lg-2 order-first profile-img lead-image">
+                      <img class="w-100"
+                           data-src="${img_url}"
+                           src="${img_url}"
+                           />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+          </tal:entries>
+        </div>
+
+      </tal:listing>
+
+      <p class="discreet"
+         tal:condition="not:results"
+         i18n:translate="">
+        There are currently no items in this folder.
+      </p>
+    </tal:defines>
+
+  </body>
+</html>

@@ -19,6 +19,8 @@
       <element key="summary_view">Summary view</element>
       <element key="tabular_view">Tabular view</element>
       <element key="grid_view">Grid view</element>
+      <element key="summary_with_images_view">Summary w/Images view</element>
+      <element key="simple_summary_with_images_view">Simple Summary w/Images view</element>
     </value>
   </record>
 
