@@ -8,6 +8,7 @@ try:
     from plone.app.widgets.dx import RelatedItemsWidget
 except ImportError:
     RelatedItemsWidget = None
+from plone.app.textfield import RichText
 from plone.app.z3cform.widget import DatetimeWidget
 from plone.memoize.view import memoize
 from plone.tiles import Tile
@@ -16,7 +17,7 @@ from plone.supermodel import model
 from plone import api
 from zExceptions import Unauthorized
 from zope import schema
-from datetime import datetime
+from datetime import datetime, timedelta
 from DateTime import DateTime
 
 
@@ -284,6 +285,193 @@ class CollectionChronology(Tile):
             except AttributeError:
                 return None
         return None
+
+
+class ITimedContentTile(model.Schema):
+
+    title = schema.TextLine(
+        title=_('Title'),
+        required=False
+    )
+
+    heading_level = schema.Choice(
+        title=_('Heading Level'),
+        description="Which heading level should 'title' be displayed as?",
+        default='Heading 2',
+        values=('Heading 2',
+                'Heading 3',
+                'Heading 4',
+                'Heading 5',
+                'Heading 6'),
+    )
+
+    summary = schema.Text(
+        title=_('Summary'),
+        required=False
+    )
+
+    date_method = schema.Choice(
+        title=_('Date Method'),
+        description="'Annual' will adjust the Publication and "
+                    "Expiration date years appropriate in reference "
+                    "to the current year",
+        default='Actual',
+        values=('Actual',
+                'Annual'),
+    )
+
+    publication_date = TileDatetime(
+        title=_('Publication Date'),
+        description="Display 'Published content' after this date and "
+                    "before Expiration Date",
+        required=False
+    )
+    form.widget('publication_date', DatetimeWidget)
+
+    published_content = RichText(
+        title=_('Published Content'),
+        description="Content displayed after 'Publication Date' and "
+                    "before 'Expiration Date'",
+        required=True
+    )
+
+    expiration_date = TileDatetime(
+        title=_('Expiration Date'),
+        description="Display 'Expired Content' after this date",
+        required=False
+    )
+    form.widget('expiration_date', DatetimeWidget)
+
+    expired_content = RichText(
+        title=_('Expired Content'),
+        description="Content displayed after 'Expiration Date'",
+        required=False
+    )
+
+    editor_notes = schema.Text(
+        title=_('Editor Notes'),
+        description="Displayed only in edit mode for content editors",
+        required=False
+    )
+
+
+class TimedContentTile(Tile):
+    """Tile for displaying different content when published/expired"""
+
+    template = ViewPageTemplateFile('templates/timed_content.pt')
+
+    def __call__(self):
+        self.update()
+        return self.template()
+
+    def update(self):
+        self.title = self.data.get('title', '')
+        self.description = self.data.get('summary', '')
+        self.published_content = self.data.get('published_content', '')
+        self.expired_content = self.data.get('expired_content', '')
+        self.editor_notes = self.data.get('editor_notes', '')
+        self.date_method = self.data.get('date_method')
+        # if not date_method:
+        #     date_method = 'Actual'
+        # date_method = date_method.lower()
+        # self._now = datetime.now()
+        # self._pub_date = None
+        # self._exp_date = None
+        # pub_date = self.data.get('publication_date')
+        # exp_date = self.data.get('expiration_date')
+        # if pub_date is None and exp_date is None:
+        #     self._pub_date = self._now - timedelta(days=1)
+        #     self._exp_date = self._now + timedelta(days=1)
+        # elif pub_date is None and exp_date is not None:
+        #     import pdb; pdb.set_trace()
+        #     self._exp_date = datetime.strptime(exp_date, '%Y-%m-%dT%H:%M:%S')
+        #     if self._now <= self._exp_date:
+        #         self._pub_date = self._now - timedelta(days=1)
+        #     else:
+        #         self._pub_date = self._exp_date - timedelta(days=1)
+        # elif pub_date is not None and exp_date is None:
+        #     import pdb; pdb.set_trace()
+        #     self._pub_date = datetime.strptime(pub_date, '%Y-%m-%dT%H:%M:%S')
+        #     if self._now <= self._pub_date:
+        #         self._exp_date = self._pub_date + timedelta(days=1)
+        #     else:
+        #         self._exp_date = self._now + timedelta(days=1)
+        # else:
+        #     import pdb; pdb.set_trace()
+        #     x = 2
+        # print('------------ UPDATE ------------')
+        # print('_now: {}'.format(self._now))
+        # print('_pub_date: {}'.format(self._pub_date))
+        # print('_exp_date: {}'.format(self._exp_date))
+        # if date_method == 'annual':
+        #     pass
+
+    def _expired_actual(self, pub_date, exp_date):
+        now = datetime.now()
+        if pub_date and exp_date:
+            pub_date = datetime.strptime(pub_date, '%Y-%m-%dT%H:%M:%S')
+            exp_date = datetime.strptime(exp_date, '%Y-%m-%dT%H:%M:%S')
+            if (pub_date < now and exp_date < now) or (pub_date > now and exp_date > now):
+                return pub_date < exp_date
+            else:
+                return exp_date < pub_date
+        if pub_date:
+            if now < datetime.strptime(pub_date, '%Y-%m-%dT%H:%M:%S'):
+                return True
+        if exp_date:
+            if now >= datetime.strptime(exp_date, '%Y-%m-%dT%H:%M:%S'):
+                return True
+        return False
+
+    def _expired_annual(self, pub_date, exp_date):
+        return False
+
+    @property
+    @memoize
+    def isExpired(self):
+        # if self._pub_date <= self._now <= self._exp_date:
+        #     return False
+        # elif self._exp_date <= self._now <= self._pub_date:
+        #     return True
+        # elif self._pub_date <= self._exp_date:
+        #     return True
+        # return False
+        pub_date = self.data.get('publication_date')
+        exp_date = self.data.get('expiration_date')
+        date_method = self.data.get('date_method')
+        if not date_method:
+            date_method = 'Actual'
+        date_method = date_method.lower()
+        if date_method == 'actual':
+            return self._expired_actual(pub_date, exp_date)
+        elif date_method == 'annual':
+            return self._expired_annual(pub_date, exp_date)
+        return False
+
+    @property
+    @memoize
+    def showNotes(self):
+        # only output the javascript if not rendering for layout editor
+        if (self.request.get('_layouteditor') is True or
+                ISubRequest.providedBy(self.request)):
+            return False
+        else:
+            return True
+
+    @property
+    @memoize
+    def title_tag(self):
+        title = self.data.get('title', '')
+        if not title:
+            return ''
+        level = self.data.get('heading_level')
+        if level is None:
+            level = 'Heading 2'
+        level = level.replace('Heading ', 'h')
+        return '<{}>{}</{}>'.format(level, title, level)
+
+
+
 
 
 class ITwentyFiveLiveTile(model.Schema):

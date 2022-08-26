@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+  <body tal:define="isExpired  view/isExpired;
+                    showNotes  view/showNotes;">
+
+    <span class="timedcontent-status published"
+          tal:condition="python: not isExpired">Published</span>
+    <span class="timedcontent-status expired"
+          tal:condition="isExpired">Expired</span>
+    <span class="timedcontent-status datemethod"
+          tal:content="view/date_method">date method</span>
+
+
+    <h2 tal:condition="view/title"
+        tal:replace="structure view/title_tag"
+        >title</h2>
+
+    <div class="documentDescription"
+         tal:condition="view/description"
+         >${view/description}</div>
+
+    <div class="body"
+         tal:condition="python: not isExpired"
+         tal:content="structure view/published_content/output"
+         >published content</div>
+
+    <div class="body"
+         tal:condition="isExpired"
+         tal:content="structure view/expired_content/output"
+         >expired content</div>
+
+    <div class="internal-notes">
+         <!-- tal:condition="python: showNotes and view.editor_notes"> -->
+      <h4>Internal notes about this content</h4>
+      <div tal:content="view/editor_notes">Notes</div>
+    </div>
+  </body>
+</html>
