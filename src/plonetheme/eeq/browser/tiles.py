@@ -324,7 +324,7 @@ class ITimedContentTile(model.Schema):
         title=_('Publication Date'),
         description="Display 'Published content' after this date and "
                     "before Expiration Date",
-        required=False
+        required=True
     )
     form.widget('publication_date', DatetimeWidget)
 
@@ -337,8 +337,9 @@ class ITimedContentTile(model.Schema):
 
     expiration_date = TileDatetime(
         title=_('Expiration Date'),
-        description="Display 'Expired Content' after this date",
-        required=False
+        description="Display 'Expired Content' after this date. If blank, "
+                    "nothing is displayed",
+        required=True
     )
     form.widget('expiration_date', DatetimeWidget)
 
@@ -408,23 +409,25 @@ class TimedContentTile(Tile):
 
     def _expired_actual(self, pub_date, exp_date):
         now = datetime.now()
-        if pub_date and exp_date:
-            pub_date = datetime.strptime(pub_date, '%Y-%m-%dT%H:%M:%S')
-            exp_date = datetime.strptime(exp_date, '%Y-%m-%dT%H:%M:%S')
-            if (pub_date < now and exp_date < now) or (pub_date > now and exp_date > now):
-                return pub_date < exp_date
-            else:
-                return exp_date < pub_date
-        if pub_date:
-            if now < datetime.strptime(pub_date, '%Y-%m-%dT%H:%M:%S'):
-                return True
-        if exp_date:
-            if now >= datetime.strptime(exp_date, '%Y-%m-%dT%H:%M:%S'):
-                return True
-        return False
+        pub_date = datetime.strptime(pub_date, '%Y-%m-%dT%H:%M:%S')
+        exp_date = datetime.strptime(exp_date, '%Y-%m-%dT%H:%M:%S')
+        if (pub_date < now and exp_date < now) or (pub_date > now and exp_date > now):
+            return pub_date < exp_date
+        else:
+            return exp_date < pub_date
 
     def _expired_annual(self, pub_date, exp_date):
         return False
+
+    @property
+    @memoize
+    def inEditMode(self):
+        # only output the javascript if not rendering for layout editor
+        if (self.request.get('_layouteditor') is True or
+                ISubRequest.providedBy(self.request)):
+            return False
+        else:
+            return True
 
     @property
     @memoize
@@ -447,16 +450,6 @@ class TimedContentTile(Tile):
         elif date_method == 'annual':
             return self._expired_annual(pub_date, exp_date)
         return False
-
-    @property
-    @memoize
-    def showNotes(self):
-        # only output the javascript if not rendering for layout editor
-        if (self.request.get('_layouteditor') is True or
-                ISubRequest.providedBy(self.request)):
-            return False
-        else:
-            return True
 
     @property
     @memoize

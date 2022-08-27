@@ -7,7 +7,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="plone">
   <body tal:define="isExpired  view/isExpired;
-                    showNotes  view/showNotes;">
+                    inEditMode  view/inEditMode;">
 
     <span class="timedcontent-status published"
           tal:condition="python: not isExpired">Published</span>
@@ -36,7 +36,7 @@
          >expired content</div>
 
     <div class="internal-notes">
-         <!-- tal:condition="python: showNotes and view.editor_notes"> -->
+         <!-- tal:condition="python: inEditMode and view.editor_notes"> -->
       <h4>Internal notes about this content</h4>
       <div tal:content="view/editor_notes">Notes</div>
     </div>
