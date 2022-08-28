@@ -372,52 +372,30 @@ class TimedContentTile(Tile):
         self.expired_content = self.data.get('expired_content', '')
         self.editor_notes = self.data.get('editor_notes', '')
         self.date_method = self.data.get('date_method')
-        # if not date_method:
-        #     date_method = 'Actual'
-        # date_method = date_method.lower()
-        # self._now = datetime.now()
-        # self._pub_date = None
-        # self._exp_date = None
-        # pub_date = self.data.get('publication_date')
-        # exp_date = self.data.get('expiration_date')
-        # if pub_date is None and exp_date is None:
-        #     self._pub_date = self._now - timedelta(days=1)
-        #     self._exp_date = self._now + timedelta(days=1)
-        # elif pub_date is None and exp_date is not None:
-        #     import pdb; pdb.set_trace()
-        #     self._exp_date = datetime.strptime(exp_date, '%Y-%m-%dT%H:%M:%S')
-        #     if self._now <= self._exp_date:
-        #         self._pub_date = self._now - timedelta(days=1)
-        #     else:
-        #         self._pub_date = self._exp_date - timedelta(days=1)
-        # elif pub_date is not None and exp_date is None:
-        #     import pdb; pdb.set_trace()
-        #     self._pub_date = datetime.strptime(pub_date, '%Y-%m-%dT%H:%M:%S')
-        #     if self._now <= self._pub_date:
-        #         self._exp_date = self._pub_date + timedelta(days=1)
-        #     else:
-        #         self._exp_date = self._now + timedelta(days=1)
-        # else:
-        #     import pdb; pdb.set_trace()
-        #     x = 2
-        # print('------------ UPDATE ------------')
-        # print('_now: {}'.format(self._now))
-        # print('_pub_date: {}'.format(self._pub_date))
-        # print('_exp_date: {}'.format(self._exp_date))
-        # if date_method == 'annual':
-        #     pass
 
     def _expired_actual(self, pub_date, exp_date):
         now = datetime.now()
-        pub_date = datetime.strptime(pub_date, '%Y-%m-%dT%H:%M:%S')
-        exp_date = datetime.strptime(exp_date, '%Y-%m-%dT%H:%M:%S')
-        if (pub_date < now and exp_date < now) or (pub_date > now and exp_date > now):
-            return pub_date < exp_date
+        if pub_date < exp_date:
+            return not (pub_date <= now < exp_date)
         else:
-            return exp_date < pub_date
+            return exp_date <= now < pub_date
 
     def _expired_annual(self, pub_date, exp_date):
-        return False
+        """Determine expiration status for annual dates
+
+        DoY = day of year
+        """
+        now = datetime.now()
+        if exp_date < pub_date:
+            # error condition that should be avoided
+            return True
+        pub_DoY = int(pub_date.strftime('%-j'))
+        exp_DoY = int(exp_date.strftime('%-j'))
+        now_DoY = int(now.strftime('%-j'))
+        if pub_date.year == exp_date.year:
+            return not (pub_DoY <= now_DoY < exp_DoY)
+        else:
+            return exp_DoY <= now_DoY < pub_DoY
 
     @property
     @memoize
@@ -432,15 +410,10 @@ class TimedContentTile(Tile):
     @property
     @memoize
     def isExpired(self):
-        # if self._pub_date <= self._now <= self._exp_date:
-        #     return False
-        # elif self._exp_date <= self._now <= self._pub_date:
-        #     return True
-        # elif self._pub_date <= self._exp_date:
-        #     return True
-        # return False
-        pub_date = self.data.get('publication_date')
-        exp_date = self.data.get('expiration_date')
+        pub_date = datetime.strptime(self.data.get('publication_date'),
+                                     '%Y-%m-%dT%H:%M:%S')
+        exp_date = datetime.strptime(self.data.get('expiration_date'),
+                                     '%Y-%m-%dT%H:%M:%S')
         date_method = self.data.get('date_method')
         if not date_method:
             date_method = 'Actual'
@@ -462,9 +435,6 @@ class TimedContentTile(Tile):
             level = 'Heading 2'
         level = level.replace('Heading ', 'h')
         return '<{}>{}</{}>'.format(level, title, level)
-
-
-
 
 
 class ITwentyFiveLiveTile(model.Schema):
