@@ -293,7 +293,6 @@ class ITimedContentTile(model.Schema):
         title=_('Title'),
         required=False
     )
-
     heading_level = schema.Choice(
         title=_('Heading Level'),
         description="Which heading level should 'title' be displayed as?",
@@ -304,12 +303,10 @@ class ITimedContentTile(model.Schema):
                 'Heading 5',
                 'Heading 6'),
     )
-
     summary = schema.Text(
         title=_('Summary'),
         required=False
     )
-
     date_method = schema.Choice(
         title=_('Date Method'),
         description="'Annual' will adjust the Publication and "
@@ -319,7 +316,6 @@ class ITimedContentTile(model.Schema):
         values=('Actual',
                 'Annual'),
     )
-
     publication_date = TileDatetime(
         title=_('Publication Date'),
         description="Display 'Published content' after this date and "
@@ -327,14 +323,12 @@ class ITimedContentTile(model.Schema):
         required=True
     )
     form.widget('publication_date', DatetimeWidget)
-
     published_content = RichText(
         title=_('Published Content'),
         description="Content displayed after 'Publication Date' and "
                     "before 'Expiration Date'",
         required=True
     )
-
     expiration_date = TileDatetime(
         title=_('Expiration Date'),
         description="Display 'Expired Content' after this date. If blank, "
@@ -342,13 +336,11 @@ class ITimedContentTile(model.Schema):
         required=True
     )
     form.widget('expiration_date', DatetimeWidget)
-
     expired_content = RichText(
         title=_('Expired Content'),
         description="Content displayed after 'Expiration Date'",
         required=False
     )
-
     editor_notes = schema.Text(
         title=_('Editor Notes'),
         description="Displayed only in edit mode for content editors",
@@ -406,6 +398,15 @@ class TimedContentTile(Tile):
             return False
         else:
             return True
+
+    @property
+    @memoize
+    def isDisplayable(self):
+        if self.inEditMode:
+            return True
+        if self.isExpired:
+            return bool(self.expired_content)
+        return True
 
     @property
     @memoize

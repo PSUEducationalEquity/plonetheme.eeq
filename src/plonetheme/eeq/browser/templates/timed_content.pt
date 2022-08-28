@@ -6,37 +6,41 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="plone">
-  <body tal:define="isExpired  view/isExpired;
-                    inEditMode  view/inEditMode;">
+  <body tal:define="inEditMode     view/inEditMode;
+                    isDisplayable  view/isDisplayable;
+                    isExpired      view/isExpired; ">
 
-    <span class="timedcontent-status published"
-          tal:condition="python: not isExpired">Published</span>
-    <span class="timedcontent-status expired"
-          tal:condition="isExpired">Expired</span>
-    <span class="timedcontent-status datemethod"
-          tal:content="view/date_method">date method</span>
+    <tal:status tal:condition="inEditMode">
+      <span class="timedcontent-status published"
+            tal:condition="python: not isExpired">Published</span>
+      <span class="timedcontent-status expired"
+            tal:condition="isExpired">Expired</span>
+      <span class="timedcontent-status datemethod"
+            tal:content="view/date_method">date method</span>
+    </tal:status>
 
+    <tal:display tal:condition="isDisplayable">
+      <h2 tal:condition="view/title"
+          tal:replace="structure view/title_tag"
+          >title</h2>
 
-    <h2 tal:condition="view/title"
-        tal:replace="structure view/title_tag"
-        >title</h2>
+      <div class="documentDescription"
+           tal:condition="view/description"
+           >${view/description}</div>
 
-    <div class="documentDescription"
-         tal:condition="view/description"
-         >${view/description}</div>
+      <div class="body"
+           tal:condition="python: not isExpired"
+           tal:content="structure view/published_content/output"
+           >published content</div>
 
-    <div class="body"
-         tal:condition="python: not isExpired"
-         tal:content="structure view/published_content/output"
-         >published content</div>
+      <div class="body"
+           tal:condition="python: isExpired and view.expired_content"
+           tal:content="structure view/expired_content/output"
+           >expired content</div>
+    </tal:display>
 
-    <div class="body"
-         tal:condition="isExpired"
-         tal:content="structure view/expired_content/output"
-         >expired content</div>
-
-    <div class="internal-notes">
-         <!-- tal:condition="python: inEditMode and view.editor_notes"> -->
+    <div class="internal-notes"
+         tal:condition="python: inEditMode and view.editor_notes">
       <h4>Internal notes about this content</h4>
       <div tal:content="view/editor_notes">Notes</div>
     </div>
