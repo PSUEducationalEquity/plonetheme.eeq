@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/@@main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+
+  <div metal:define-macro="text-field-view"
+      id="parent-fieldname-text" class="stx"
+      tal:define="text view/text"
+      tal:condition="text"
+      tal:attributes="class view/text_class">
+    <div metal:define-slot="inside"
+         tal:replace="structure text">The body</div>
+  </div>
+
+  <div class="visualClear"><!-- --></div>
+
+  <metal:listingmacro define-macro="listing">
+    <tal:results define="batch view/batch">
+      <tal:listing condition="batch">
+
+        <div class="container">
+          <div class="row">
+            <tal:entries tal:repeat="item batch">
+
+              <tal:block tal:define="item_has_image python:item.getIcon;
+                                     img_url string: ${item/getURL}/@@images/image/thumb">
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <div class="grid-item py-4 text-center">
+                    <div class="grid-image">
+                      <a class="grid-link"
+                         href="${item/getURL}"
+                         title="${item/description}"
+                         tal:condition="item_has_image"
+                         ><img data-src="${img_url}"
+                               src="${img_url}"
+                               /></a>
+                    </div>
+                    <div class="grid-title">
+                      <h3 class="h3 mt-0">
+                        <a class="grid-link"
+                               href="${item/getURL}"
+                               title="${item/description}"
+                               >${item/title}</a>
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </tal:block>
+
+            </tal:entries>
+          </div>
+        </div>
+
+        <div metal:use-macro="context/batch_macros/macros/navigation" />
+
+      </tal:listing>
+
+      <metal:empty metal:define-slot="no_items_in_listing">
+        <p class="discreet"
+            tal:condition="not: batch"
+            tal:content="view/no_items_message">
+          There are currently no items in this folder.
+        </p>
+      </metal:empty>
+
+    </tal:results>
+  </metal:listingmacro>
+
+</metal:content-core>
+
+</body>
+</html>

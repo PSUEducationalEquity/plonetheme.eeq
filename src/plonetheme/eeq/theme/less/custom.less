@@ -8,6 +8,7 @@
  * BREADCRUMBS..........Styles for the breadcrumb trail
  * COLORS...............Background colors
  * CONTENT..............Styles for content related things
+ * GRID_VIEW............Styles for the grid view/tile
  * EVENT................Styles for the event content
  * FEATURE_ITEM.........Styles for the feature item box
  * FOLDER_SUMMARY.......Styles for the Folder Summary view
@@ -24,7 +25,7 @@
  * PORTLETS.............Styles for the various portlets
  * RELATED_ITEMS........Styles for related items/content
  * SEARCH_RESULTS.......Styles for the search results page
- * TINYMCE..............Styles related to the TinyMCE editor
+ * TINY_MCE.............Styles related to the TinyMCE editor
  */
 
 /* Responsive breakpoint statements
@@ -174,6 +175,17 @@ a {
 
 
 /*------------------------------------*\
+    $GRID_VIEW
+\*------------------------------------*/
+
+.grid-item .grid-image {
+  min-height: 128px;
+}
+
+
+
+
+/*------------------------------------*\
     $EVENT
 \*------------------------------------*/
 
@@ -316,7 +328,7 @@ body.portaltype-event {
 /** Folder Summary w/ Images view **/
 
 .card-summary-with-images {
-  box-shadow: 0 0.25rem 0.75rem rgba(102, 102, 102, 0.25);
+  border: 0;
   margin: 1rem;
 
   .content {
@@ -337,6 +349,15 @@ body.portaltype-event {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
   }
+
+  .lead-image {
+    padding-left: 0 !important;
+  }
+}
+
+.card-summary-with-images.card-border {
+  border: 1px solid rgba(0,0,0,.125);
+  box-shadow: 0 0.25rem 0.75rem rgba(102, 102, 102, 0.25);
 }
 
 a.summary-with-images-link, a.summary-with-images-link:hover {
@@ -488,12 +509,29 @@ h5 { font-size: 1.1rem; font-weight: bold; }
 
 /** create breathing space before subsequent headings **/
 
-h2 { margin-top: 2em; }
+div + h2:first-of-type,
+p + h2:first-of-type,
+ul + h2:first-of-type,
+ol + h2:first-of-type,
+h2 { margin-top: 1em; }
+
 h2:first-of-type { margin-top: 0 }
-h3 { margin-top: 1.5em; }
-h2 + h3, h3:first-of-type { margin-top: 0.5em; }
+
+
+div + h3:first-of-type,
+p + h3:first-of-type,
+ul + h3:first-of-type,
+ol + h3:first-of-type,
+h3 { margin-top: 1em; }
+
+h2 + h3,
+h3:first-of-type { margin-top: 0.5em; }
+
+
 h4 { margin-top: 1em; }
-h3 + h4, h4:first-of-type { margin-top: 0 }
+
+h3 + h4,
+h4:first-of-type { margin-top: 0 }
 
 
 
@@ -664,6 +702,12 @@ h3 + h4, h4:first-of-type { margin-top: 0 }
   height: auto;
 }
 
+.mosaic-tile .documentDescription {
+  font-size: 1.1rem;
+  margin-bottom: 0.5em;
+  margin-top: -0.5em;
+}
+
 
 /** Background Image tiles **/
 
@@ -767,12 +811,6 @@ h3 + h4, h4:first-of-type { margin-top: 0 }
 /** Content Listing - Summary **/
 
 .mosaic-plone\.app\.standardtiles\.contentlisting-tile {
-  .documentDescription {
-    font-size: 1.1rem;
-    margin-bottom: 0.5em;
-    margin-top: -0.3em;
-  }
-
   .summary-image {
     display: none;
   }
@@ -792,7 +830,6 @@ h3 + h4, h4:first-of-type { margin-top: 0 }
 }
 
 
-
 /** Summary Tiles **/
 
 .card.card-blank {
@@ -805,6 +842,56 @@ h3 + h4, h4:first-of-type { margin-top: 0 }
   background-color: #E5E4E2;
 }
 
+
+/** Timed Content **/
+
+.mosaic-plonetheme\.eeq\.timedcontent-tile .mosaic-tile-content {
+  position: relative;
+}
+
+.mosaic-plonetheme\.eeq\.timedcontent-tile .timedcontent-status {
+  background-color: #ccc;
+  border-radius: 0.25em;
+  color: #fff;
+  display: inline;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 70%;
+  padding: 0.2em 0.6em 0.3em;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0px;
+  vertical-align: baseline;
+  white-space: nowrap;
+
+  &.published {
+    background-color: #5cb85c;
+  }
+
+  &.expired {
+    background-color: #d9534f;
+  }
+
+  &.datemethod {
+    color: #333;
+    top: 19px;
+  }
+}
+
+.mosaic-plonetheme\.eeq\.timedcontent-tile .internal-notes {
+  background-color: #eee;
+  color: #666;
+  font-size: 0.8rem;
+  padding: 5px;
+
+  h4 {
+    font-size: 1rem;
+    margin-left: -4px;
+    margin-top: -5px;
+  }
+}
 
 
 

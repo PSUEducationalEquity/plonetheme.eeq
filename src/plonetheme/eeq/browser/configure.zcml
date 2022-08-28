@@ -11,6 +11,7 @@
       layer="plonetheme.eeq.interfaces.IPlonethemeEeqLayer"
       />
 
+
   <!-- Publish static files -->
   <plone:static
       name="plonetheme.eeq"
@@ -18,6 +19,8 @@
       directory="static"
       />
 
+
+  <!-- Register the "Equity" control panel -->
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="psu-equity-settings"
@@ -25,12 +28,23 @@
       permission="cmf.ManagePortal"
       />
 
+
+  <!-- Adjust the viewlets -->
   <browser:viewlet
       name="plonetheme.eeq.above-header-banner"
       for="*"
       manager="plone.app.layout.viewlets.interfaces.IPortalTop"
       layer="plonetheme.eeq.interfaces.IPlonethemeEeqLayer"
       class=".banner.AboveHeaderBanner"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name="plonetheme.eeq.hero-image"
+      for="*"
+      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+      layer="plonetheme.eeq.interfaces.IPlonethemeEeqLayer"
+      class=".hero.HeroImage"
       permission="zope2.View"
       />
 
@@ -44,15 +58,8 @@
       template="templates/office-links.pt"
       />
 
-  <browser:viewlet
-      name="plonetheme.eeq.hero-image"
-      for="*"
-      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
-      layer="plonetheme.eeq.interfaces.IPlonethemeEeqLayer"
-      class=".hero.HeroImage"
-      permission="zope2.View"
-      />
 
+  <!-- Define new Mosaic tiles -->
   <plone:tile
       name="plonetheme.eeq.alert"
       title="Alert"
@@ -63,18 +70,6 @@
       permission="zope.Public"
       schema=".tiles.IAlertTile"
       template="templates/alert.pt"
-      />
-
-  <plone:tile
-      name="plonetheme.eeq.twentyfivelive"
-      title="25Live calendar"
-      description="A tile that displays calendar information from 25Live"
-      add_permission="cmf.ModifyPortalContent"
-      class=".tiles.TwentyFiveLiveTile"
-      for="*"
-      permission="zope.Public"
-      schema=".tiles.ITwentyFiveLiveTile"
-      template="templates/twentyfivelive.pt"
       />
 
   <plone:tile
@@ -89,6 +84,32 @@
       template="templates/collectionchronology.pt"
       />
 
+  <plone:tile
+      name="plonetheme.eeq.timedcontent"
+      title="Timed content"
+      description="A tile that displays different content when published/expired"
+      add_permission="cmf.ModifyPortalContent"
+      class=".tiles.TimedContentTile"
+      for="*"
+      permission="zope.Public"
+      schema=".tiles.ITimedContentTile"
+      template="templates/timed_content.pt"
+      />
+
+  <plone:tile
+      name="plonetheme.eeq.twentyfivelive"
+      title="25Live calendar"
+      description="A tile that displays calendar information from 25Live"
+      add_permission="cmf.ModifyPortalContent"
+      class=".tiles.TwentyFiveLiveTile"
+      for="*"
+      permission="zope.Public"
+      schema=".tiles.ITwentyFiveLiveTile"
+      template="templates/twentyfivelive.pt"
+      />
+
+
+  <!-- Define helpers -->
   <browser:page
       for="plone.app.contenttypes.interfaces.IEvent"
       name="psu-event-helper"
@@ -97,6 +118,45 @@
       allowed_attributes="portal_state"
       />
 
+  <browser:page
+      name="psu-equity-date-info"
+      class=".summary_view_with_images.BrainDateInfo"
+      permission="zope2.View"
+      for="plone.app.contentlisting.interfaces.IContentListingObject"
+      />
+
+
+  <!-- Register the Grid view template -->
+  <browser:page
+      for="plone.dexterity.interfaces.IDexterityContainer"
+      permission="zope2.View"
+      name="grid_view"
+      template="templates/grid_view.pt"
+      menu="plone_displayviews"
+      title="Grid view"
+      class="plone.app.contenttypes.browser.folder.FolderView"
+      />
+
+  <browser:page
+      for="plone.app.contenttypes.behaviors.collection.ISyndicatableCollection"
+      permission="zope2.View"
+      name="grid_view"
+      template="templates/grid_view.pt"
+      menu="plone_displayviews"
+      title="Grid view"
+      class="plone.app.contenttypes.browser.collection.CollectionView"
+      />
+
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="grid_view"
+      template="templates/grid_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
+
+  <!-- Register the Summary w/ Images view template -->
   <browser:page
       for="plone.dexterity.interfaces.IDexterityContainer"
       permission="zope2.View"
@@ -108,7 +168,7 @@
       />
 
   <browser:page
-      for="plone.app.contenttypes.interfaces.ICollection"
+      for="plone.app.contenttypes.behaviors.collection.ISyndicatableCollection"
       permission="zope2.View"
       name="summary_with_images"
       template="templates/summary_with_images.pt"
@@ -118,12 +178,23 @@
       />
 
   <browser:page
-      name="psu-equity-date-info"
-      class=".summary_view_with_images.BrainDateInfo"
+      for="*"
       permission="zope2.View"
-      for="plone.app.contentlisting.interfaces.IContentListingObject"
+      name="summary_with_images_view"
+      template="templates/summary_with_images_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
       />
 
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="simple_summary_with_images_view"
+      template="templates/simple_summary_with_images_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
+
+  <!-- Set the portlets -->
   <plone:portlet
       name="eeq.social_links"
       interface=".portlets.ISocialLinksPortlet"

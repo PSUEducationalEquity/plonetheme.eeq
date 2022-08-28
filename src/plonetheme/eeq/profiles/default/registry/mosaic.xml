@@ -8,6 +8,22 @@
     <value>++contentlayout++psu-educational-equity/basic.html</value>
   </record>
 
+  <record name="plone.app.standardtiles.listing_views">
+    <field type="plone.registry.field.Dict">
+      <title>Listing Views</title>
+      <key_type type="plone.registry.field.TextLine" />
+      <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value purge="true">
+      <element key="listing_view">Listing view</element>
+      <element key="summary_view">Summary view</element>
+      <element key="tabular_view">Tabular view</element>
+      <element key="grid_view">Grid view</element>
+      <element key="summary_with_images_view">Summary w/Images view</element>
+      <element key="simple_summary_with_images_view">Simple Summary w/Images view</element>
+    </value>
+  </record>
+
   <record name="plone.app.tiles">
     <value purge="false">
       <element>plonetheme.eeq.alert</element>
@@ -43,6 +59,25 @@
     <value key="settings">true</value>
     <value key="favorite">false</value>
     <value key="rich_text">false</value>
+    <value key="weight">20</value>
+  </records>
+
+  <record name="plone.app.tiles">
+    <value purge="false">
+      <element>plonetheme.eeq.timedcontent</element>
+    </value>
+  </record>
+  <records prefix="plone.app.mosaic.app_tiles.plonetheme_eeq_timedcontent"
+           interface="plone.app.mosaic.interfaces.ITile">
+    <value key="name">plonetheme.eeq.timedcontent</value>
+    <value key="label">Timed Content</value>
+    <value key="category">advanced</value>
+    <value key="tile_type">app</value>
+    <value key="default_value"></value>
+    <value key="read_only">false</value>
+    <value key="settings">true</value>
+    <value key="favorite">false</value>
+    <value key="rich_text">true</value>
     <value key="weight">20</value>
   </records>
 
