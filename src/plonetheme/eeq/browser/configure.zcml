@@ -119,6 +119,14 @@
       />
 
   <browser:page
+      for="plonetheme.eeq.content.eventlink.IEventLink"
+      name="psu-event-helper"
+      permission="zope2.Public"
+      class=".event.PSUEventHelpers"
+      allowed_attributes="portal_state"
+      />
+
+  <browser:page
       name="psu-equity-date-info"
       class=".summary_view_with_images.BrainDateInfo"
       permission="zope2.View"
@@ -191,6 +199,18 @@
       name="simple_summary_with_images_view"
       template="templates/simple_summary_with_images_tile.pt"
       layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
+
+  <!-- Register the EventLink view template -->
+  <browser:page
+      name="eventlink_redirect_view"
+      for="plonetheme.eeq.content.eventlink.IEventLink"
+      class=".eventlink.EventLinkRedirectView"
+      layer="plone.app.contenttypes.interfaces.IPloneAppContenttypesLayer"
+      permission="zope2.View"
+      menu="plone_displayviews"
+      title="View EventLink"
       />
 
 
