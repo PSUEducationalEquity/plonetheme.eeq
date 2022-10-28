@@ -287,6 +287,62 @@ class CollectionChronology(Tile):
         return None
 
 
+class IEventBasicInfoTile(model.Schema):
+    pass
+
+
+class EventBasicInfoTile(Tile):
+    """Tile for displaying date, time, location of an event"""
+
+    template = ViewPageTemplateFile('templates/event_basicinfo.pt')
+
+    def __call__(self):
+        return self.template()
+
+    @property
+    @memoize
+    def inEditMode(self):
+        # only output the javascript if not rendering for layout editor
+        if (self.request.get('_layouteditor') is True or
+                ISubRequest.providedBy(self.request)):
+            return False
+        else:
+            return True
+
+    @property
+    @memoize
+    def isEvent(self):
+        return self.context.portal_type in ('Event', 'plonetheme.eeq.eventlink')  # NOQA
+
+
+class IEventContactInfoTile(model.Schema):
+    pass
+
+
+class EventContactInfoTile(Tile):
+    """Tile for displaying contact and subscribe info for an event"""
+
+    template = ViewPageTemplateFile('templates/event_contactinfo.pt')
+
+    def __call__(self):
+        return self.template()
+
+    @property
+    @memoize
+    def inEditMode(self):
+        # only output the javascript if not rendering for layout editor
+        if (self.request.get('_layouteditor') is True or
+                ISubRequest.providedBy(self.request)):
+            return False
+        else:
+            return True
+
+    @property
+    @memoize
+    def isEvent(self):
+        return self.context.portal_type in ('Event', 'plonetheme.eeq.eventlink')  # NOQA
+
+
 class ITimedContentTile(model.Schema):
 
     title = schema.TextLine(

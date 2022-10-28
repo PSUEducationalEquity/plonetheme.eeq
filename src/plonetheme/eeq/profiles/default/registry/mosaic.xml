@@ -64,6 +64,44 @@
 
   <record name="plone.app.tiles">
     <value purge="false">
+      <element>plonetheme.eeq.event_basicinfo</element>
+    </value>
+  </record>
+  <records prefix="plone.app.mosaic.app_tiles.plonetheme_eeq_event_basicinfo"
+           interface="plone.app.mosaic.interfaces.ITile">
+    <value key="name">plonetheme.eeq.event_basicinfo</value>
+    <value key="label">Event Basic Information</value>
+    <value key="category">advanced</value>
+    <value key="tile_type">app</value>
+    <value key="default_value"></value>
+    <value key="read_only">false</value>
+    <value key="settings">false</value>
+    <value key="favorite">false</value>
+    <value key="rich_text">true</value>
+    <value key="weight">20</value>
+  </records>
+
+  <record name="plone.app.tiles">
+    <value purge="false">
+      <element>plonetheme.eeq.event_contactinfo</element>
+    </value>
+  </record>
+  <records prefix="plone.app.mosaic.app_tiles.plonetheme_eeq_event_contactinfo"
+           interface="plone.app.mosaic.interfaces.ITile">
+    <value key="name">plonetheme.eeq.event_contactinfo</value>
+    <value key="label">Event Contact Information</value>
+    <value key="category">advanced</value>
+    <value key="tile_type">app</value>
+    <value key="default_value"></value>
+    <value key="read_only">false</value>
+    <value key="settings">false</value>
+    <value key="favorite">false</value>
+    <value key="rich_text">true</value>
+    <value key="weight">20</value>
+  </records>
+
+  <record name="plone.app.tiles">
+    <value purge="false">
       <element>plonetheme.eeq.timedcontent</element>
     </value>
   </record>

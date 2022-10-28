@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+  <body tal:define="inEditMode     view/inEditMode;
+                    isEvent        view/isEvent; ">
+
+    <tal:NonEvent tal:condition="python: not isEvent">
+      <div tal:condition="inEditMode">
+        <p class="alert alert-info">
+          <strong>Note:</strong>
+          This tile only displays information for Event objects
+        </p>
+      </div>
+    </tal:NonEvent>
+
+    <tal:Event tal:condition="isEvent">
+      <tal:def tal:define="data nocall:view/context;
+                           helper_view context/@@psu-event-helper">
+        <div class="container event clearfix">
+
+          <div class="row eventFooter">
+            <div class="col-md-6 my-1 my-md-0">
+              Contact:<br />
+              <a tal:condition="data/contact_email|nothing" tal:attributes="href string:mailto:${data/contact_email}">
+                <tal:name replace="data/contact_name" />
+              </a>
+              <tal:name replace="data/contact_name" tal:condition="not: data/contact_email|nothing" />
+              <tal:phone condition="data/contact_phone">
+              • <tal:phone replace="data/contact_phone" />
+              </tal:phone>
+            </div>
+            <div class="col-md-4 my-1 my-md-0">
+              <span tal:condition="data/event_url">
+                More information:<br />
+                <a tal:attributes="href data/event_url" >
+                  Visit external website
+                </a>
+              </span>
+            </div>
+            <div class="col-md-2 my-1 my-md-0">
+              Subscribe: <br />
+              <a tal:attributes="href helper_view/gcal_url"
+                 title="Add to my Google calendar"
+                 ><i class="fab fa-google"></i></a>
+              <a tal:attributes="href string:${context/absolute_url}/ics_view"
+                 title="Add to my calendar"
+                 ><i class="fas fa-calendar-alt"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </tal:def>
+    </tal:Event>
+
+  </body>
+</html>

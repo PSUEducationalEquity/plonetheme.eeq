@@ -85,6 +85,30 @@
       />
 
   <plone:tile
+      name="plonetheme.eeq.event_basicinfo"
+      title="Event basic information"
+      description="A tile that displays the date, time, and location of an event"
+      add_permission="cmf.ModifyPortalContent"
+      class=".tiles.EventBasicInfoTile"
+      for="*"
+      permission="zope.Public"
+      schema=".tiles.IEventBasicInfoTile"
+      template="templates/event_basicinfo.pt"
+      />
+
+  <plone:tile
+      name="plonetheme.eeq.event_contactinfo"
+      title="Event contact information"
+      description="A tile that displays the contact and subscribe info for an event"
+      add_permission="cmf.ModifyPortalContent"
+      class=".tiles.EventContactInfoTile"
+      for="*"
+      permission="zope.Public"
+      schema=".tiles.IEventContactInfoTile"
+      template="templates/event_contactinfo.pt"
+      />
+
+  <plone:tile
       name="plonetheme.eeq.timedcontent"
       title="Timed content"
       description="A tile that displays different content when published/expired"
