@@ -13,7 +13,7 @@ class BrainDateInfo(object):
         self.request = request
 
     def date(self):
-        if self.context.PortalType() == 'Event':
+        if self.context.PortalType() in ['Event', 'plonetheme.eeq.eventlink']:
             # It would be better to not invoke `getObject` here, but
             # the event start date is not part of the brain.
             obj = self.context.getObject()
