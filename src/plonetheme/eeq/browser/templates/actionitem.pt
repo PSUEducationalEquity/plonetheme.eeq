@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+  <body>
+
+    <div class="action-item-tile">
+      <a tal:attributes="href view/link"
+         ><img class="image-inline"
+               alt="${view/title}"
+               src="${view/image_url}/@@images/image/mini"
+               />
+        <div class="action-item-title">${view/title}</div>
+      </a>
+    </div>
+
+  </body>
+</html>

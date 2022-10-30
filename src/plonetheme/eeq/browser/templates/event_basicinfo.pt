@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+  <body tal:define="inEditMode     view/inEditMode;
+                    isEvent        view/isEvent; ">
+
+    <tal:NonEvent tal:condition="python: not isEvent">
+      <div tal:condition="inEditMode">
+        <p class="alert alert-info">
+          <strong>Note:</strong>
+          This tile only displays information for Event objects
+        </p>
+      </div>
+    </tal:NonEvent>
+
+    <tal:Event tal:condition="isEvent">
+      <tal:def tal:define="data nocall:view/context;
+                           helper_view context/@@psu-event-helper">
+        <div class="container event clearfix"
+             itemscope
+             itemtype="https://schema.org/Event">
+          <ul id="event-row-above-body" class="row">
+            <li itemprop="startDate" class="col-sm-6 col-md-4 my-1 my-md-0">
+              <i class="fas fa-calendar-alt"></i>
+              <tal:date replace="python: data.start.strftime('%B')" />
+              <tal:date replace="python: data.start.strftime('%-d')" />,
+              <tal:date replace="python: data.start.strftime('%Y')" />
+            </li>
+
+            <li itemprop="startTime" class="col-sm-6 col-md-4 my-1 my-md-0">
+              <i class="fas fa-clock"></i>
+              <tal:date replace="python: helper_view.format_time(data.start)" />
+            </li>
+
+            <li itemprop="location"
+                class="col-md-4 my-1 my-md-0"
+                tal:condition="python: data.location">
+              <i class="fas fa-map-pin"></i>
+              <tal:date replace="python: data.location" />
+            </li>
+          </ul>
+        </div>
+      </tal:def>
+    </tal:Event>
+
+  </body>
+</html>

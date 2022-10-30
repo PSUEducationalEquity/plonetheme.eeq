@@ -61,6 +61,18 @@
 
   <!-- Define new Mosaic tiles -->
   <plone:tile
+      name="plonetheme.eeq.actionitem"
+      title="Action item"
+      description="A tile that displays an action item with image and link"
+      add_permission="cmf.ModifyPortalContent"
+      class=".tiles.ActionItemTile"
+      for="*"
+      permission="zope.Public"
+      schema=".tiles.IActionItemTile"
+      template="templates/actionitem.pt"
+      />
+
+  <plone:tile
       name="plonetheme.eeq.alert"
       title="Alert"
       description="A tile that displays text, allows for style choice and optional title url link"
@@ -82,6 +94,30 @@
       permission="zope.Public"
       schema=".tiles.ICollectionChronology"
       template="templates/collectionchronology.pt"
+      />
+
+  <plone:tile
+      name="plonetheme.eeq.event_basicinfo"
+      title="Event basic information"
+      description="A tile that displays the date, time, and location of an event"
+      add_permission="cmf.ModifyPortalContent"
+      class=".tiles.EventBasicInfoTile"
+      for="*"
+      permission="zope.Public"
+      schema=".tiles.IEventBasicInfoTile"
+      template="templates/event_basicinfo.pt"
+      />
+
+  <plone:tile
+      name="plonetheme.eeq.event_contactinfo"
+      title="Event contact information"
+      description="A tile that displays the contact and subscribe info for an event"
+      add_permission="cmf.ModifyPortalContent"
+      class=".tiles.EventContactInfoTile"
+      for="*"
+      permission="zope.Public"
+      schema=".tiles.IEventContactInfoTile"
+      template="templates/event_contactinfo.pt"
       />
 
   <plone:tile
@@ -112,6 +148,14 @@
   <!-- Define helpers -->
   <browser:page
       for="plone.app.contenttypes.interfaces.IEvent"
+      name="psu-event-helper"
+      permission="zope2.Public"
+      class=".event.PSUEventHelpers"
+      allowed_attributes="portal_state"
+      />
+
+  <browser:page
+      for="plonetheme.eeq.content.eventlink.IEventLink"
       name="psu-event-helper"
       permission="zope2.Public"
       class=".event.PSUEventHelpers"
@@ -191,6 +235,18 @@
       name="simple_summary_with_images_view"
       template="templates/simple_summary_with_images_tile.pt"
       layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
+
+  <!-- Register the EventLink view template -->
+  <browser:page
+      name="eventlink_redirect_view"
+      for="plonetheme.eeq.content.eventlink.IEventLink"
+      class=".eventlink.EventLinkRedirectView"
+      layer="plone.app.contenttypes.interfaces.IPloneAppContenttypesLayer"
+      permission="zope2.View"
+      menu="plone_displayviews"
+      title="View EventLink"
       />
 
 
