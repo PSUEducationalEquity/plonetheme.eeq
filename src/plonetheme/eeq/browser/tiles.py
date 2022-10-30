@@ -8,8 +8,9 @@ try:
     from plone.app.widgets.dx import RelatedItemsWidget
 except ImportError:
     RelatedItemsWidget = None
+from plone.app.contenttypes.utils import replace_link_variables_by_paths
 from plone.app.textfield import RichText
-from plone.app.z3cform.widget import DatetimeWidget
+from plone.app.z3cform.widget import DatetimeWidget, LinkFieldWidget
 from plone.memoize.view import memoize
 from plone.tiles import Tile
 from plone.subrequest import ISubRequest
@@ -23,6 +24,73 @@ from DateTime import DateTime
 
 DATE_FORMAT = '%B %-d, %Y'
 TIME_FORMAT = '%-I:%M%p'
+
+
+class IActionItemTile(model.Schema):
+
+    title = schema.TextLine(
+        title=_(u'Action'),
+        required=True,
+    )
+
+    image_uid = schema.Choice(
+        title=_(u'Select an existing image'),
+        required=True,
+        source=CatalogSource(
+            object_provides=(
+                'plone.dexterity.interfaces.IDexterityContainer',
+                'plone.app.contenttypes.interfaces.IImage',
+            )
+        ),
+    )
+    if RelatedItemsWidget is not None:
+        form.widget('image_uid', RelatedItemsWidget)
+
+    remote_url = schema.TextLine(
+        title=_(u'Link'),
+        required=True
+    )
+    form.widget('remote_url', LinkFieldWidget)
+
+
+class ActionItemTile(Tile):
+
+    template = ViewPageTemplateFile('templates/actionitem.pt')
+
+    def __call__(self):
+        return self.template()
+
+    @property
+    @memoize
+    def image_url(self):
+        uuid = self.data.get('image_uid')
+        if uuid is None:
+            return ''
+
+        if uuid != api.content.get_uuid(self.context):
+            try:
+                item = uuidToObject(uuid)
+            except Unauthorized:
+                item = None
+                if not self.request.get('PUBLISHED'):
+                    raise  # Should raise while still traversing
+            if item is not None:
+                return item.absolute_url()
+        return ''
+
+    @property
+    @memoize
+    def link(self):
+        url = replace_link_variables_by_paths(
+            self.context,
+            self.data.get('remote_url')
+        )
+        return url
+
+    @property
+    @memoize
+    def title(self):
+        return self.data.get('title')
 
 
 class IAlertTile(model.Schema):

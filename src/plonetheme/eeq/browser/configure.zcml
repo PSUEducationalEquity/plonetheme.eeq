@@ -61,6 +61,18 @@
 
   <!-- Define new Mosaic tiles -->
   <plone:tile
+      name="plonetheme.eeq.actionitem"
+      title="Action item"
+      description="A tile that displays an action item with image and link"
+      add_permission="cmf.ModifyPortalContent"
+      class=".tiles.ActionItemTile"
+      for="*"
+      permission="zope.Public"
+      schema=".tiles.IActionItemTile"
+      template="templates/actionitem.pt"
+      />
+
+  <plone:tile
       name="plonetheme.eeq.alert"
       title="Alert"
       description="A tile that displays text, allows for style choice and optional title url link"
