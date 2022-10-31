@@ -36,14 +36,25 @@ class Person(Item):
         return '{}@psu.edu'.format(self.id)
 
     @property
+    def jobTitles(self):
+        return self.jobtitles.replace('\r\n', '\n').split('\n')
+
+    @property
     def office_phone(self):
+        phone = self.office_phone_raw
+        if not phone:
+            return self.office_phone_number
+        return '{}-{}-{}'.format(phone[:3], phone[3:6], phone[6:])
+
+    @property
+    def office_phone_raw(self):
         phone = (self.office_phone_number.replace('-', '')
                                          .replace('(', '')
                                          .replace(')', '')
                                          .replace(' ', ''))
         if len(phone) != 10:
-            return self.office_phone_number
-        return '{}-{}-{}'.format(phone[:3], phone[3:3], phone[6:])
+            return ''
+        return phone
 
     @property
     def title(self):
