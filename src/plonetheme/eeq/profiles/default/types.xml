@@ -3,4 +3,5 @@
   <object meta_type="Dexterity FTI" name="plonetheme.eeq.area" />
   <object meta_type="Dexterity FTI" name="plonetheme.eeq.eventlink" />
   <object meta_type="Dexterity FTI" name="plonetheme.eeq.office" />
+  <object meta_type="Dexterity FTI" name="plonetheme.eeq.person" />
 </object>
