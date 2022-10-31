@@ -30,12 +30,13 @@
 
   <!-- Enable behaviors -->
   <property name="behaviors">
-     <element value="plone.dublincore" />
+     <element value="plone.categorization" />
+     <element value="plone.publication" />
+     <element value="plone.ownership" />
      <element value="plone.namefromtitle" />
      <element value="plone.leadimage"/>
      <element value="plone.imagecropping"/>
      <element vaule="plone.publication" />
-     <element value="plone.shortname" />
      <element value="plone.excludefromnavigation" />
      <element value="plone.relateditems" />
      <element value="plone.layoutaware" />
