@@ -20,7 +20,8 @@
 
             <div class="card card-summary-with-images"
                  tal:define="item_has_image python:item.getIcon;
-                             img_url string: ${item/getURL}/@@images/image/thumb">
+                             img_url string: ${item/getURL}/@@images/image/thumb;
+                             isPerson python:item.portal_type == 'plonetheme.eeq.person'">
               <div class="container">
                 <div class="row">
                   <div class="col-8 col-sm-9 col-lg-10 px-0 px-sm-3 order-last content">
@@ -33,14 +34,33 @@
                     <p class="d-none d-sm-block">${item/description}</p>
                   </div>
                   <div class="col-4 col-sm-3 col-lg-2 order-first profile-img lead-image">
-                    <a class="summary-with-images-link"
-                       href="${item/getURL}"
-                       title="${item/description}"
-                       tal:condition="item_has_image"
-                       ><img class="w-100"
-                             data-src="${img_url}"
-                             src="${img_url}"
-                             /></a>
+                    <tal:photo tal:condition="item_has_image">
+                      <a class="summary-with-images-link"
+                         href="${item/getURL}"
+                         title="${item/description}"
+                         tal:condition="python: not isPerson"
+                         ><img class="w-100"
+                               data-src="${img_url}"
+                               src="${img_url}"
+                               /></a>
+
+                      <div class="portrait"
+                           tal:condition="isPerson">
+                        <a class="summary-with-images-link"
+                           href="${item/getURL}"
+                           title="${item/description}"
+                           ><img class="w-100 rounded-circle shadow p-1"
+                                 data-src="${img_url}"
+                                 src="${img_url}"
+                                 />
+                            <span class="firstgen-indicator"
+                                  tal:condition="item/first_generation">
+                              <img class="rounded-circle"
+                                     src="${original_context/portal_url}/++theme++psu-educational-equity/images/firstgen.png"
+                                     alt="#psuFirstGen" />
+                            </span></a>
+                      </div>
+                    </tal:photo>
                   </div>
                 </div>
               </div>

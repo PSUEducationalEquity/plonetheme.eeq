@@ -25,6 +25,7 @@
       <element>psu_tile</element>
       <element>psu_office</element>
       <element>psu_square</element>
+      <element>thumb</element>
     </value>
   </records>
 
