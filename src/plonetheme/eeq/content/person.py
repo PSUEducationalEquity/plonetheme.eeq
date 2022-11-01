@@ -1,3 +1,4 @@
+from Products.CMFPlone.utils import isExpired
 from plone.dexterity.content import Item
 from plone.supermodel import model
 from plone.dexterity.interfaces import IContentType
@@ -34,6 +35,10 @@ class Person(Item):
         if self.alternate_email:
             return self.alternate_email
         return '{}@psu.edu'.format(self.id)
+
+    @property
+    def is_separated(self):
+        return isExpired(self)
 
     @property
     def jobTitles(self):
