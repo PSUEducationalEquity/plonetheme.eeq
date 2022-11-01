@@ -26,6 +26,12 @@
       <required>False</required>
     </field>
 
+    <field name="pronouns" type="zope.schema.TextLine">
+      <title>Pronouns</title>
+      <description>The person's preferred pronouns (e.g., she/her/hers)</description>
+      <required>False</required>
+    </field>
+
     <field name="jobtitles" type="zope.schema.Text">
       <title>Job Title(s)</title>
       <description>List multiple job titles on separate lines</description>
@@ -46,12 +52,19 @@
 
     <field name="linkedin_url" type="zope.schema.TextLine">
       <title>LinkedIn Profile</title>
+      <description>Address of the person's LinkedIn profile page</description>
       <required>False</required>
     </field>
 
     <field name="first_generation" type="zope.schema.Bool">
       <title>First Generation</title>
-      <description>Indicates this person was a first generation college student</description>
+      <description>Displays a First Gen indicator for a person who has a baccalaureate and who's immediate parents or guardians did not receive a baccalaureate degree</description>
+      <required>False</required>
+    </field>
+
+    <field name="body" type="plone.app.textfield.RichText">
+      <title>Details</title>
+      <description>Description of who the person is and what they do for Educational Equity</description>
       <required>False</required>
     </field>
 

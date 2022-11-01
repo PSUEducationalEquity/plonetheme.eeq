@@ -22,6 +22,7 @@
  * LISTS................Styles related to lists
  * MOSAIC...............Styles specific to the Mosaic layouts
  * NAVIGATION...........Styles specific to the top level navigation
+ * PEOPLE...............Styles related to the display of people
  * PORTLETS.............Styles for the various portlets
  * RELATED_ITEMS........Styles for related items/content
  * SEARCH_RESULTS.......Styles for the search results page
@@ -914,6 +915,64 @@ h4:first-of-type { margin-top: 0 }
 }
 .navbar-office .navbar-nav .nav-link:hover {
   color: #fff;
+}
+
+
+
+
+/*------------------------------------*\
+    $PEOPLE
+\*------------------------------------*/
+
+/** Person view **/
+
+.portrait {
+  display: inline-block;
+  position: relative;
+}
+
+.firstgen-indicator {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.firstgen-indicator:hover img {
+  border: 2px solid blue;
+}
+
+
+.portaltype-plonetheme-eeq-person {
+  h1.fn {
+    font-size: 2.3rem;
+    position: relative;
+  }
+
+  h1.fn:after {
+    content: "";
+    position: absolute;
+    bottom: -0.75rem;
+    left: 0;
+    width: 6rem;
+    height: 1px;
+    border-bottom: 4px solid #007bff;
+  }
+
+  .jobTitle {
+    font-size: 1.3em;
+    font-style: italic;
+  }
+
+  @media (min-width: 576px) {
+    h1.fn {
+      font-size: 2.8rem;
+    }
+
+    .jobTitle {
+      font-size: 1.8em;
+    }
+  }
 }
 
 

@@ -11,66 +11,110 @@
   <tal:main-macro metal:define-macro="main"
                   tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
 
-    <div class="portrait">
-      <img class="rounded-circle shadow p-1 bg-body rounded"
-           src="${context/absolute_url}/@@images/image/psu_square" />
-    </div>
+    <div class="container vcard" id="hcard">
+      <div class="row">
+        <div class="col-12 col-lg-7 col-xl-8">
+          <h1 class="documentFirstHeading fn n">
+            <span class="given-name"
+                  tal:content="context/first_name"
+                  />
+            <span class="family-name"
+                  tal:content="context/last_name"
+                  /><span tal:condition="context/suffix">,</span>
+            <span class="honorific-suffix"
+                  tal:content="context/suffix"
+                  />
+          </h1>
 
-    <div class="vcard" id="hcard">
-      <h1 class="documentFirstHeading fn n">
-        <span class="given-name" tal:content="context/first_name" />
-        <span class="family-name" tal:content="context/last_name" />
-        <span class="honorific-suffix" tal:content="context/suffix" />
-      </h1>
+          <ul class="title jobTitle list-unstyled">
+            <li tal:repeat="jobTitle context/jobTitles"
+                tal:content="jobTitle" />
+          </ul>
 
-      <ul class="title jobTitle">
-        <li tal:repeat="jobTitle context/jobTitles"
-            tal:content="jobTitle" />
-      </ul>
+          <div class="contact-info my-2">
+            <div class="my-1"
+                 tal:condition="context/pronouns">
+              <span>Pronouns:</span>
+              <span tal:content="context/pronouns" />
+            </div>
 
-      <div class="contact-info">
-        <div tal:condition="context/email">
-          <i class="fas fa-at" aria-hidden="true" />
-          <span>Email</span>
-          <a href="mailto:${context/email}"
-             >${context/email}</a>
+            <div class="my-1"
+                 tal:condition="context/email">
+              <i class="fas fa-at" aria-hidden="true" />
+              <span>Email:</span>
+              <a href="mailto:${context/email}"
+                 >${context/email}</a>
+            </div>
+
+            <div class="my-1"
+                 tal:condition="context/office_phone">
+              <i class="fas fa-phone" aria-hidden="true" />
+              <span>Phone:</span>
+              <tal:tellink tal:condition="context/office_phone_raw">
+                <a href="tel:${context/office_phone_raw}"
+                   >${context/office_phone}</a>
+              </tal:tellink>
+              <tal:tel tal:condition="python: not context.office_phone_raw">
+                <span tal:content="context/office_phone" />
+              </tal:tel>
+            </div>
+
+            <div class="my-1"
+                 tal:condition="context/linkedin_url">
+              <i class="fab fa-linkedin" aria-hidden="true" />
+              <span>LinkedIn:</span>
+              <a href="${context/linkedin_url}"
+                 >Connect with me</a>
+            </div>
+          </div>
         </div>
 
-        <div tal:condition="context/office_phone">
-          <i class="fas fa-phone" aria-hidden="true" />
-          <span>Phone</span>
-          <tal:tellink tal:condition="context/office_phone_raw">
-            <a href="tel:${context/office_phone_raw}"
-               >${context/office_phone}</a>
-          </tal:tellink>
-          <tal:tel tal:condition="python: not context.office_phone_raw">
-            <span tal:content="context/office_phone" />
-          </tal:tel>
-        </div>
+        <div class="col-12 col-lg-5 col-xl-4 order-first order-lg-last text-center">
+          <div class="portrait">
+            <img class="rounded-circle shadow p-1"
+                 src="${context/absolute_url}/@@images/image/psu_square" />
 
-        <div tal:condition="context/linkedin_url">
-          <i class="fab fa-linkedin" aria-hidden="true" />
-          <span>LinkedIn</span>
-          <a href="${context/linkedin_url}"
-             >Connect with me</a>
+            <a class="firstgen-indicator"
+               href="https://success.psu.edu/first-generation-psu"
+               tal:condition="context/first_generation"
+               ><img class="rounded-circle"
+                     src="${portal_url}/++theme++psu-educational-equity/images/firstgen.png"
+                     alt="#psuFirstGen" /></a>
+          </div>
         </div>
       </div>
 
-      <div tal:condition="context/first_generation">
-        <img src="${portal_url}/++theme++psu-educational-equity/images/firstgen.png"
-             alt="#psuFirstGen" />
-        I am
-        <a href="https://success.psu.edu/first-generation-psu">First Gen!</a>
-        Are you?
+      <div class="row mt-5">
+        <div class="col">
+          <div tal:replace="structure provider:plone.abovecontentbody" />
+        </div>
       </div>
+
+      <div class="row"
+           tal:condition="context/body">
+        <div class="col">
+          <p tal:replace="structure context/body/output"></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div tal:replace="structure provider:plone.belowcontentbody" />
+        </div>
+      </div>
+
+      <div class="row mt-4"
+           tal:condition="context/first_generation">
+        <div class="col">
+          <img src="${portal_url}/++theme++psu-educational-equity/images/firstgen.png"
+               alt="#psuFirstGen" />
+          I am
+          <a href="https://success.psu.edu/first-generation-psu">First Gen!</a>
+          Are you?
+        </div>
+      </div>
+
     </div>
-
-    <div tal:replace="structure provider:plone.abovecontentbody" />
-
-    <!-- <p tal:replace="structure context/body"></p> -->
-
-    <div tal:replace="structure provider:plone.belowcontentbody" />
-
   </tal:main-macro>
 </metal:main>
 
