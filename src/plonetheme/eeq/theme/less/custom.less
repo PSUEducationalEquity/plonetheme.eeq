@@ -642,6 +642,7 @@ h4:first-of-type { margin-top: 0 }
 \*------------------------------------*/
 
 /** Inline list of links separated by a pipe **/
+
 .list-inline-links .list-inline-item:after {
   content: "|";
 }
@@ -650,6 +651,23 @@ h4:first-of-type { margin-top: 0 }
 }
 .list-inline-links .list-inline-item a {
   margin-right: 0.5rem;
+}
+
+
+/** Definition list - side-by-side **/
+
+dl.grid {
+  display: grid;
+  grid-template-columns: 33% auto;
+}
+
+dl.grid dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+dl.grid dd {
+  grid-column: 2;
 }
 
 
