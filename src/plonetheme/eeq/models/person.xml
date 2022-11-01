@@ -44,11 +44,6 @@
       <required>False</required>
     </field>
 
-    <field name="website" type="zope.schema.TextLine">
-      <title>Website</title>
-      <required>False</required>
-    </field>
-
     <field name="linkedin_url" type="zope.schema.TextLine">
       <title>LinkedIn Profile</title>
       <required>False</required>
