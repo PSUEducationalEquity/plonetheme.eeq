@@ -44,7 +44,7 @@
                                src="${img_url}"
                                /></a>
 
-                      <div class="portrait"
+                      <div class="portrait thumb"
                            tal:condition="isPerson">
                         <a class="summary-with-images-link"
                            href="${item/getURL}"

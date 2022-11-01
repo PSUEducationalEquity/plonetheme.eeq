@@ -47,7 +47,7 @@
                     </div>
                     <div class="grid-image"
                          tal:condition="isPerson">
-                      <div class="portrait"
+                      <div class="portrait thumb"
                            tal:condition="item_has_image"
                            >
                         <a class="grid-link"
