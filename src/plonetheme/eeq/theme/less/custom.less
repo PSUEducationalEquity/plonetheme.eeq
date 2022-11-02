@@ -26,6 +26,7 @@
  * PORTLETS.............Styles for the various portlets
  * RELATED_ITEMS........Styles for related items/content
  * SEARCH_RESULTS.......Styles for the search results page
+ * TABLES...............Styles for tables
  * TINY_MCE.............Styles related to the TinyMCE editor
  */
 
@@ -1152,6 +1153,62 @@ dl.grid dd {
 
 body.userrole-manager #searchform .actionMenu {
   display: block;
+}
+
+
+
+
+/*------------------------------------*\
+    $TABLES
+\*------------------------------------*/
+
+/** Resposive table layout
+ *
+ * Implements concept from: https://css-tricks.com/responsive-data-tables/
+ **/
+
+/* only for small screens */
+@media only screen and (max-width: 576px) {
+  /* make table elements display like block elements */
+  table.responsive,
+  table.responsive thead,
+  table.responsive tbody,
+  table.responsive tr,
+  table.responsive th,
+  table.responsive td {
+    display: block;
+  }
+
+  /* hide the table headers in an accessible way */
+  table.responsive thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  /* visually separate each row */
+  table.responsive tr {
+    border: 1px solid #ccc;
+  }
+
+  /* position each cell to the right side of the screen */
+  table.responsive > tbody > tr > td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  /* create labels for each cell value on the left side of the screen */
+  table.responsive td:before {
+    content: attr(data-label);
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
 }
 
 
