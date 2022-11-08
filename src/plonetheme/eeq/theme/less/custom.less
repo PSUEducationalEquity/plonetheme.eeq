@@ -22,9 +22,11 @@
  * LISTS................Styles related to lists
  * MOSAIC...............Styles specific to the Mosaic layouts
  * NAVIGATION...........Styles specific to the top level navigation
+ * PEOPLE...............Styles related to the display of people
  * PORTLETS.............Styles for the various portlets
  * RELATED_ITEMS........Styles for related items/content
  * SEARCH_RESULTS.......Styles for the search results page
+ * TABLES...............Styles for tables
  * TINY_MCE.............Styles related to the TinyMCE editor
  */
 
@@ -641,6 +643,7 @@ h4:first-of-type { margin-top: 0 }
 \*------------------------------------*/
 
 /** Inline list of links separated by a pipe **/
+
 .list-inline-links .list-inline-item:after {
   content: "|";
 }
@@ -649,6 +652,23 @@ h4:first-of-type { margin-top: 0 }
 }
 .list-inline-links .list-inline-item a {
   margin-right: 0.5rem;
+}
+
+
+/** Definition list - side-by-side **/
+
+dl.grid {
+  display: grid;
+  grid-template-columns: 33% auto;
+}
+
+dl.grid dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+dl.grid dd {
+  grid-column: 2;
 }
 
 
@@ -920,6 +940,115 @@ h4:first-of-type { margin-top: 0 }
 
 
 /*------------------------------------*\
+    $PEOPLE
+\*------------------------------------*/
+
+/** Portrait and First Gen indicator **/
+
+.portrait {
+  display: inline-block;
+  position: relative;
+}
+
+.firstgen-indicator {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.portrait.thumb .firstgen-indicator {
+  bottom: -5px;
+  right: -5px;
+}
+
+.portrait.thumb .firstgen-indicator img {
+  width: 40px;
+}
+
+
+/** Person view **/
+
+.portaltype-plonetheme-eeq-person {
+  h1.fn {
+    font-size: 2.3rem;
+    position: relative;
+  }
+
+  h1.fn:after {
+    content: "";
+    position: absolute;
+    bottom: -0.75rem;
+    left: 0;
+    width: 6rem;
+    height: 1px;
+    border-bottom: 4px solid #007bff;
+  }
+
+  .jobTitle {
+    font-size: 1.3em;
+    font-style: italic;
+  }
+
+  .firstgen-indicator:hover > img {
+    border: 2px solid blue;
+  }
+
+  @media (min-width: 576px) {
+    h1.fn {
+      font-size: 2.8rem;
+    }
+
+    .jobTitle {
+      font-size: 1.8em;
+    }
+  }
+
+
+  .quotation {
+    margin: 3rem auto 1rem auto;
+    max-width: 315px;
+    position: relative;
+  }
+
+  .quotation.pull-right {
+    margin: 3rem 0 0.3rem 1rem;
+  }
+
+  .quotation blockquote:before {
+    content: '\201C';
+    color: #001e44;
+    font-family: Times;
+    font-size: 8em;
+    position: absolute;
+    top: -108px;
+    left: 0.5em;
+  }
+
+  .quotation blockquote {
+    color: #001e44;
+    font-size: 1.3rem;
+    font-style: italic;
+    margin-bottom: 0;
+  }
+
+  .quotation blockquote:after {
+    content: '\201D';
+    color: #001e44;
+    font-family: Times;
+    font-size: 1.3rem;
+  }
+
+  .quotation_byline {
+    color: #666;
+    text-align: right;
+  }
+}
+
+
+
+
+/*------------------------------------*\
     $PORTLETS
 \*------------------------------------*/
 
@@ -1064,6 +1193,62 @@ h4:first-of-type { margin-top: 0 }
 
 body.userrole-manager #searchform .actionMenu {
   display: block;
+}
+
+
+
+
+/*------------------------------------*\
+    $TABLES
+\*------------------------------------*/
+
+/** Resposive table layout
+ *
+ * Implements concept from: https://css-tricks.com/responsive-data-tables/
+ **/
+
+/* only for small screens */
+@media only screen and (max-width: 576px) {
+  /* make table elements display like block elements */
+  table.responsive,
+  table.responsive thead,
+  table.responsive tbody,
+  table.responsive tr,
+  table.responsive th,
+  table.responsive td {
+    display: block;
+  }
+
+  /* hide the table headers in an accessible way */
+  table.responsive thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  /* visually separate each row */
+  table.responsive tr {
+    border: 1px solid #ccc;
+  }
+
+  /* position each cell to the right side of the screen */
+  table.responsive > tbody > tr > td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  /* create labels for each cell value on the left side of the screen */
+  table.responsive td:before {
+    content: attr(data-label);
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
 }
 
 

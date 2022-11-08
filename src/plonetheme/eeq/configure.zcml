@@ -249,6 +249,14 @@
       import_steps="typeinfo"
       />
 
+  <genericsetup:upgradeDepends
+      source="1022"
+      destination="1023"
+      title="Person content type"
+      profile="plonetheme.eeq:default"
+      import_steps="typeinfo"
+      />
+
   <adapter factory=".overrides.TileDatetimeWidgetConverter" />
 
 </configure>

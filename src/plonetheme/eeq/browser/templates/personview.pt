@@ -1,0 +1,195 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="example.conference">
+<body>
+
+<metal:main fill-slot="main">
+  <tal:main-macro metal:define-macro="main"
+                  tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                              isExpired context/is_separated;
+                              isEditor python:checkPermission('Modify portal content', context);
+                              showExpired python: not isExpired or (isExpired and isEditor);">
+
+    <tal:separated tal:condition="python: not showExpired">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="documentFirstHeading fn n">
+              <span class="given-name"
+                    tal:content="context/first_name"
+                    />
+              <span class="family-name"
+                    tal:content="context/last_name"
+                    /><span tal:condition="context/suffix">,</span>
+              <span class="honorific-suffix"
+                    tal:content="context/suffix"
+                    />
+            </h1>
+
+            <p>This person is no longer associated with Educational Equity.</p>
+          </div>
+        </div>
+      </div>
+    </tal:separated>
+
+    <tal:current tal:condition="showExpired">
+      <div class="portalMessage info"
+           tal:condition="isExpired">
+        <strong>Info</strong>
+        <span tal:omit-tag="">
+          This person is no longer associated with Educational Equity.<br />
+          You are seeing all their information because you have editing
+          rights, regular site visitors will only see the person's name
+          and the message about them no longer being associated.
+        </span>
+      </div>
+
+      <div class="container vcard" id="hcard">
+        <div class="row">
+          <div class="col-12 col-lg-7 col-xl-8">
+            <h1 class="documentFirstHeading fn n">
+              <span class="given-name"
+                    tal:content="context/first_name"
+                    />
+              <span class="family-name"
+                    tal:content="context/last_name"
+                    /><span tal:condition="context/suffix">,</span>
+              <span class="honorific-suffix"
+                    tal:content="context/suffix"
+                    />
+            </h1>
+
+            <ul class="title jobTitle list-unstyled">
+              <li tal:repeat="jobTitle context/jobTitles"
+                  tal:content="jobTitle" />
+            </ul>
+
+            <div class="contact-info my-2">
+              <div class="my-1"
+                   tal:condition="context/pronouns">
+                <span>Pronouns:</span>
+                <span tal:content="context/pronouns" />
+              </div>
+
+              <div class="my-1"
+                   tal:condition="context/email">
+                <i class="fas fa-at" aria-hidden="true" />
+                <span>Email:</span>
+                <a href="mailto:${context/email}"
+                   >${context/email}</a>
+              </div>
+
+              <div class="my-1"
+                   tal:condition="context/office_phone">
+                <i class="fas fa-phone" aria-hidden="true" />
+                <span>Phone:</span>
+                <tal:tellink tal:condition="context/office_phone_raw">
+                  <a href="tel:${context/office_phone_raw}"
+                     >${context/office_phone}</a>
+                </tal:tellink>
+                <tal:tel tal:condition="python: not context.office_phone_raw">
+                  <span tal:content="context/office_phone" />
+                </tal:tel>
+              </div>
+
+              <div class="my-1"
+                   tal:condition="context/linkedin_url">
+                <i class="fab fa-linkedin" aria-hidden="true" />
+                <span>LinkedIn:</span>
+                <a href="${context/linkedin_url}"
+                   >Connect with me</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-5 col-xl-4 order-first order-lg-last text-center">
+            <div class="portrait">
+              <img class="rounded-circle shadow p-1"
+                   src="${context/absolute_url}/@@images/image/psu_square" />
+
+              <a class="firstgen-indicator"
+                 href="https://success.psu.edu/first-generation-psu"
+                 tal:condition="context/first_generation"
+                 ><img class="rounded-circle"
+                       src="${portal_url}/++theme++psu-educational-equity/images/firstgen.png"
+                       alt="#psuFirstGen" /></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col">
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+          </div>
+        </div>
+
+        <div class="row person-bio"
+             tal:condition="context/body">
+          <div class="col">
+            <p tal:replace="structure context/body/output"></p>
+          </div>
+        </div>
+
+
+        <div class="row"
+             tal:condition="context/quotationText">
+          <div class="col" id="quotation-holder">
+            <figure class="quotation" id="quotation">
+              <blockquote tal:content="context/quotationText"></blockquote>
+              <figcaption class="quotation_byline">
+                ~
+                <span tal:replace="context/quotationBy" />
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div tal:replace="structure provider:plone.belowcontentbody" />
+          </div>
+        </div>
+
+        <div class="row mt-4"
+             tal:condition="context/first_generation">
+          <div class="col">
+            <img src="${portal_url}/++theme++psu-educational-equity/images/firstgen.png"
+                 alt="#psuFirstGen" />
+            I am
+            <a href="https://success.psu.edu/first-generation-psu">First Gen!</a>
+            Are you?
+          </div>
+        </div>
+      </div>
+
+      <script>
+        var quote_holder = document.getElementById('quotation-holder')
+        var bio_paragraphs = document.querySelectorAll('.person-bio .col > p')
+        if (bio_paragraphs.length > 1) {
+          var largeScreen = window.matchMedia("(min-width: 992px)")
+          locateQuote(largeScreen)
+          largeScreen.addListener(locateQuote)
+        }
+
+        function locateQuote(mediaQuery) {
+          let quote = document.getElementById('quotation')
+          let existing = bio_paragraphs[1]
+          if (mediaQuery.matches) {
+            quote.classList.add('pull-right')
+            existing.parentNode.insertBefore(quote, existing)
+          } else {
+            quote.classList.remove('pull-right')
+            quote_holder.appendChild(quote)
+          }
+        }
+      </script>
+    </tal:current>
+  </tal:main-macro>
+</metal:main>
+
+</body>
+</html>

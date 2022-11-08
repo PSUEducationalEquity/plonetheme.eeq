@@ -250,6 +250,19 @@
       />
 
 
+  <!-- Register the Person view template -->
+  <browser:page
+      name="view"
+      for="plonetheme.eeq.content.person.IPerson"
+      class=".person.PersonView"
+      template="templates/personview.pt"
+      layer="plone.app.contenttypes.interfaces.IPloneAppContenttypesLayer"
+      permission="zope2.View"
+      menu="plone_displayviews"
+      title="View Person"
+      />
+
+
   <!-- Set the portlets -->
   <plone:portlet
       name="eeq.social_links"

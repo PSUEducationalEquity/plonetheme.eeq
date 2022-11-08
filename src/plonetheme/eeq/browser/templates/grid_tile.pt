@@ -22,9 +22,11 @@
               <div class="col-12 col-sm-6 col-lg-4"
                    tal:define="item_has_image python:item.getIcon;
                                item_url python: item.portal_type in view_types and item.getURL() + '/view' or item.getURL();
-                               img_url string: ${item/getURL}/@@images/image/thumb">
+                               img_url string: ${item/getURL}/@@images/image/thumb;
+                               isPerson python:item.portal_type == 'plonetheme.eeq.person'">
                 <div class="grid-item py-4 text-center">
-                  <div class="grid-image">
+                  <div class="grid-image"
+                       tal:condition="python: not isPerson">
                     <a class="grid-link ${item/review_state}"
                        href="${item_url}"
                        title="${item/description}"
@@ -32,6 +34,25 @@
                        ><img data-src="${img_url}"
                              src="${img_url}"
                              /></a>
+                  </div>
+                  <div class="grid-image"
+                       tal:condition="isPerson">
+                    <div class="portrait thumb"
+                         tal:condition="item_has_image"
+                         >
+                      <a class="grid-link"
+                         href="${item/getURL}"
+                         title="${item/description}"
+                         ><img class="rounded-circle shadow p-1"
+                               src="${img_url}" />
+                        <span class="firstgen-indicator"
+                              tal:condition="item/first_generation">
+                          <img class="rounded-circle"
+                                 src="${original_context/portal_url}/++theme++psu-educational-equity/images/firstgen.png"
+                                 alt="#psuFirstGen" />
+                        </span>
+                      </a>
+                    </div>
                   </div>
                   <div class="grid-title">
                     <h3 class="h3 mt-0">
