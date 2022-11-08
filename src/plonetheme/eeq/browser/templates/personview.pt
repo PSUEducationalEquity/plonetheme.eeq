@@ -127,10 +127,24 @@
           </div>
         </div>
 
-        <div class="row"
+        <div class="row person-bio"
              tal:condition="context/body">
           <div class="col">
             <p tal:replace="structure context/body/output"></p>
+          </div>
+        </div>
+
+
+        <div class="row"
+             tal:condition="context/quotationText">
+          <div class="col" id="quotation-holder">
+            <figure class="quotation" id="quotation">
+              <blockquote tal:content="context/quotationText"></blockquote>
+              <figcaption class="quotation_byline">
+                ~
+                <span tal:replace="context/quotationBy" />
+              </figcaption>
+            </figure>
           </div>
         </div>
 
@@ -152,6 +166,27 @@
         </div>
       </div>
 
+      <script>
+        var quote_holder = document.getElementById('quotation-holder')
+        var bio_paragraphs = document.querySelectorAll('.person-bio .col > p')
+        if (bio_paragraphs.length > 1) {
+          var largeScreen = window.matchMedia("(min-width: 992px)")
+          locateQuote(largeScreen)
+          largeScreen.addListener(locateQuote)
+        }
+
+        function locateQuote(mediaQuery) {
+          let quote = document.getElementById('quotation')
+          let existing = bio_paragraphs[1]
+          if (mediaQuery.matches) {
+            quote.classList.add('pull-right')
+            existing.parentNode.insertBefore(quote, existing)
+          } else {
+            quote.classList.remove('pull-right')
+            quote_holder.appendChild(quote)
+          }
+        }
+      </script>
     </tal:current>
   </tal:main-macro>
 </metal:main>
