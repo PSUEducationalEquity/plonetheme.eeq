@@ -1251,6 +1251,26 @@ body.userrole-manager #searchform .actionMenu {
   }
 }
 
+/* only for small screens */
+@media only screen and (max-width: 576px) {
+  /* make table elements display like block elements */
+  table.stacked,
+  table.stacked thead,
+  table.stacked tbody,
+  table.stacked tr,
+  table.stacked th,
+  table.stacked td {
+    display: block;
+  }
+
+  /* hide the table headers in an accessible way */
+  table.stacked thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+}
+
 
 
 
