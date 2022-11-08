@@ -51,13 +51,13 @@
     </field>
 
     <field name="linkedin_url" type="zope.schema.TextLine">
-      <title>LinkedIn Profile</title>
+      <title>LinkedIn profile</title>
       <description>Address of the person's LinkedIn profile page</description>
       <required>False</required>
     </field>
 
     <field name="first_generation" type="zope.schema.Bool">
-      <title>First Generation</title>
+      <title>First generation</title>
       <description>Displays a First Gen indicator for a person who has a baccalaureate and who's immediate parents or guardians did not receive a baccalaureate degree</description>
       <required>False</required>
     </field>
@@ -65,6 +65,19 @@
     <field name="body" type="plone.app.textfield.RichText">
       <title>Details</title>
       <description>Description of who the person is and what they do for Educational Equity</description>
+      <required>False</required>
+    </field>
+
+    <field name="quotation" type="zope.schema.Text">
+      <title>Quotation</title>
+      <description>Include a favorite quotation that will be highlighted on the page</description>
+      <required>False</required>
+    </field>
+
+    <field name="quotation_attribution" type="zope.schema.TextLine">
+      <title>Quotation attribution</title>
+      <description>Who is said the quotation above</description>
+      <default>Unknown</default>
       <required>False</required>
     </field>
 

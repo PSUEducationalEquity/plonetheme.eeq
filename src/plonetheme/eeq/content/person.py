@@ -62,5 +62,16 @@ class Person(Item):
         return phone
 
     @property
+    def quotationText(self):
+        return (self.quotation.replace('"', '')
+                              .replace('“', ''))
+
+    @property
+    def quotationBy(self):
+        if not self.quotation_attribution.strip():
+            return 'Unknown'
+        return self.quotation_attribution
+
+    @property
     def title(self):
         return '{}, {}'.format(self.last_name, self.first_name)
