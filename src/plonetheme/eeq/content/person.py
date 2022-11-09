@@ -17,7 +17,10 @@ class Person(Item):
 
     @property
     def description(self):
-        job_titles = self.jobtitles.replace('\r\n', '\n').split('\n')
+        try:
+            job_titles = self.jobtitles.replace('\r\n', '\n').split('\n')
+        except AttributeError:
+            job_titles = []
         try:
             return job_titles[0]
         except IndexError:
@@ -42,7 +45,10 @@ class Person(Item):
 
     @property
     def jobTitles(self):
-        return self.jobtitles.replace('\r\n', '\n').split('\n')
+        try:
+            return self.jobtitles.replace('\r\n', '\n').split('\n')
+        except AttributeError:
+            return self.jobtitles
 
     @property
     def office_phone(self):
@@ -63,8 +69,11 @@ class Person(Item):
 
     @property
     def quotationText(self):
-        return (self.quotation.replace('"', '')
-                              .replace('“', ''))
+        try:
+            return (self.quotation.replace('"', '')
+                                  .replace('\u201C', ''))
+        except AttributeError:
+            return ''
 
     @property
     def quotationBy(self):
