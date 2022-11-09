@@ -83,4 +83,7 @@ class Person(Item):
 
     @property
     def title(self):
-        return '{}, {}'.format(self.last_name, self.first_name)
+        if self.last_name:
+            return '{}, {}'.format(self.last_name, self.first_name)
+        else:
+            return self.first_name
