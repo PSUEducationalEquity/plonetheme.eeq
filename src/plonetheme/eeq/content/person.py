@@ -4,6 +4,8 @@ from plone.supermodel import model
 from plone.dexterity.interfaces import IContentType
 from zope.interface import alsoProvides
 
+import re
+
 
 class IPerson(model.Schema):
     model.load('../models/person.xml')
@@ -17,7 +19,10 @@ class Person(Item):
 
     @property
     def description(self):
-        job_titles = self.jobtitles.replace('\r\n', '\n').split('\n')
+        try:
+            job_titles = self.jobtitles.replace('\r\n', '\n').split('\n')
+        except AttributeError:
+            job_titles = []
         try:
             return job_titles[0]
         except IndexError:
@@ -34,7 +39,10 @@ class Person(Item):
     def email(self):
         if self.alternate_email:
             return self.alternate_email
-        return '{}@psu.edu'.format(self.id)
+        if re.findall(r'\d+', self.id):
+            return '{}@psu.edu'.format(self.id)
+        else:
+            return ''
 
     @property
     def is_separated(self):
@@ -42,7 +50,10 @@ class Person(Item):
 
     @property
     def jobTitles(self):
-        return self.jobtitles.replace('\r\n', '\n').split('\n')
+        try:
+            return self.jobtitles.replace('\r\n', '\n').split('\n')
+        except AttributeError:
+            return self.jobtitles
 
     @property
     def office_phone(self):
@@ -53,18 +64,24 @@ class Person(Item):
 
     @property
     def office_phone_raw(self):
-        phone = (self.office_phone_number.replace('-', '')
-                                         .replace('(', '')
-                                         .replace(')', '')
-                                         .replace(' ', ''))
+        try:
+            phone = (self.office_phone_number.replace('-', '')
+                                             .replace('(', '')
+                                             .replace(')', '')
+                                             .replace(' ', ''))
+        except AttributeError:
+            return ''
         if len(phone) != 10:
             return ''
         return phone
 
     @property
     def quotationText(self):
-        return (self.quotation.replace('"', '')
-                              .replace('“', ''))
+        try:
+            return (self.quotation.replace('"', '')
+                                  .replace('\u201C', ''))
+        except AttributeError:
+            return ''
 
     @property
     def quotationBy(self):
@@ -74,4 +91,7 @@ class Person(Item):
 
     @property
     def title(self):
-        return '{}, {}'.format(self.last_name, self.first_name)
+        if self.last_name:
+            return '{}, {}'.format(self.last_name, self.first_name)
+        else:
+            return self.first_name

@@ -106,7 +106,8 @@
             </div>
           </div>
 
-          <div class="col-12 col-lg-5 col-xl-4 order-first order-lg-last text-center">
+          <div class="col-12 col-lg-5 col-xl-4 order-first order-lg-last text-center"
+               tal:condition="context/image">
             <div class="portrait">
               <img class="rounded-circle shadow p-1"
                    src="${context/absolute_url}/@@images/image/psu_square" />

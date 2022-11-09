@@ -18,7 +18,7 @@
 
     <field name="last_name" type="zope.schema.TextLine">
       <title>Last name</title>
-      <required>True</required>
+      <required>False</required>
     </field>
 
     <field name="suffix" type="zope.schema.TextLine">
