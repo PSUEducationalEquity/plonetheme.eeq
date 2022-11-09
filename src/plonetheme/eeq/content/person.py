@@ -4,6 +4,8 @@ from plone.supermodel import model
 from plone.dexterity.interfaces import IContentType
 from zope.interface import alsoProvides
 
+import re
+
 
 class IPerson(model.Schema):
     model.load('../models/person.xml')
@@ -37,7 +39,10 @@ class Person(Item):
     def email(self):
         if self.alternate_email:
             return self.alternate_email
-        return '{}@psu.edu'.format(self.id)
+        if re.findall(r'\d+', self.id):
+            return '{}@psu.edu'.format(self.id)
+        else:
+            return ''
 
     @property
     def is_separated(self):
@@ -59,10 +64,13 @@ class Person(Item):
 
     @property
     def office_phone_raw(self):
-        phone = (self.office_phone_number.replace('-', '')
-                                         .replace('(', '')
-                                         .replace(')', '')
-                                         .replace(' ', ''))
+        try:
+            phone = (self.office_phone_number.replace('-', '')
+                                             .replace('(', '')
+                                             .replace(')', '')
+                                             .replace(' ', ''))
+        except AttributeError:
+            return ''
         if len(phone) != 10:
             return ''
         return phone
