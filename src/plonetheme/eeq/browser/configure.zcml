@@ -252,7 +252,7 @@
 
   <!-- Register the Person view template -->
   <browser:page
-      name="view"
+      name="person_view"
       for="plonetheme.eeq.content.person.IPerson"
       class=".person.PersonView"
       template="templates/personview.pt"
