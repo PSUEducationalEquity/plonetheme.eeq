@@ -97,10 +97,10 @@
               </div>
 
               <div class="my-1"
-                   tal:condition="context/linkedin_url">
+                   tal:condition="context/my_linkedin_url">
                 <i class="fab fa-linkedin" aria-hidden="true" />
                 <span>LinkedIn:</span>
-                <a href="${context/linkedin_url}"
+                <a href="${context/my_linkedin_url}"
                    >Connect with me</a>
               </div>
             </div>

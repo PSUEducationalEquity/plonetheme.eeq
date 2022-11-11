@@ -50,7 +50,7 @@
       <required>False</required>
     </field>
 
-    <field name="linkedin_url" type="zope.schema.TextLine">
+    <field name="my_linkedin_url" type="zope.schema.TextLine">
       <title>LinkedIn profile</title>
       <description>Address of the person's LinkedIn profile page</description>
       <required>False</required>

@@ -273,6 +273,14 @@
       import_steps="typeinfo"
       />
 
+  <genericsetup:upgradeDepends
+      source="1025"
+      destination="1026"
+      title="Change Person LinkedIn field name"
+      profile="plonetheme.eeq:default"
+      import_steps="typeinfo"
+      />
+
   <adapter factory=".overrides.TileDatetimeWidgetConverter" />
 
 </configure>
