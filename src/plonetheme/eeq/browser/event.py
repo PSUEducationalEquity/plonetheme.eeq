@@ -28,7 +28,7 @@ class PSUEventHelpers(BrowserView):
         """
         if self.context.whole_day:
             return 'All day'
-        formatted_time = time.strftime('%I:%S')
+        formatted_time = time.strftime('%I:%M')
         if formatted_time.startswith('0'):
             formatted_time = formatted_time[1:]
         am_or_pm = time.strftime('%p').lower().replace("am", "a.m.").replace("pm", "p.m.")
