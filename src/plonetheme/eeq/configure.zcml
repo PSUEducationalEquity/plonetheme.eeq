@@ -281,6 +281,14 @@
       import_steps="typeinfo"
       />
 
+  <genericsetup:upgradeDepends
+      source="1026"
+      destination="1027"
+      title="Change how Person.username is implemented"
+      profile="plonetheme.eeq:default"
+      import_steps="typeinfo"
+      />
+
   <adapter factory=".overrides.TileDatetimeWidgetConverter" />
 
 </configure>

@@ -5,12 +5,6 @@
        xmlns:indexer="http://namespaces.plone.org/supermodel/indexer">
   <schema>
 
-    <field name="id" type="zope.schema.ASCIILine">
-      <title>Username</title>
-      <description>Penn State username (e.g., abc123)</description>
-      <required>True</required>
-    </field>
-
     <field name="first_name" type="zope.schema.TextLine">
       <title>First name</title>
       <required>True</required>
