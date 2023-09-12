@@ -6,4 +6,13 @@
 
   <include package="." />
 
+  <plone:behavior
+      title="Username"
+      name="plonetheme.eeq.username"
+      description="Adds username id for a person"
+      factory=".person.Username"
+      provides=".person.IUsername"
+      for="plone.dexterity.interfaces.IDexterityContent"
+      />
+
 </configure>
