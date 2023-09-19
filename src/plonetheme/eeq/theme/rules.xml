@@ -254,6 +254,9 @@
 
   <drop css:content="#portal-siteactions" />
 
+  <!-- Insert the current year for the copyright statement -->
+  <replace css:theme="footer #copyright-year"><xsl:value-of select="$copyright_year" /></replace>
+
   <!-- Login button -->
   <before css:if-content="#portal-anontools" css:theme-children="#personaltools-login"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/login</xsl:attribute></before>
   <before css:if-content="#portal-anontools" css:theme-children="#personaltools-login"><xsl:attribute name="class">btn btn-sm btn-secondary pat-plone-modal</xsl:attribute></before>

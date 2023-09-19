@@ -147,6 +147,14 @@
 
   <!-- Define helpers -->
   <browser:page
+      for="*"
+      name="now"
+      class=".now.Now"
+      permission="zope2.Public"
+      allowed_attributes="portal_state"
+      />
+
+  <browser:page
       for="plone.app.contenttypes.interfaces.IEvent"
       name="psu-event-helper"
       permission="zope2.Public"
