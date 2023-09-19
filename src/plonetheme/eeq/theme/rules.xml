@@ -207,12 +207,52 @@
 
   <!-- Link normalization -->
   <before css:theme-children="a.navbar-brand"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/</xsl:attribute></before>
-  <before css:theme-children="a.report-bias"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/report-bias</xsl:attribute></before>
-  <before css:theme-children="a.give-now"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/giving</xsl:attribute></before>
-  <before css:theme-children="a.contact-button"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/contact-info</xsl:attribute></before>
-  <before css:theme-children="a.site-map"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/sitemap</xsl:attribute></before>
-  <before css:theme-children="a.accessibility"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/accessibility-info</xsl:attribute></before>
   <before css:theme-children="#searchGadget_form"><xsl:attribute name="action"><xsl:value-of select="$portal_url" />/@@search</xsl:attribute></before>
+
+  <!-- Update links and text based on Site Actions -->
+  <copy attributes="href title"
+        css:content="#portal-siteactions #siteaction-contact a"
+        css:theme=".navbar-header .navbar-nav a.contact-button" />
+  <replace css:theme-children=".navbar-header .navbar-nav a.contact-button .label"
+           css:content-children="#portal-siteactions #siteaction-contact a" />
+
+  <copy attributes="href title"
+        css:content="#portal-siteactions #siteaction-report-bias a"
+        css:theme=".navbar-header .navbar-nav a.report-bias" />
+  <replace css:theme-children=".navbar-header .navbar-nav a.report-bias .label"
+           css:content-children="#portal-siteactions #siteaction-report-bias a" />
+
+  <copy attributes="href title"
+        css:content="#portal-siteactions #siteaction-give-now a"
+        css:theme=".navbar-header .navbar-nav a.give-now" />
+  <replace css:theme-children=".navbar-header .navbar-nav a.give-now .label"
+           css:content-children="#portal-siteactions #siteaction-give-now a" />
+
+  <copy attributes="href title"
+        css:content="#portal-siteactions #siteaction-sitemap a"
+        css:theme="footer a.site-map" />
+  <replace css:theme-children="footer a.site-map"
+           css:content-children="#portal-siteactions #siteaction-sitemap a" />
+
+  <copy attributes="href title"
+        css:content="#portal-siteactions #siteaction-accessibility a"
+        css:theme="footer a.accessibility" />
+  <replace css:theme-children="footer a.accessibility"
+           css:content-children="#portal-siteactions #siteaction-accessibility a" />
+
+  <copy attributes="href title"
+        css:content="#portal-siteactions #siteaction-legal a"
+        css:theme="footer a.legal" />
+  <replace css:theme-children="footer a.legal"
+           css:content-children="#portal-siteactions #siteaction-legal a" />
+
+  <copy attributes="href title"
+        css:content="#portal-siteactions #siteaction-copyright a"
+        css:theme="footer a.copyright" />
+  <replace css:theme-children="footer a.copyright"
+           css:content-children="#portal-siteactions #siteaction-copyright a" />
+
+  <drop css:content="#portal-siteactions" />
 
   <!-- Login button -->
   <before css:if-content="#portal-anontools" css:theme-children="#personaltools-login"><xsl:attribute name="href"><xsl:value-of select="$portal_url" />/login</xsl:attribute></before>
