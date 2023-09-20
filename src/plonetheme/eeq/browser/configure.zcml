@@ -258,6 +258,48 @@
       />
 
 
+  <!-- Register extra Content Listing Tile view templates -->
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="summary_danger_view"
+      template="templates/summary_danger_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="summary_primary_view"
+      template="templates/summary_primary_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="summary_secondary_view"
+      template="templates/summary_secondary_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="summary_success_view"
+      template="templates/summary_success_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="summary_warning_view"
+      template="templates/summary_warning_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
+
   <!-- Register the Person view template -->
   <browser:page
       name="person_view"
