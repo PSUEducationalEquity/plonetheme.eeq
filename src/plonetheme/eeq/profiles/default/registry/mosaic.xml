@@ -17,6 +17,11 @@
     <value purge="true">
       <element key="listing_view">Listing view</element>
       <element key="summary_view">Summary view</element>
+      <element key="summary_danger_view">Summary view (danger)</element>
+      <element key="summary_primary_view">Summary view (primary)</element>
+      <element key="summary_secondary_view">Summary view (secondary)</element>
+      <element key="summary_success_view">Summary view (success)</element>
+      <element key="summary_warning_view">Summary view (warning)</element>
       <element key="tabular_view">Tabular view</element>
       <element key="grid_view">Grid view</element>
       <element key="summary_with_images_view">Summary w/Images view</element>

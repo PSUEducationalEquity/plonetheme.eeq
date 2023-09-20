@@ -148,9 +148,13 @@ a {
     $CONTENT
 \*------------------------------------*/
 
-.documentDescription {
-  margin-bottom: 1.5em;
+.documentDescription,
+.documentFirstHeading ~ .easyform-thankspage .discreet,
+.documentFirstHeading ~ #content-core > .form > .discreet {
+  color: #212529;
   font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 1.5em;
 }
 
 
@@ -702,11 +706,17 @@ dl.grid dd {
   height: auto;
 }
 
+/** 2023-09-19 par117
+ * Not sure why this was here, it should not be so that .documentDescription
+ * is rendered the same way it is on any other page as defined above in the
+ * $CONTENT section.
+ *
 .mosaic-tile .documentDescription {
   font-size: 1.1rem;
   margin-bottom: 0.5em;
   margin-top: -0.5em;
 }
+*/
 
 
 /** Background Image tiles **/
@@ -835,6 +845,26 @@ dl.grid dd {
 .card.card-blank {
   border: 0;
 }
+
+
+/** Summary Tiles - Bootstrap colored backgrounds **/
+
+.mosaic-plone\.app\.standardtiles\.contentlisting-tile {
+  .tileItem.alert .tileHeadline a {
+    text-decoration: underline;
+  }
+
+  .tileItem.alert .tileHeadline a:hover {
+    text-decoration: none;
+  }
+
+  .tileItem.alert-danger .tileHeadline a { color: #721c24; }
+  .tileItem.alert-secondary .tileHeadline a { color: #383d41; }
+  .tileItem.alert-success .tileHeadline a { color: #155724; }
+  .tileItem.alert-warning .tileHeadline a { color: #856404; }
+
+}
+
 
 /** Summary Tiles - home page **/
 

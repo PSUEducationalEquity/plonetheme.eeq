@@ -147,6 +147,14 @@
 
   <!-- Define helpers -->
   <browser:page
+      for="*"
+      name="now"
+      class=".now.Now"
+      permission="zope2.Public"
+      allowed_attributes="portal_state"
+      />
+
+  <browser:page
       for="plone.app.contenttypes.interfaces.IEvent"
       name="psu-event-helper"
       permission="zope2.Public"
@@ -247,6 +255,48 @@
       permission="zope2.View"
       menu="plone_displayviews"
       title="View EventLink"
+      />
+
+
+  <!-- Register extra Content Listing Tile view templates -->
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="summary_danger_view"
+      template="templates/summary_danger_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="summary_primary_view"
+      template="templates/summary_primary_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="summary_secondary_view"
+      template="templates/summary_secondary_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="summary_success_view"
+      template="templates/summary_success_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      />
+
+  <browser:page
+      for="*"
+      permission="zope2.View"
+      name="summary_warning_view"
+      template="templates/summary_warning_tile.pt"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
       />
 
 
