@@ -61,16 +61,25 @@
 
 
 
-    <div class="row eventFooter">
+    <div class="row eventFooter"
+         tal:define="has_contact_info python:data.contact_name or data.contact_email or data.contact_phone">
       <div class="col-md-6 my-1 my-md-0">
-        Contact:<br />
-        <a tal:condition="data/contact_email|nothing" tal:attributes="href string:mailto:${data/contact_email}">
-          <tal:name replace="data/contact_name" />
-        </a>
-        <tal:name replace="data/contact_name" tal:condition="not: data/contact_email|nothing" />
-        <tal:phone condition="data/contact_phone">
-        • <tal:phone replace="data/contact_phone" />
-        </tal:phone>
+        <div:contact tal:condition="has_contact_info">
+          Contact:<br />
+          <a tal:condition="data/contact_email|nothing"
+             tal:attributes="href string:mailto:${data/contact_email}">
+            <tal:name tal:condition="data/contact_name|nothing"
+                      tal:replace="data/contact_name" />
+            <tal:email tal:condition="not: data/contact_name|nothing"
+                       tal:replace="data/contact_email" />
+          </a>
+          <tal:name tal:condition="not: data/contact_email|nothing"
+                    tal:replace="data/contact_name" />
+          <tal:phone condition="data/contact_phone">
+            <span tal:condition="python: data.contact_name or data.contact_email"
+                  >• </span><tal:phone replace="data/contact_phone" />
+          </tal:phone>
+        </div:contact>
       </div>
       <div class="col-md-4 my-1 my-md-0">
         <span tal:condition="data/event_url">
