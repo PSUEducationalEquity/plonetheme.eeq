@@ -212,7 +212,8 @@ class ICollectionChronology(model.Schema):
         required=True,
         source=CatalogSource(
             object_provides=(
-                'plone.app.contenttypes.behaviors.collection.IFolder',
+                'plone.dexterity.interfaces.IDexterityContainer',
+                # 'plone.app.contenttypes.behaviors.collection.IFolder',
                 'plone.app.contenttypes.behaviors.collection.ICollection',
                 'plone.app.contenttypes.behaviors.collection.ISyndicatableCollection',
                 'plone.app.collection.interfaces.ICollection',
