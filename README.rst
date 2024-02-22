@@ -27,6 +27,15 @@ clear the theme cache from the theming control panel, otherwise restart the
 zeoclients to update the running code.
 
 
+Developing
+----------
+
+When running Plone in a development environment, two commands must both be running simultaneously.
+
+* From ``/opt/current-plone/zinstance`` run ``bin/instance fg`` to serve Plone
+* From ``/opt/current-plone/zinstance/serc/plonetheme.eeq`` run ``grunt watch`` to recompile the CSS as changes are made
+
+
 Theming "tricks"
 ----------------
 
