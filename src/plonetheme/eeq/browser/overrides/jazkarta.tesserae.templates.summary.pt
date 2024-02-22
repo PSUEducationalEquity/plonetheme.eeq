@@ -11,7 +11,8 @@
         tal:condition="content">
     <metal:macro define-macro="summary"
                  tal:define="title content/Title|nothing;
-                             image_scale python:type == 'plonetheme.eeq.office' and 'psu_office' or 'psu_tile';
+                             categories content/Subject|nothing;
+                             image_scale python:(type == 'plonetheme.eeq.office' or 'contentsummary-psu_office' in categories) and 'psu_office' or 'psu_tile';
                              toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
     <div class="card" tal:condition="nocall:content"
          tal:define="url content/absolute_url;
