@@ -17,6 +17,7 @@ taking the following steps:
 
     $ ln -sf src/plonetheme.eeq/deploy.cfg src/plonetheme.eeq/psu_addons.cfg .
 
+
 Updating the Code
 -----------------
 
@@ -24,6 +25,39 @@ Running ``buildout`` will automatically update the theme code and compile the
 theme resources. If changes were only made to the theme resources files, you can
 clear the theme cache from the theming control panel, otherwise restart the
 zeoclients to update the running code.
+
+
+Developing
+----------
+
+When running Plone in a development environment, two commands must both be running simultaneously.
+
+* From ``/opt/current-plone/zinstance`` run ``bin/instance fg`` to serve Plone
+* From ``/opt/current-plone/zinstance/serc/plonetheme.eeq`` run ``grunt watch`` to recompile the CSS as changes are made
+
+
+Theming "tricks"
+----------------
+
+These are things that are hard coded into the theme to do certain something if certain conditions are met. The use of these "tricks" is not necessarily obvious, so documenting them here makes sense.
+
+Content Summary Mosiac Tile
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The content summary Mosaic tile provided by ``jazkarta.tesserae`` has been customized to use two different image sizes when rendering the tiles.
+
+Logic:
+
+* Referenced item is of type ``plonetheme.eeq.office``
+
+  * Use ``psu_office`` image scale.
+
+* Referenced item has the ``contentsummary-psu_office`` tag applied
+
+  * Use ``psu_office`` image scale.
+
+* Otherwise use ``psu_tile`` image scale.
+
 
 
 Credits
