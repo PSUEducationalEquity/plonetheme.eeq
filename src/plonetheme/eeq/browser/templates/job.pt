@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/@@main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:block define-macro="content-core">
+
+  <div class="portalMessage info"
+       tal:define="redirect_links python:context.portal_registry['plone.redirect_links']"
+       tal:condition="python: redirect_links and checkPermission('Modify portal content', context)">
+    <strong i18n:translate="">Info</strong>
+    <span tal:omit-tag=""
+          i18n:translate="message_permissions_blocking_link_redirect">
+      You see this page because you have permission to edit this job.
+      Others will be immediately redirected to the WorkDay URL.
+    </span>
+  </div>
+
+  <div class="container job clearfix">
+    <div class="row mt-2">
+      <div class="col-xs-4 text-right">
+        WorkDay Job Identifier:
+      </div>
+      <div class="col-xs-8"
+           tal:content="context/jobIdentifier">jobIdentifier</div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-xs-4 text-right">
+        WorkDay URL:
+      </div>
+      <div class="col-xs-8">
+        <a tal:attributes="href view/absolute_target_url"
+           tal:content="view/url"
+           >remote url</a>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-xs-4 text-right">
+        Full-time:
+      </div>
+      <div class="col-xs-8"
+           tal:content="context/fulltime">fulltime</div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-xs-4 text-right">
+        Location:
+      </div>
+      <div class="col-xs-8"
+           tal:content="context/location">location</div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-xs-4 text-right">
+        Environment:
+      </div>
+      <div class="col-xs-8"
+           tal:content="context/environment">environment</div>
+    </div>
+  </div>
+
+</metal:block>
+</metal:content-core>
+
+</body>
+</html>

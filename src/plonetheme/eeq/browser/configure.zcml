@@ -258,6 +258,18 @@
       />
 
 
+  <!-- Register the Job view template -->
+  <browser:page
+      name="job_redirect_view"
+      for="plonetheme.eeq.content.job.IJob"
+      class=".job.JobRedirectView"
+      layer="plone.app.contenttypes.interfaces.IPloneAppContenttypesLayer"
+      permission="zope2.View"
+      menu="plone_displayviews"
+      title="View Job"
+      />
+
+
   <!-- Register extra Content Listing Tile view templates -->
   <browser:page
       for="*"
