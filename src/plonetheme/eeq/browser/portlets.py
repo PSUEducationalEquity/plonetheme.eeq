@@ -9,6 +9,7 @@ SOCIAL_FIELDS = (
     ('instagram', 'instagram_url'),
     ('youtube', 'youtube_url'),
     ('linkedin', 'linkedin_url'),
+    ('tiktok', 'tiktok_url'),
 )
 
 

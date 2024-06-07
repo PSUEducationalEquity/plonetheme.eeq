@@ -31,6 +31,10 @@
       <title>LinkedIn url</title>
       <required>False</required>
     </field>
+    <field name="tiktok_url" type="zope.schema.TextLine">
+      <title>TikTok url</title>
+      <required>False</required>
+    </field>
     <field name="office_nav" type="z3c.relationfield.schema.RelationList">
       <title>Office navigation (left-side nav bar)</title>
       <required>False</required>
