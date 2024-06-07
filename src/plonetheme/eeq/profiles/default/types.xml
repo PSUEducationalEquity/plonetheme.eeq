@@ -2,6 +2,7 @@
 <object meta_type="Plone Types Tool" name="portal_types">
   <object meta_type="Dexterity FTI" name="plonetheme.eeq.area" />
   <object meta_type="Dexterity FTI" name="plonetheme.eeq.eventlink" />
+  <object meta_type="Dexterity FTI" name="plonetheme.eeq.job" />
   <object meta_type="Dexterity FTI" name="plonetheme.eeq.office" />
   <object meta_type="Dexterity FTI" name="plonetheme.eeq.person" />
 </object>

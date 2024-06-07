@@ -1,0 +1,55 @@
+<model xmlns="http://namespaces.plone.org/supermodel/schema"
+       xmlns:form="http://namespaces.plone.org/supermodel/form"
+       xmlns:sf="http://namespaces.plone.org/salesforce/schema"
+       xmlns:security="http://namespaces.plone.org/supermodel/security"
+       xmlns:indexer="http://namespaces.plone.org/supermodel/indexer">
+  <schema>
+    <field name="jobIdentifier"
+           type="zope.schema.TextLine">
+      <title>WorkDay Job Identifier</title>
+      <description>
+        (e.g., REQ_0000050176)
+      </description>
+    </field>
+
+    <field name="remoteUrl"
+           type="zope.schema.TextLine"
+           form:widget="plone.app.z3cform.widget.LinkFieldWidget">
+      <title>WorkDay Listing URL</title>
+      <description>
+        Full URL of the job listing in WorkDay.
+      </description>
+    </field>
+
+    <field name="fulltime"
+           type="zope.schema.Bool">
+      <title>Full-time</title>
+      <description>
+        Indicate if the position is full time.
+      </description>
+      <required>False</required>
+      <default>True</default>
+    </field>
+
+    <field name="location"
+           type="zope.schema.TextLine">
+      <title>Work Location</title>
+      <description>
+        What city, state will the job be located in or out of.
+      </description>
+    </field>
+
+    <field name="environment"
+           type="zope.schema.Choice">
+      <title>Working Environment</title>
+      <description>
+        Will the work be performed in-person, hybrid, or remote.
+      </description>
+      <values>
+        <element>In-person</element>
+        <element>Hybrid</element>
+        <element>Remote</element>
+      </values>
+    </field>
+  </schema>
+</model>

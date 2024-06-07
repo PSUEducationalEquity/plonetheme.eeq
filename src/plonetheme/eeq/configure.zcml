@@ -305,6 +305,22 @@
       import_steps="typeinfo"
       />
 
+  <genericsetup:upgradeDepends
+      source="1029"
+      destination="1030"
+      title="Job content type"
+      profile="plonetheme.eeq:default"
+      import_steps="typeinfo"
+      />
+
+  <genericsetup:upgradeDepends
+      source="1029"
+      destination="1031"
+      title="TikTok url for Office"
+      profile="plonetheme.eeq:default"
+      import_steps="typeinfo"
+      />
+
   <adapter factory=".overrides.TileDatetimeWidgetConverter" />
 
 </configure>
