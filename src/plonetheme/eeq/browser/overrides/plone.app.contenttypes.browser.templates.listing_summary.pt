@@ -42,7 +42,6 @@
               description
             </span>
           </div>
-          <p>listing_summary</p>
 
           <tal:job tal:condition="python: item_type=='plonetheme.eeq.job'">
             <tal:data tal:define="job python:item.getObject()">
