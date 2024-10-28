@@ -181,6 +181,10 @@
           <xsl:copy-of select="." />
         </xsl:for-each>
       </ul>
+
+      <div>
+        <xsl:copy-of css:select="footer#portal-footer-wrapper .portlet-static-social-media" />
+      </div>
     </div>
   </replace>
 
